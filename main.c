@@ -6,11 +6,17 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 11:40:49 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/19 13:45:40 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "include/push_swap.h"
+
+int	ft_input_error(void)
+{
+	ft_putendl("Error");
+	return (-1);
+}
 
 int	ft_found_bad_input(int argc, char **argv)
 {
@@ -47,9 +53,7 @@ int main(int argc, char **argv)
 	i = 1;
 	j = 0;
 	if (ft_found_bad_input(argc, argv))
-	{
-		
-	}
+		return (ft_input_error());
 	while (i < argc)
 		tab[j] = ft_atoi(argv[i]);
 

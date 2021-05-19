@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 11:43:04 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/19 13:44:12 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ unsigned int	ft_atou(char *str);
 int				ft_str_is_number(char *str);
 int				ft_isnum(char c);
 int				ft_element_found_in_int_tab(int n, int *tab, int tab_size);
+void			ft_putchar(char c);
+void			ft_putstr(char *str);
+void			ft_putendl(char *s);
 
 /*
 ** DL_LST functions

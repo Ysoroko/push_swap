@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/25 11:12:03 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/19 10:55:58 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/19 13:45:26 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,15 @@ DL_LST		=			dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lstclear.c \
 						dl_lst/ft_dl_lstiter.c \
 						dl_lst/ft_dl_lstmap_exit.c
+
+LIBFT_UTILS	=			libft_utils/ft_atou.c \
+						libft_utils/ft_element_found_in_int_tab.c \
+						libft_utils/ft_isnum.c \
+						libft_utils/ft_str_is_number.c \
+						libft_utils/ft_write_utils.c
+
+
+
 
 SRC					=	main.c $(DL_LST)
 
