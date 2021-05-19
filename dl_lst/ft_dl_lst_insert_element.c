@@ -6,11 +6,11 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:48:35 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/04/08 16:58:36 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/19 10:52:38 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../include/push_swap.h"
 
 /*
 ** FT_DL_LST_INSERT_ELEMENT
