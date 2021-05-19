@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/03/25 11:12:03 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/19 13:45:26 by ysoroko          ###   ########.fr        #
+#    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
+#    Updated: 2021/05/19 14:36:04 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,9 @@ LIBFT_UTILS	=			libft_utils/ft_atou.c \
 						libft_utils/ft_str_is_number.c \
 						libft_utils/ft_write_utils.c
 
-
-
-
-SRC					=	main.c $(DL_LST)
+SRC					=	$(DL_LST) \
+						$(LIBFT_UTILS) \
+						main.c
 
 OBJS				=	$(SRC:.c=.o)
 
@@ -45,16 +44,13 @@ BOLD_YELLOW			=	\033[1;33m
 
 NO_COLOR			=	\033[0m
 
-
-NAME		=	minishell.a
-
 FLAGS		=	-Wall -Wextra -Werror
-
-LINK		=	ar rcs
 
 INCLUDE		=	-I include
 
 EXECUTABLE	=	push_swap
+
+LIBRARY	=	push_swap.a
 
 PUSH_SWAP_COMPILED = echo "\n↔️🔄 $(BOLD_PURPLE)Executable $(BOLD_CYAN)\"$(EXECUTABLE)\" $(BOLD_PURPLE)created and ready for use!\n$(NO_COLOR)"
 
@@ -68,8 +64,8 @@ FCLEANED	=	echo "\n🧽 $(BOLD_YELLOW)Fclean: $(NO_COLOR)Removed all the \".a\" 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		@gcc $(FLAGS) $(OBJS) -o $(EXECUTABLE)
-		@$(PUSH_SWAP)
+		@ar rcs $(OBJS) $(EXECUTABLE)
+		@gcc $(FLAGS) $(LIBRARY) -o $(EXECUTABLE)
 
 # Compiles everything with warning flags and runs the executable
 run:	$(NAME)
@@ -82,16 +78,14 @@ wrun:	$(OBJS)
 # Remove all ".o" files
 clean:
 		@rm -rf $(OBJS)
-		@cd libft && make clean
 		@$(CLEANED)
 
 # Remove all ".o / .a / minishell executable" files
 fclean:	clean
 		@rm -rf $(NAME)
 		@rm -rf $(EXECUTABLE)
-		@cd libft && make fclean
 		@$(FCLEANED)
 
 re:		fclean all
 
-.PHONY: all clean fclean re run wrun compiling_minishell .c.o minishell.a
+.PHONY: all clean fclean re run wrun .c.o

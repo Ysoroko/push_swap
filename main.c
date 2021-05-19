@@ -6,11 +6,11 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 13:45:40 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/19 13:57:43 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "include/push_swap.h"
+#include "include/push_swap.h"
 
 int	ft_input_error(void)
 {
@@ -59,6 +59,5 @@ int main(int argc, char **argv)
 
 	if (argc < 3 || ft_is_sorted(&(argv[1])))
 		return (1);
-
 	return (0);
 }
