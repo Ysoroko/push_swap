@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/25 11:12:03 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/19 10:50:33 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/19 10:55:58 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,25 +21,9 @@ DL_LST		=			dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lst_size.c \
 						dl_lst/ft_dl_lstclear.c \
 						dl_lst/ft_dl_lstiter.c \
-						dl_lst/ft_dl_lstmap_exit.c \
+						dl_lst/ft_dl_lstmap_exit.c
 
-
-
-
-
-						
-
-EXECUTE				=	execute/ft_execute.c \
-						execute/ft_check_command_for_errors.c
-
-UTILS				=	utils/signal/ft_signal_handler.c
-
-FUNCTIONS			=	functions/ft_echo.c
-
-SRC					=	main.c $(INPUT_PARSING) $(EXECUTE) $(UTILS)
-
-LIBRARIES			=	libft/libft.a \
-						minishell.a
+SRC					=	main.c $(DL_LST)
 
 OBJS				=	$(SRC:.c=.o)
 
@@ -75,8 +59,7 @@ FCLEANED	=	echo "\n🧽 $(BOLD_YELLOW)Fclean: $(NO_COLOR)Removed all the \".a\" 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		@$(LINK) $(NAME) $(OBJS)
-		@gcc $(FLAGS) $(LIBRARIES) $(TERMCAP) -o $(EXECUTABLE)
+		@gcc $(FLAGS) $(OBJS) -o $(EXECUTABLE)
 		@$(PUSH_SWAP)
 
 # Compiles everything with warning flags and runs the executable
@@ -84,8 +67,8 @@ run:	$(NAME)
 		@./$(EXECUTABLE)
 
 # Compiles everything without warning flags and runs the executable
-wrun:	$(NAME)
-		@gcc $(LIBRARIES) $(TERMCAP) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+wrun:	$(OBJS)
+		@gcc $(OBJS) -o $(EXECUTABLE) && ./$(EXECUTABLE)
 
 # Remove all ".o" files
 clean:

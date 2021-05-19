@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:51:50 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/19 11:43:04 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+
+/*
+** LIBFT functions
+*/
+
+unsigned int	ft_atou(char *str);
+int				ft_str_is_number(char *str);
+int				ft_isnum(char c);
+int				ft_element_found_in_int_tab(int n, int *tab, int tab_size);
 
 /*
 ** DL_LST functions
@@ -22,12 +32,12 @@
 
 typedef struct s_dl_lst
 {
-	void			*content;
+	int				content;
 	struct s_dl_lst	*next;
 	struct s_dl_lst	*previous;
 }				t_dl_lst;
 
-t_dl_lst	*ft_dl_lst_new_exit(void *content);
+t_dl_lst	*ft_dl_lst_new_exit(int content);
 void		ft_dl_lst_add_front(t_dl_lst *add_before,
 				t_dl_lst *new_member);
 int			ft_dl_lst_size(t_dl_lst *first);
@@ -44,6 +54,7 @@ void		ft_dl_lstclear(t_dl_lst *lst, void (*del)(void*));
 void		ft_dl_lstiter(t_dl_lst *lst, void (*f)(void *));
 t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, void *(*f)(void *),
 				void (*del)(void *));
+
 
 
 #endif
