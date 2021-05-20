@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:08:12 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:52:40 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 14:57:33 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** the newly created function
 */
 
-t_dl_lst	*ft_dl_lst_new_exit(void *content)
+t_dl_lst	*ft_dl_lst_new_exit(int content)
 {
 	t_dl_lst	*ret;
 

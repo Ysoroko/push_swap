@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 13:44:12 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:39:44 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int				ft_element_found_in_int_tab(int n, int *tab, int tab_size);
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
 void			ft_putendl(char *s);
+int				ft_atoi(char *str);
+int				ft_int_tab_is_sorted(int *tab, int tab_len, int low_to_high);
 
 /*
 ** DL_LST functions
@@ -50,13 +52,11 @@ void		ft_dl_lst_insert_element(t_dl_lst *to_insert,
 				t_dl_lst *after_this);
 void		ft_dl_lst_add_back(t_dl_lst *add_after,
 				t_dl_lst *new_member);
-void		ft_dl_lstdelone(t_dl_lst *to_delete, void (*del)(void*));
-void		ft_dl_lstdelone_relink(t_dl_lst *to_delete,
-				void (*del)(void*));
-void		ft_dl_lstclear(t_dl_lst *lst, void (*del)(void*));
-void		ft_dl_lstiter(t_dl_lst *lst, void (*f)(void *));
-t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, void *(*f)(void *),
-				void (*del)(void *));
+void		ft_dl_lstdelone(t_dl_lst *to_delete);
+void		ft_dl_lstdelone_relink(t_dl_lst *to_delete);
+void		ft_dl_lstclear(t_dl_lst *lst);
+void		ft_dl_lstiter(t_dl_lst *lst, void (*f)(int));
+t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, int(*f)(int));
 
 
 

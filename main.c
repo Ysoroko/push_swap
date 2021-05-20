@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 13:57:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:39:30 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_input_error(void)
 int	ft_found_bad_input(int argc, char **argv)
 {
 	int 			i;
-	int 			j;
 	unsigned int	argv_after_atou;
 	int				tab[argc - 1];
 	int				tab_size;
@@ -32,8 +31,8 @@ int	ft_found_bad_input(int argc, char **argv)
 	{
 		if (!ft_str_is_number(argv[i]))
 			return (1);
-		argv_after_atou = ft_atoi(argv[i]);
-		if (argv_after_atou > INT_MAX || argv_after_atou < INT_MIN)
+		argv_after_atou = ft_atou(argv[i]);
+		if (argv_after_atou > INT_MAX || argv_after_atou < (unsigned int)(INT_MIN))
 			return (1);
 		if (ft_element_found_in_int_tab(argv_after_atou, tab, tab_size))
 			return (1);
@@ -45,8 +44,8 @@ int	ft_found_bad_input(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-	t_dl_lst	*dl_lst;
-	int			*tab;
+	//t_dl_lst	*dl_lst;
+	int			tab[argc - 1];
 	int			i;
 	int			j;
 
@@ -56,8 +55,10 @@ int main(int argc, char **argv)
 		return (ft_input_error());
 	while (i < argc)
 		tab[j] = ft_atoi(argv[i]);
-
-	if (argc < 3 || ft_is_sorted(&(argv[1])))
+	if (argc < 3 || ft_int_tab_is_sorted(tab, argc - 1, 1))
+	{
+		ft_putendl("Sorted!");
 		return (1);
+	}
 	return (0);
 }

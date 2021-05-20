@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:32:23 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:52:42 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 14:58:43 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@
 ** after, but also all the elements before the given element) and set all to 0
 */
 
-void	ft_dl_lstclear(t_dl_lst *lst, void (*del)(void*))
+void	ft_dl_lstclear(t_dl_lst *lst)
 {
 	t_dl_lst	*temp;
 	t_dl_lst	*last_address_of_temp;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	temp = ft_dl_lst_first(lst);
 	last_address_of_temp = temp;
 	while (temp)
 	{
 		temp = temp->next;
-		ft_dl_lstdelone(last_address_of_temp, del);
+		ft_dl_lstdelone(last_address_of_temp);
 		last_address_of_temp = temp;
 	}
 }

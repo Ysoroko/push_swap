@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/19 14:36:04 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/20 15:40:34 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ LIBFT_UTILS	=			libft_utils/ft_atou.c \
 						libft_utils/ft_element_found_in_int_tab.c \
 						libft_utils/ft_isnum.c \
 						libft_utils/ft_str_is_number.c \
-						libft_utils/ft_write_utils.c
+						libft_utils/ft_write_utils.c \
+						libft_utils/ft_atoi.c \
+						libft_utils/ft_int_tab_is_sorted.c \
 
 SRC					=	$(DL_LST) \
 						$(LIBFT_UTILS) \
@@ -52,28 +54,19 @@ EXECUTABLE	=	push_swap
 
 LIBRARY	=	push_swap.a
 
-PUSH_SWAP_COMPILED = echo "\n↔️🔄 $(BOLD_PURPLE)Executable $(BOLD_CYAN)\"$(EXECUTABLE)\" $(BOLD_PURPLE)created and ready for use!\n$(NO_COLOR)"
-
-CLEANED		=	echo "\n🧼 $(BOLD_YELLOW)Clean: $(NO_COLOR)Removed all the \".o\" files \n"
-
-FCLEANED	=	echo "\n🧽 $(BOLD_YELLOW)Fclean: $(NO_COLOR)Removed all the \".a\" files and the \"minishell\" executable \n"						
-
-.c.o:
-	@${CC} ${CFLAGS} -I include -c $< -o ${<:.c=.o}
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		@ar rcs $(OBJS) $(EXECUTABLE)
-		@gcc $(FLAGS) $(LIBRARY) -o $(EXECUTABLE)
+		ar rcs $(OBJS) $(EXECUTABLE)
+		gcc $(FLAGS) $(LIBRARY) -o $(EXECUTABLE)
 
 # Compiles everything with warning flags and runs the executable
-run:	$(NAME)
-		@./$(EXECUTABLE)
+run:	
+		@gcc $(FLAGS) $(SRC) -o $(EXECUTABLE) && ./$(EXECUTABLE)
 
 # Compiles everything without warning flags and runs the executable
-wrun:	$(OBJS)
-		@gcc $(OBJS) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+wrun:
+		@gcc $(SRC) && ./$(EXECUTABLE)
 
 # Remove all ".o" files
 clean:

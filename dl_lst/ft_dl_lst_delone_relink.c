@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:27:04 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:52:36 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 14:57:52 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@
 ** ! relinks the previous and next elements
 */
 
-void	ft_dl_lstdelone_relink(t_dl_lst *to_delete, void (*del)(void*))
+void	ft_dl_lstdelone_relink(t_dl_lst *to_delete)
 {
 	t_dl_lst	*prev;
 	t_dl_lst	*next;
 
-	if (!to_delete || !del)
+	if (!to_delete)
 		return ;
 	prev = to_delete->previous;
 	next = to_delete->next;
-	del(to_delete->content);
 	free(to_delete);
 	if (prev)
 		prev->next = next;

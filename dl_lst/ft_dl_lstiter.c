@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:39:41 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:52:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 14:59:08 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** before and after the *lst element
 */
 
-void	ft_dl_lstiter(t_dl_lst *lst, void (*f)(void *))
+void	ft_dl_lstiter(t_dl_lst *lst, void (*f)(int))
 {
 	t_dl_lst	*temp;
 

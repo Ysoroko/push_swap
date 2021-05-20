@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:47:28 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:52:44 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 15:15:41 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@
 ** list's elements, before and after the specified *l argument
 */
 
-t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, void *(*f)(void *),
-															void (*del)(void *))
+t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, int(*f)(int))
 {
 	t_dl_lst	*new_list;
 	t_dl_lst	*current_new;
 	t_dl_lst	*current;
 	t_dl_lst	*first;
 
-	if (!l || !f || !del)
+	if (!l || !f)
 		return (0);
 	first = ft_dl_lst_first(l);
 	new_list = ft_dl_lst_new_exit(f(first->content));
@@ -40,7 +39,7 @@ t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, void *(*f)(void *),
 		current_new = ft_dl_lst_new_exit(f(current->content));
 		if (!(current_new))
 		{
-			ft_dl_lstclear(new_list, del);
+			ft_dl_lstclear(new_list);
 			exit(EXIT_FAILURE);
 		}
 		ft_dl_lst_add_back(new_list, current_new);

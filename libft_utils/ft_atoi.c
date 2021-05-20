@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dl_lst_delone.c                                 :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 17:23:26 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/20 14:57:42 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/05/20 15:17:28 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/05/20 15:19:31 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** FT_DL_LSTDELONE
-** This function will remove one specific t_dl_lst element and its content
-** ! doesn't relink the previous and next elements
+** This is a modified version of ft_atoi
+** We already know that the string is composed only of digits and there are no
+** overflows when calling this function so no need to check these
+** Converts str string argument composed of digits to an int
 */
 
-void	ft_dl_lstdelone(t_dl_lst *to_delete)
+int	ft_atoi(char *str)
 {
-	if (!to_delete)
-		return ;
-	free(to_delete);
-	to_delete = 0;
+	int	ret;
+	int	i;
+
+	ret = 0;
+	i = -1;
+	while (str[++i])
+		ret = ret * 10 + (str[i] - '0');
+	return (ret);
 }
