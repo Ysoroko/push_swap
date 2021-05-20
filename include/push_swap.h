@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/20 16:37:20 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 17:16:21 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void		ft_dl_lst_add_front(t_dl_lst *add_before,
 int			ft_dl_lst_size(t_dl_lst *first);
 t_dl_lst	*ft_dl_lst_last(t_dl_lst *first);
 t_dl_lst	*ft_dl_lst_first(t_dl_lst *last);
-void		ft_dl_lst_insert_element(t_dl_lst *to_insert,
-				t_dl_lst *after_this);
+void		ft_dl_lst_insert_element(t_dl_lst *new, t_dl_lst *after,
+				t_dl_lst *bef);
 void		ft_dl_lst_add_back(t_dl_lst *add_after,
 				t_dl_lst *new_member);
 void		ft_dl_lstdelone(t_dl_lst *to_delete);
@@ -58,6 +58,7 @@ void		ft_dl_lstclear(t_dl_lst *lst);
 void		ft_dl_lstiter(t_dl_lst *lst, void (*f)(int));
 t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, int(*f)(int));
 void		ft_dl_lst_swap(t_dl_lst *element_1, t_dl_lst *element_2);
+void		ft_dl_lst_remove_last(t_dl_lst *dl_lst);
 
 
 

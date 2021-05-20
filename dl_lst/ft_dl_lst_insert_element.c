@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:48:35 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:52:38 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 17:16:40 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,22 @@
 ** (double linked list) and links it to the previous and next element
 */
 
-void	ft_dl_lst_insert_element(t_dl_lst *to_insert, t_dl_lst *after_this)
+void	ft_dl_lst_insert_element(t_dl_lst *new, t_dl_lst *after, t_dl_lst *bef)
 {
-	if (!after_this || !to_insert)
+	if (!new)
+	{
+		after->next = new;
+		bef->previous = new;
 		return ;
-	after_this->next = to_insert;
-	to_insert->previous = after_this;
-	to_insert->next = after_this->next;
-	if (after_this->next)
-		after_this->next->previous = to_insert;
+	}
+	if (after)
+	{
+		after->next = new;
+		new->previous = after;
+	}
+	if (bef)
+	{
+		bef->previous = new;
+		new->next = bef;
+	}
 }

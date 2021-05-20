@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:29:10 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/20 16:47:24 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 17:25:59 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	ft_swap_two_last_elements(t_dl_lst *stack)
 	t_dl_lst	*element_to_swap_1;
 	t_dl_lst	*element_to_swap_2;
 
+	if (ft_dl_lst_size(stack) <= 1)
+		return ;
 	element_to_swap_1 = ft_dl_lst_last(stack);
 	element_to_swap_2 = (ft_dl_lst_last(stack))->previous;
 	ft_dl_lst_swap(element_to_swap_1, element_to_swap_2);
