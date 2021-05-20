@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/20 15:39:30 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/20 16:21:49 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	ft_found_bad_input(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-	//t_dl_lst	*dl_lst;
+	t_dl_lst	*stack_a;
+	t_dl_lst	*stack_b;
 	int			tab[argc - 1];
 	int			i;
 	int			j;
