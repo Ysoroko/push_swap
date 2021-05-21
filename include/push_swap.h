@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 14:21:08 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/21 14:42:37 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-
-/*
-** LIBFT functions
-*/
-
-unsigned int	ft_atou(char *str);
-int				ft_str_is_number(char *str);
-int				ft_isnum(char c);
-int				ft_element_found_in_int_tab(int n, int *tab, int tab_size);
-void			ft_putchar(char c);
-void			ft_putstr(char *str);
-void			ft_putendl(char *s);
-int				ft_atoi(char *str);
-int				ft_int_tab_is_sorted(int *tab, int tab_len, int low_to_high);
-int				ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order);
-
-/*
-** Instructions
-*/
-
-void			ft_sa_sb(t_dl_lst *stack);
-void			ft_ss(t_dl_lst *stack_a, t_dl_lst *stack_b);
-void			ft_pa_pb(t_dl_lst *stack_to_move_from, t_dl_lst **stack_to_move_to);
-void			ft_ra_rb(t_dl_lst *stack_to_rotate);
-void			ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b);
-void			ft_rra_rrb(t_dl_lst *stack_to_rotate);
-void			ft_rrr(t_dl_lst *stack_a, t_dl_lst *stack_b);
+# include <stdio.h>
 
 /*
 ** DL_LST functions
@@ -74,6 +48,45 @@ void		ft_dl_lst_swap(t_dl_lst *element_1, t_dl_lst *element_2);
 void		ft_dl_lst_remove_last(t_dl_lst *dl_lst);
 void		ft_dl_lst_remove_first(t_dl_lst *dl_lst);
 
+/*
+** LIBFT functions
+*/
 
+long		ft_atol(char *str);
+int			ft_str_is_number(char *str);
+int			ft_isnum(char c);
+int			ft_element_found_in_int_tab(int n, int *tab, int tab_size);
+void		ft_putchar(char c);
+void		ft_putstr(char *str);
+void		ft_putendl(char *s);
+int			ft_atoi(char *str);
+int			ft_int_tab_is_sorted(int *tab, int tab_len, int low_to_high);
+int			ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order);
+
+/*
+** Instructions
+*/
+
+void		ft_sa_sb(t_dl_lst *stack);
+void		ft_ss(t_dl_lst *stack_a, t_dl_lst *stack_b);
+void		ft_pa_pb(t_dl_lst *stack_to_move_from, t_dl_lst **stack_to_move_to);
+void		ft_ra_rb(t_dl_lst *stack_to_rotate);
+void		ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b);
+void		ft_rra_rrb(t_dl_lst *stack_to_rotate);
+void		ft_rrr(t_dl_lst *stack_a, t_dl_lst *stack_b);
+
+/*
+** COLORS
+*/
+
+# define COLOR_RESET   "\x1b[0m"
+
+# define BOLD_RED "\033[1m\033[31m"
+# define BOLD_GREEN "\033[1m\033[32m"
+# define BOLD_YELLOW "\033[1m\033[33m"
+# define BOLD_BLUE "\033[1m\033[34m"
+# define BOLD_MAGENTA "\033[1m\033[35m"
+# define BOLD_CYAN "\033[1m\033[36m"
+# define BOLD_WHITE "\033[1m\033[37m"
 
 #endif

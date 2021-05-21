@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atou.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 11:16:47 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 11:39:07 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/21 14:44:42 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-unsigned int	ft_atou(char *str)
+long	ft_atol(char *str)
 {
-	int				i;
-	unsigned int	ret;
+	int		i;
+	long	ret;
 
-	i = -1;
+	i = 0;
 	ret = 0;
 	while (str[i] && ft_isnum(str[i]))
 	{

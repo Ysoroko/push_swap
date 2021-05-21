@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/21 14:19:18 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/21 14:42:34 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ DL_LST			=		dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lst_remove_last.c \
 						dl_lst/ft_dl_lst_remove_first.c \
 
-LIBFT_UTILS		=		libft_utils/ft_atou.c \
+LIBFT_UTILS		=		libft_utils/ft_atol.c \
 						libft_utils/ft_element_found_in_int_tab.c \
 						libft_utils/ft_isnum.c \
 						libft_utils/ft_str_is_number.c \
@@ -78,7 +78,7 @@ run:
 
 # Compiles everything without warning flags and runs the executable
 wrun:
-		@gcc $(SRC) && ./$(EXECUTABLE)
+		@gcc $(SRC) -o $(EXECUTABLE) && ./$(EXECUTABLE) bonjour
 
 # Remove all ".o" files
 clean:

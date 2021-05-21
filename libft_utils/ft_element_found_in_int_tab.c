@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 11:38:30 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 11:42:59 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/21 14:53:17 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_element_found_in_int_tab(int n, int *tab, int tab_size)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < tab_size)
