@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ra_rb.c                                         :+:      :+:    :+:   */
+/*   ft_rrr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 11:09:29 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 12:08:01 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/05/21 12:05:51 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/05/21 12:08:56 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** void	ft_ra_rb(t_dl_lst *stack_to_rotate)
-** ra/rb:	Shift up all elements of the stack by 1.
-**			The first element becomes the last one.
+** void	ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b)
+** rrr:	Shift down all elements of both stacks by 1.
+**		The last element becomes the first one.
 */
 
-void	ft_ra_rb(t_dl_lst *stack_to_rotate)
+void	ft_rrr(t_dl_lst *stack_a, t_dl_lst *stack_b)
 {
-	t_dl_lst	*first;
-
-	first = ft_dl_lst_first(stack_to_rotate);
-	ft_dl_lst_add_back(stack_to_rotate, first);
-	ft_dl_lst_remove_first(stack_to_rotate);
+	ft_rra_rrb(stack_a);
+	ft_rra_rrb(stack_b);
 }

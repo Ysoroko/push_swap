@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/21 11:26:14 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/21 12:08:54 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,10 @@ INSTRUCTIONS	=		instructions/ft_sa_sb.c \
 						instructions/ft_ss.c \
 						instructions/ft_pa_pb.c \
 						instructions/ft_ra_rb.c \
-						instructions/ft_rr.c
+						instructions/ft_rr.c \
+						instructions/ft_rra_rrb.c \
+						instructions/ft_rrr.c
+						
 
 SRC					=	$(DL_LST) \
 						$(LIBFT_UTILS) \
