@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:01:12 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/20 17:42:07 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/21 11:05:27 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@
 ** Do nothing if a is empty.
 */
 
-void	ft_pa_pb(t_dl_lst *stack_to_move_from, t_dl_lst *stack_to_move_to)
+void	ft_pa_pb(t_dl_lst *stack_to_move_from, t_dl_lst **stack_to_move_to)
 {
 	t_dl_lst	*element_to_move;
 
-	if (!stack_to_move_from)
+	if (!stack_to_move_from || !stack_to_move_to)
 		return ;
 	element_to_move = ft_dl_lst_last(stack_to_move_from);
-	ft_dl_lst_add_back(stack_to_move_to, element_to_move);
+	if (*stack_to_move_to)
+		ft_dl_lst_add_back(*stack_to_move_to, element_to_move);
+	else
+		*stack_to_move_to = ft_dl_lst_new_exit(element_to_move->content);
 	ft_dl_lst_remove_last(stack_to_move_from);
 }
