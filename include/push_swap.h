@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 14:19:38 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/21 14:21:08 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ void			ft_ra_rb(t_dl_lst *stack_to_rotate);
 void			ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b);
 void			ft_rra_rrb(t_dl_lst *stack_to_rotate);
 void			ft_rrr(t_dl_lst *stack_a, t_dl_lst *stack_b);
-
-
-
 
 /*
 ** DL_LST functions
