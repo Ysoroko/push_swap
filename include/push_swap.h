@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 11:06:08 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/21 11:14:36 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void		ft_dl_lstiter(t_dl_lst *lst, void (*f)(int));
 t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, int(*f)(int));
 void		ft_dl_lst_swap(t_dl_lst *element_1, t_dl_lst *element_2);
 void		ft_dl_lst_remove_last(t_dl_lst *dl_lst);
+void		ft_dl_lst_remove_first(t_dl_lst *dl_lst);
 
 
 

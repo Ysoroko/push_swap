@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/20 17:16:37 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/21 11:14:49 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ DL_LST			=		dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lstclear.c \
 						dl_lst/ft_dl_lstiter.c \
 						dl_lst/ft_dl_lstmap_exit.c \
-						dl_lst/ft_dl_lst_remove_last.c
+						dl_lst/ft_dl_lst_remove_last.c \
+						dl_lst/ft_dl_lst_remove_first.c \
 
 LIBFT_UTILS		=		libft_utils/ft_atou.c \
 						libft_utils/ft_element_found_in_int_tab.c \
