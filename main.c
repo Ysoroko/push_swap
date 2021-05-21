@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/20 17:42:13 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/21 14:10:56 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,15 @@ int	ft_found_bad_input(int argc, char **argv)
 	return (0);
 }
 
-int main(int argc, char **argv)
+t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
+{
+	t_dl_lst	*stack_b;
+}
+
+int	main(int argc, char **argv)
 {
 	t_dl_lst	*stack_a;
-	t_dl_lst	*stack_b;
+	t_dl_lst	*current_t_dl_lst;
 	int			tab[argc - 1];
 	int			i;
 	int			j;
@@ -60,6 +65,14 @@ int main(int argc, char **argv)
 	{
 		ft_putendl("Sorted!");
 		return (1);
+	}
+	stack_a = ft_dl_lst_new_exit(ft_atoi(argv[1]));
+	i = 2;
+	current_t_dl_lst = stack_a;
+	while (i < argc)
+	{
+		ft_dl_lst_add_back(current_t_dl_lst, ft_dl_lst_new_exit(ft_atoi(argv[i])));
+		current_t_dl_lst = current_t_dl_lst->next;
 	}
 	return (0);
 }
