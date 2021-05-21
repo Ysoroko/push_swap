@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 11:14:36 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/21 11:26:27 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,11 @@ int				ft_int_tab_is_sorted(int *tab, int tab_len, int low_to_high);
 ** Instructions
 */
 
-void			ft_sa_sb_ss(t_dl_lst *stack_a, t_dl_lst *stack_b);
+void			ft_sa_sb(t_dl_lst *stack);
+void			ft_ss(t_dl_lst *stack_a, t_dl_lst *stack_b);
 void			ft_pa_pb(t_dl_lst *stack_to_move_from, t_dl_lst **stack_to_move_to);
+void			ft_ra_rb(t_dl_lst *stack_to_rotate);
+void			ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b);
 
 
 

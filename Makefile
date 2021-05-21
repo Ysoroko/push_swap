@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/21 11:14:49 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/21 11:26:14 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,11 @@ LIBFT_UTILS		=		libft_utils/ft_atou.c \
 						libft_utils/ft_atoi.c \
 						libft_utils/ft_int_tab_is_sorted.c \
 
-INSTRUCTIONS	=		instructions/ft_pa_pb.c \
-						instructions/ft_sa_sb_ss.c
+INSTRUCTIONS	=		instructions/ft_sa_sb.c \
+						instructions/ft_ss.c \
+						instructions/ft_pa_pb.c \
+						instructions/ft_ra_rb.c \
+						instructions/ft_rr.c
 
 SRC					=	$(DL_LST) \
 						$(LIBFT_UTILS) \
