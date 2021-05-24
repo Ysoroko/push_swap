@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 16:33:09 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 09:23:49 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,17 @@ int	ft_found_bad_input(int argc, char **argv)
 		if (!ft_str_is_number(argv[i]))
 			return (1);
 		argv_after_atol = ft_atol(argv[i]);
+		printf("argv_after_atol: [%ld]\n", argv_after_atol);
 		if (argv_after_atol > INT_MAX || argv_after_atol < (INT_MIN))
+		{
+			printf("outside int limits\n");
 			return (1);
+		}
 		if (ft_element_found_in_int_tab(argv_after_atol, tab, tab_size))
+		{
+			printf("Duplicates\n");
 			return (1);
+		}
 		tab[tab_size] = argv_after_atol;
 		tab_size++;
 		i++;
