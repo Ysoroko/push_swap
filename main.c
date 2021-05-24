@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 10:40:25 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 11:09:29 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,38 @@ static void	ft_print_dl_lst(t_dl_lst *lst)
 **
 */
 
+void	ft_dl_sort_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b, int *n_ops)
+{
+	int	top;
+	int	top_prev;
+	int	bottom;
+
+	top = (ft_dl_lst_last(stack_a))->content;
+	top_prev = ((ft_dl_lst_last(stack))->previous)->content;
+	bottom = (ft_dl_lst_first(stack))->content;
+
+	if (top < bottom)
+	{
+		ft_ra(stack, 1);
+		(*n_ops)++;
+	}
+	if (top < top_prev)
+	{
+		ft_sa(stack, 1);
+		(*n_ops)++;
+	}	
+	if (top > bottom)
+	{
+		ft_rb(stack, 1);
+		(*n_ops)++;
+	}
+	if (top > top_prev)
+	{
+		ft_sb(stack, 1);
+		(*n_ops)++;
+	}
+}
+
 t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
 {
 	t_dl_lst	*stack_b;
@@ -96,12 +128,17 @@ t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
 	int			current_value;
 	int			initial_stack_a_size;
 
+	number_of_operations = 0;
 	initial_stack_a_size = ft_dl_lst_size(stack_a);
+	// Push half of it to stack b
 	while (ft_dl_lst_size(stack_a) >= initial_stack_a_size / 2)
+	{
 		ft_pb(stack_a, &stack_b);
+		number_of_operations++;
+	}
 	while (!ft_dl_lst_is_sorted(stack_a, 1) && !ft_dl_lst_is_sorted(stack_b, 0))
 	{
-		
+		ft_sort_stacks(stack_a, stack_b, &number_of_operations);
 	}
 	return (0);
 }
