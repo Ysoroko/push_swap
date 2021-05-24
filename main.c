@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 09:48:54 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 10:40:25 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,21 @@ static void	ft_print_dl_lst(t_dl_lst *lst)
 
 
 /*
+** Logic:
+** sa: swap 2 first elements of a
+** sb: swap 2 first elements of b
+** ss: swap first 2 elements of both a and b
+** pa: push first element of b to the top of a
+** pb: push first element of a to the top of b
+** ra: rotate a (1st element becomes the last one)
+** rb: rotate b (1st element becomes the last one)
+** rr: rotate a and b (1st elements become last)
+** rra: reverse rotate a (last element becomes the 1st one)
+** rrb: reverse rotate a (last element becomes the 1st one)
+** rrr: reverse rotate a and b (last elements become 1st)
+**
+**
+** If |a......b|	a > b	
 **
 */
 
@@ -79,19 +94,17 @@ t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
 	t_dl_lst	*stack_b;
 	int			number_of_operations;
 	int			current_value;
-	int			top_a;
-	int			top_b;
+	int			initial_stack_a_size;
 
-	while (!ft_dl_lst_is_sorted(stack_a, 1))
+	initial_stack_a_size = ft_dl_lst_size(stack_a);
+	while (ft_dl_lst_size(stack_a) >= initial_stack_a_size / 2)
+		ft_pb(stack_a, &stack_b);
+	while (!ft_dl_lst_is_sorted(stack_a, 1) && !ft_dl_lst_is_sorted(stack_b, 0))
 	{
-		top_a = ft_dl_lst_last(stack_a)->content;
-		top_b = 0;
-		ft_putstr("ok");
+		
 	}
 	return (0);
 }
-
-//if ()
 
 int	main(int argc, char **argv)
 {

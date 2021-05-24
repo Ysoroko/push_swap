@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:21:49 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/20 15:30:29 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 10:39:09 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_int_tab_is_sorted(int *tab, int tab_len, int low_to_high)
 	int	i;
 
 	i = 1;
+	if (!tab)
+		return (0);
 	if (tab_len <= 1)
 		return (1);
 	while (i < tab_len)

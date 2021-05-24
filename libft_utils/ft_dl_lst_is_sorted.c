@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:11:41 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 14:19:20 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 10:38:35 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order)
 	int			current_value;
 	int			next_value;
 
+	if (!lst)
+		return (0);
 	current = ft_dl_lst_first(lst);
 	while (current->next)
 	{
