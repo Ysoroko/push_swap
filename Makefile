@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/24 11:08:29 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/24 15:49:55 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ DL_LST			=		dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lstclear.c \
 						dl_lst/ft_dl_lstiter.c \
 						dl_lst/ft_dl_lstmap_exit.c \
+						dl_lst/ft_dl_lst_swap.c \
 						dl_lst/ft_dl_lst_remove_last.c \
 						dl_lst/ft_dl_lst_remove_first.c \
 
@@ -52,6 +53,8 @@ INSTRUCTIONS	=		instructions/ft_sa.c \
 
 SRC					=	$(DL_LST) \
 						$(LIBFT_UTILS) \
+						$(INSTRUCTIONS) \
+						$(CONDITIONS) \
 						main.c
 
 OBJS				=	$(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 11:09:29 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 15:47:29 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,36 +89,27 @@ static void	ft_print_dl_lst(t_dl_lst *lst)
 **
 */
 
+//2 stacks: 
+
 void	ft_dl_sort_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b, int *n_ops)
 {
-	int	top;
-	int	top_prev;
-	int	bottom;
-
-	top = (ft_dl_lst_last(stack_a))->content;
-	top_prev = ((ft_dl_lst_last(stack))->previous)->content;
-	bottom = (ft_dl_lst_first(stack))->content;
-
-	if (top < bottom)
-	{
-		ft_ra(stack, 1);
-		(*n_ops)++;
-	}
-	if (top < top_prev)
-	{
-		ft_sa(stack, 1);
-		(*n_ops)++;
-	}	
-	if (top > bottom)
-	{
-		ft_rb(stack, 1);
-		(*n_ops)++;
-	}
-	if (top > top_prev)
-	{
-		ft_sb(stack, 1);
-		(*n_ops)++;
-	}
+	if (ft_top_vs_bottom_to_swap(stack_a, 1) && !ft_top_vs_bottom_to_swap(stack_b, 0))
+		ft_ra(stack_a, 1);
+	else if (!ft_top_vs_bottom_to_swap(stack_a, 1) && ft_top_vs_bottom_to_swap(stack_b, 0))
+		ft_rb(stack_b, 1);
+	else if (ft_top_vs_bottom_to_swap(stack_a, 1) && ft_top_vs_bottom_to_swap(stack_b, 0))
+		ft_rr(stack_a, stack_b);
+	else if (ft_top_two_elems_to_swap(stack_a, 1) && !ft_top_two_elems_to_swap(stack_b, 0))
+		ft_sa(stack_a, 1);
+	else if (!ft_top_two_elems_to_swap(stack_a, 1) && ft_top_two_elems_to_swap(stack_b, 0))
+		ft_sb(stack_b, 1);
+	else if (ft_top_two_elems_to_swap(stack_a, 1) && ft_top_two_elems_to_swap(stack_b, 0))
+		ft_ss(stack_a, stack_b);
+	if (!ft_dl_lst_is_sorted(stack_a, 1))
+		ft_rra(stack_a, 1);
+	if (!ft_dl_lst_is_sorted(stack_b, 0))
+		ft_rrb(stack_b, 1);
+	(*n_ops)++;
 }
 
 t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
@@ -138,8 +129,9 @@ t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
 	}
 	while (!ft_dl_lst_is_sorted(stack_a, 1) && !ft_dl_lst_is_sorted(stack_b, 0))
 	{
-		ft_sort_stacks(stack_a, stack_b, &number_of_operations);
+		ft_dl_sort_stacks(stack_a, stack_b, &number_of_operations);
 	}
+	printf("Number of operations: [%d]\n", number_of_operations);
 	return (0);
 }
 
