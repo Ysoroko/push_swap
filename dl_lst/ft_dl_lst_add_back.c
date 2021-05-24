@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:18:16 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:52:30 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 16:00:28 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void	ft_dl_lst_add_back(t_dl_lst *add_after, t_dl_lst *new_member)
 	temp = ft_dl_lst_last(add_after);
 	temp->next = new_member;
 	new_member->next = 0;
+	new_member->previous = temp;
 }
