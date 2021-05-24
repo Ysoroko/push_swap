@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 09:23:49 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 09:48:54 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,6 @@ int	ft_found_bad_input(int argc, char **argv)
 	return (0);
 }
 
-t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
-{
-	t_dl_lst	*stack_b;
-	int			number_of_operations;
-	int			current_value;
-
-	while (!ft_dl_lst_is_sorted(stack_a, 1))
-	{
-		ft_putstr("ok");
-	}
-	return (0);
-}
-
-
 static void	ft_print_dl_lst(t_dl_lst *lst)
 {
 	t_dl_lst	*current;
@@ -82,6 +68,30 @@ static void	ft_print_dl_lst(t_dl_lst *lst)
 	}
 	printf("\n\n\n");
 }
+
+
+/*
+**
+*/
+
+t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
+{
+	t_dl_lst	*stack_b;
+	int			number_of_operations;
+	int			current_value;
+	int			top_a;
+	int			top_b;
+
+	while (!ft_dl_lst_is_sorted(stack_a, 1))
+	{
+		top_a = ft_dl_lst_last(stack_a)->content;
+		top_b = 0;
+		ft_putstr("ok");
+	}
+	return (0);
+}
+
+//if ()
 
 int	main(int argc, char **argv)
 {

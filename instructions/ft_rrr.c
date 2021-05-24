@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:05:51 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 14:33:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 10:00:26 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 void	ft_rrr(t_dl_lst *stack_a, t_dl_lst *stack_b)
 {
-	ft_rra_rrb(stack_a);
-	ft_rra_rrb(stack_b);
+	ft_rra_rrb(stack_a, 0);
+	ft_rra_rrb(stack_b, 0);
+	ft_putendl("rrr");
 }

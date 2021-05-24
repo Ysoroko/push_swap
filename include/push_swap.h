@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 14:42:37 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 10:05:24 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,16 @@ int			ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order);
 ** Instructions
 */
 
-void		ft_sa_sb(t_dl_lst *stack);
+void		ft_sa(t_dl_lst *stack_a, int write_sa);
+void		ft_sb(t_dl_lst *stack_b, int write_sb);
 void		ft_ss(t_dl_lst *stack_a, t_dl_lst *stack_b);
-void		ft_pa_pb(t_dl_lst *stack_to_move_from, t_dl_lst **stack_to_move_to);
-void		ft_ra_rb(t_dl_lst *stack_to_rotate);
+void		ft_pa(t_dl_lst *stack_b, t_dl_lst **stack_a);
+void		ft_pb(t_dl_lst *stack_a, t_dl_lst **stack_b);
+void		ft_ra(t_dl_lst *stack_a, int write_ra);
+void		ft_rb(t_dl_lst *stack_b, int write_rb);
 void		ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b);
-void		ft_rra_rrb(t_dl_lst *stack_to_rotate);
+void		ft_rra(t_dl_lst *stack_a, int write_rra);
+void		ft_rrb(t_dl_lst *stack_b, int write_rrb);
 void		ft_rrr(t_dl_lst *stack_a, t_dl_lst *stack_b);
 
 /*

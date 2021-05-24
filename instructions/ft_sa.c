@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa_sb.c                                         :+:      :+:    :+:   */
+/*   ft_sa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 16:29:10 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/21 14:33:43 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/05/24 10:00:43 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/05/24 10:04:49 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,17 @@ static void	ft_swap_two_last_elements(t_dl_lst *stack)
 }
 
 /*
-** void	ft_sa_sb_ss(t_dl_lst *stack_a, t_dl_lst *stack_b)
+** void	ft_sa(t_dl_lst *stack_a)
 ** This function is responsible for the following operations:
 ** sa:	switches last two elements of the stack_a
-** sb:	switches last two elements of the stack_b
 ** If the stack is empty or counts less than 2 elements, do nothing.
 */
 
-void	ft_sa_sb(t_dl_lst *stack)
+void	ft_sa(t_dl_lst *stack_a, int write_sa)
 {
-	if (!stack || ft_dl_lst_size(stack) <= 1)
+	if (!stack_a || ft_dl_lst_size(stack_a) <= 1)
 		return ;
-	ft_swap_two_last_elements(stack);
+	ft_swap_two_last_elements(stack_a);
+	if (write_sa)
+		ft_putendl("sa");
 }
