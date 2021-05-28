@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/28 14:47:36 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/28 14:58:17 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ DL_LST			=		dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lst_min_in_top_half.c
 
 CONDITIONS		=		conditions/ft_top_two_elems_to_swap.c \
-						conditions/ft_top_vs_bottom_to_swap.c
+						conditions/ft_top_vs_bottom_to_swap.c \
+						conditions/ft_stack_a_is_sorted.c
 
 LIBFT_UTILS		=		libft_utils/ft_atol.c \
 						libft_utils/ft_element_found_in_int_tab.c \

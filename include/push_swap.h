@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/28 14:47:39 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/28 14:58:28 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int			ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order);
 
 int			ft_top_vs_bottom_to_swap(t_dl_lst *stack, int low_to_high);
 int			ft_top_two_elems_to_swap(t_dl_lst *stack, int low_to_high);
+int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
 
 /*
 ** Instructions
