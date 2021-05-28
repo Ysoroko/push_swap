@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 16:01:18 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/24 16:40:33 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,10 @@ void	ft_dl_sort_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b, int *n_ops)
 		ft_sb(stack_b, 1);
 	else if (ft_top_two_elems_to_swap(stack_a, 1) && ft_top_two_elems_to_swap(stack_b, 0))
 		ft_ss(stack_a, stack_b);
-	if (!ft_dl_lst_is_sorted(stack_a, 1))
-		ft_rra(stack_a, 1);
-	if (!ft_dl_lst_is_sorted(stack_b, 0))
-		ft_rrb(stack_b, 1);
+	//if (!ft_dl_lst_is_sorted(stack_a, 1))
+		//ft_rra(stack_a, 1);
+	//if (!ft_dl_lst_is_sorted(stack_b, 0))
+		//ft_rrb(stack_b, 1);
 	(*n_ops)++;
 }
 
@@ -170,3 +170,4 @@ int	main(int argc, char **argv)
 	ft_push_swap(stack_a);
 	return (0);
 }
+//how to sort n elements in the most optimal way?
