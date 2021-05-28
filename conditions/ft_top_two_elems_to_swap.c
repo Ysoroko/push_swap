@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:04:57 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/28 14:52:09 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/28 15:22:43 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 ** This function returns 1 if we need to swap top and top - 1 elements
 ** (= perform sa or sb)
 ** Returns 0 otherwise
+** top of stack_a = lowest value
+** ! NEEDS TO BE CALLED WITH low_to_high = 0
 */
 
 int	ft_top_two_elems_to_swap(t_dl_lst *stack, int low_to_high)
