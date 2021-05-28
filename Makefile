@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/05/24 15:49:55 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/05/28 14:47:36 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ DL_LST			=		dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lst_swap.c \
 						dl_lst/ft_dl_lst_remove_last.c \
 						dl_lst/ft_dl_lst_remove_first.c \
+						dl_lst/ft_dl_lst_lowest_content.c \
+						dl_lst/ft_dl_lst_min_in_top_half.c
 
 CONDITIONS		=		conditions/ft_top_two_elems_to_swap.c \
 						conditions/ft_top_vs_bottom_to_swap.c

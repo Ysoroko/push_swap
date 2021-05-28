@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 15:47:52 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/28 14:47:39 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, int(*f)(int));
 void		ft_dl_lst_swap(t_dl_lst *element_1, t_dl_lst *element_2);
 void		ft_dl_lst_remove_last(t_dl_lst *dl_lst);
 void		ft_dl_lst_remove_first(t_dl_lst *dl_lst);
+int			ft_dl_lst_lowest_content(t_dl_lst *dl_lst);
+int			ft_dl_lst_min_in_top_half(t_dl_lst *dl_lst, int min);
 
 /*
 ** LIBFT functions
