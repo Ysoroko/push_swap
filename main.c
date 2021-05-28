@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 16:40:33 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/05/28 15:17:04 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,4 +170,4 @@ int	main(int argc, char **argv)
 	ft_push_swap(stack_a);
 	return (0);
 }
-//how to sort n elements in the most optimal way?
+//at the top of stack A we need to have the minimal value!
