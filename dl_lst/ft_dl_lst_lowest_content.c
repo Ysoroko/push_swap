@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:06:56 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 12:11:04 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 12:29:02 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	ft_dl_lst_lowest_content(t_dl_lst *dl_lst)
 	{
 		if (current_dl_lst->content < min)
 			min = current_dl_lst->content;
+		current_dl_lst = current_dl_lst->next;
 	}
 	return (min);
 }
