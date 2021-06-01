@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:01:12 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 16:03:55 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 12:11:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 void	ft_pb(t_dl_lst *stack_a, t_dl_lst **stack_b)
 {
 	t_dl_lst	*element_to_move;
-	int			content;
 	t_dl_lst	*new_element;
 
 	if (!stack_a || !stack_b)
