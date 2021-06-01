@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 16:21:02 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 16:25:19 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void	ft_send_min_to_b(t_dl_lst *stack_a, t_dl_lst **stack_b, int *n_ops)
 	int			min;
 	int			min_in_top_half;
 
+	if (!stack_a)
+		return ;
 	min = ft_dl_lst_lowest_content(stack_a);
 	min_in_top_half = ft_dl_lst_min_in_top_half(stack_a);
 	while (stack_a->content != min)
@@ -111,6 +113,7 @@ void	ft_send_min_to_b(t_dl_lst *stack_a, t_dl_lst **stack_b, int *n_ops)
 		}
 		printf("here\n");
 	}
+	ft_print_dl_lst(stack_a);
 	ft_pb(stack_a, stack_b);
 	printf("sending min to b\n");
 	(*n_ops)++;
@@ -126,13 +129,13 @@ void	ft_push_swap(t_dl_lst **stack_a)
 	initial_stack_a_size = ft_dl_lst_size(*stack_a);
 	while (*stack_a && !ft_stack_a_is_sorted(*stack_a))
 	{
-		ft_print_dl_lst(*stack_a);
+		//ft_print_dl_lst(*stack_a);
 		if (ft_top_two_elems_to_swap(*stack_a, 0))
 		{
 			number_of_operations++;
 			ft_sa(stack_a, 1);
 		}
-		ft_print_dl_lst(*stack_a);
+		//ft_print_dl_lst(*stack_a);
 		printf("here0\n");
 		if (ft_stack_a_is_sorted(*stack_a))
 		{
