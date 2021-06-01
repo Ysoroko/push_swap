@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 12:19:58 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 12:25:58 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,12 @@ t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
 			number_of_operations++;
 			ft_sa(stack_a, 1);
 		}
+		if (ft_stack_a_is_sorted(stack_a))
+			break ;
 		ft_send_min_to_b(stack_a, &stack_b, &number_of_operations);
 	}
+	printf("stack_a is sorted now!\n");
+	ft_print_dl_lst(stack_a);
 	while (ft_dl_lst_size(stack_b))
 	{
 		ft_pa(stack_b, &stack_a);
