@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 14:56:49 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 16:21:02 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,13 +124,15 @@ void	ft_push_swap(t_dl_lst **stack_a)
 
 	number_of_operations = 0;
 	initial_stack_a_size = ft_dl_lst_size(*stack_a);
-	while (!ft_stack_a_is_sorted(*stack_a))
+	while (*stack_a && !ft_stack_a_is_sorted(*stack_a))
 	{
+		ft_print_dl_lst(*stack_a);
 		if (ft_top_two_elems_to_swap(*stack_a, 0))
 		{
 			number_of_operations++;
 			ft_sa(stack_a, 1);
 		}
+		ft_print_dl_lst(*stack_a);
 		printf("here0\n");
 		if (ft_stack_a_is_sorted(*stack_a))
 		{

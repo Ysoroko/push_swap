@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:39:13 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 14:59:51 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 16:17:28 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_dl_lst	*ft_dl_lst_first(t_dl_lst *last)
 	ret = last;
 	while (ret->previous)
 	{
-		printf("herep\n");
+		//printf("herep\n");
 		ret = ret->previous;
 	}
 	return (ret);
