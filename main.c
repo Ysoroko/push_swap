@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 12:32:23 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 14:56:49 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_found_bad_input(int argc, char **argv)
 		if (!ft_str_is_number(argv[i]))
 			return (1);
 		argv_after_atol = ft_atol(argv[i]);
-		printf("argv_after_atol: [%ld]\n", argv_after_atol);
+		//printf("argv_after_atol: [%ld]\n", argv_after_atol);
 		if (argv_after_atol > INT_MAX || argv_after_atol < (INT_MIN))
 		{
 			printf("outside int limits\n");
@@ -116,35 +116,39 @@ void	ft_send_min_to_b(t_dl_lst *stack_a, t_dl_lst **stack_b, int *n_ops)
 	(*n_ops)++;
 }
 
-t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
+void	ft_push_swap(t_dl_lst **stack_a)
 {
 	t_dl_lst	*stack_b;
 	int			number_of_operations;
 	int			initial_stack_a_size;
 
 	number_of_operations = 0;
-	initial_stack_a_size = ft_dl_lst_size(stack_a);
-	while (!ft_stack_a_is_sorted(stack_a))
+	initial_stack_a_size = ft_dl_lst_size(*stack_a);
+	while (!ft_stack_a_is_sorted(*stack_a))
 	{
-		if (ft_top_two_elems_to_swap(stack_a, 0))
+		if (ft_top_two_elems_to_swap(*stack_a, 0))
 		{
 			number_of_operations++;
 			ft_sa(stack_a, 1);
 		}
-		if (ft_stack_a_is_sorted(stack_a))
+		printf("here0\n");
+		if (ft_stack_a_is_sorted(*stack_a))
+		{
+			printf("sorted after sa\n");
 			break ;
-		ft_send_min_to_b(stack_a, &stack_b, &number_of_operations);
+		}
+		printf("not sorted yet\n");
+		ft_send_min_to_b(*stack_a, &stack_b, &number_of_operations);
 		printf("here\n");
 	}
 	printf("stack_a is sorted now!\n");
-	ft_print_dl_lst(stack_a);
+	ft_print_dl_lst(*stack_a);
 	while (ft_dl_lst_size(stack_b))
 	{
-		ft_pa(stack_b, &stack_a);
+		ft_pa(stack_b, stack_a);
 		number_of_operations++;
 	}
 	printf("Number of operations: [%d]\n", number_of_operations);
-	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -179,7 +183,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	ft_print_dl_lst(stack_a);
-	ft_push_swap(stack_a);
+	ft_push_swap(&stack_a);
 	return (0);
 }
 //at the top of stack A we need to have the minimal value!

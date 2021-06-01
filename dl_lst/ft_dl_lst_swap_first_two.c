@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_dl_lst_swap_first_two.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/24 10:00:43 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 14:57:14 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/06/01 14:40:26 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/06/01 14:58:07 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** void	ft_sa(t_dl_lst **stack_a)
-** This function is responsible for the following operations:
-** sa:	switches last two elements of the stack_a
-** If the stack is empty or counts less than 2 elements, do nothing.
+** void	ft_dl_lst_swap(t_dl_lst *element_1, t_dl_lst *element_2)
+** This function will swap the place of 2 elements of t_dl_lst
 */
 
-void	ft_sa(t_dl_lst **stack_a, int write_sa)
+void	ft_dl_lst_swap_first_two(t_dl_lst **dl_lst)
 {
-	if (!stack_a || !*stack_a || ft_dl_lst_size(*stack_a) <= 1)
-		return ;
-	ft_dl_lst_swap_first_two(stack_a);
-	if (write_sa)
-		ft_putendl("sa");
+	t_dl_lst	*first;
+	t_dl_lst	*second;
+	t_dl_lst	*second_next;
+
+	first = ft_dl_lst_first(*dl_lst);
+	second = first->next;
+	second_next = second->next;
+	*dl_lst = second;
+	second->next = first;
+	first->next = second_next;
+	first->previous = second;
 }

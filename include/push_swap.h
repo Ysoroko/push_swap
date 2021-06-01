@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 11:57:02 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 14:57:49 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void		ft_dl_lst_remove_last(t_dl_lst *dl_lst);
 void		ft_dl_lst_remove_first(t_dl_lst *dl_lst);
 int			ft_dl_lst_lowest_content(t_dl_lst *dl_lst);
 int			ft_dl_lst_min_in_top_half(t_dl_lst *dl_lst);
+void		ft_dl_lst_swap_first_two(t_dl_lst **dl_lst);
 
 /*
 ** LIBFT functions
@@ -76,9 +77,9 @@ int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
 ** Instructions
 */
 
-void		ft_sa(t_dl_lst *stack_a, int write_sa);
-void		ft_sb(t_dl_lst *stack_b, int write_sb);
-void		ft_ss(t_dl_lst *stack_a, t_dl_lst *stack_b);
+void		ft_sa(t_dl_lst **stack_a, int write_sa);
+void		ft_sb(t_dl_lst **stack_b, int write_sb);
+void		ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b);
 void		ft_pa(t_dl_lst *stack_b, t_dl_lst **stack_a);
 void		ft_pb(t_dl_lst *stack_a, t_dl_lst **stack_b);
 void		ft_ra(t_dl_lst *stack_a, int write_ra);
