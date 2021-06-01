@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/28 15:17:04 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 11:57:06 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,15 +121,19 @@ t_dl_lst	*ft_push_swap(t_dl_lst *stack_a)
 
 	number_of_operations = 0;
 	initial_stack_a_size = ft_dl_lst_size(stack_a);
-	// Push half of it to stack b
-	while (ft_dl_lst_size(stack_a) >= initial_stack_a_size / 2)
+	while (!ft_stack_a_is_sorted(stack_a))
 	{
-		ft_pb(stack_a, &stack_b);
-		number_of_operations++;
-	}
-	while (!ft_dl_lst_is_sorted(stack_a, 1) && !ft_dl_lst_is_sorted(stack_b, 0))
-	{
+		if (ft_top_two_elems_to_swap(stack_a, 0))
+		{
+			number_of_operations++;
+			ft_sa(stack_a, 1);
+		}
 		ft_dl_sort_stacks(stack_a, stack_b, &number_of_operations);
+	}
+	while (ft_dl_lst_size(stack_b))
+	{
+		ft_pa(stack_b, &stack_a);
+		number_of_operations++;
 	}
 	printf("Number of operations: [%d]\n", number_of_operations);
 	return (0);
@@ -171,3 +175,19 @@ int	main(int argc, char **argv)
 	return (0);
 }
 //at the top of stack A we need to have the minimal value!
+
+
+
+/*
+** Logic of the algorithm:
+** 1) All the arguments are put in stack A, stack B is empty
+** 2) Check the first 2 elements of A, if 1st < 2nd -> swap them with "sa"
+** 3) We look for the minimum value in stack_a
+** 		+ check if it's in 1st or 2nd half of the stack
+** 4) Put the minimum value at the top of the stack A
+** 		- If it's in the 1st half of stack A, we use "ra"
+** 		- If it's in the 2nd half is stack A, we use "rra"
+** 5) Push the minimum value to stack B
+** 6) If stack A is already sorted, push everything from stack B to stack A
+** 6) Repeat step 2)
+*/

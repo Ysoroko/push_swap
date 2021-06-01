@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/28 15:00:07 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/01 11:57:02 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		ft_dl_lst_add_front(t_dl_lst *add_before,
 int			ft_dl_lst_size(t_dl_lst *first);
 t_dl_lst	*ft_dl_lst_last(t_dl_lst *first);
 t_dl_lst	*ft_dl_lst_first(t_dl_lst *last);
-void		ft_dl_lst_insert_element(t_dl_lst *new, t_dl_lst *after,
+void		ft_dl_lst_insert_element(t_dl_lst *to_insert, t_dl_lst *after,
 				t_dl_lst *bef);
 void		ft_dl_lst_add_back(t_dl_lst *add_after,
 				t_dl_lst *new_member);
@@ -69,7 +69,6 @@ int			ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order);
 ** Conditions
 */
 
-int			ft_top_vs_bottom_to_swap(t_dl_lst *stack, int low_to_high);
 int			ft_top_two_elems_to_swap(t_dl_lst *stack, int low_to_high);
 int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
 
