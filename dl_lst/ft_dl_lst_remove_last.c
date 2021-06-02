@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:13:55 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 16:22:15 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/02 14:21:43 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	ft_dl_lst_remove_last(t_dl_lst *dl_lst)
 {
 	t_dl_lst	*last;
+	t_dl_lst	*first;
 
-	if (ft_dl_lst_size(dl_lst) == 1)
+	first = ft_dl_lst_first(dl_lst);
+	if (first->next == 0)
 	{
 		free(dl_lst);
 		dl_lst = 0;

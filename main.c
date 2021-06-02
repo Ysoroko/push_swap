@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 16:25:19 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/02 14:18:52 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,6 @@ int	main(int argc, char **argv)
 	return (0);
 }
 //at the top of stack A we need to have the minimal value!
-
 
 
 /*
