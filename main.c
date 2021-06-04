@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 13:53:27 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 14:30:33 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,18 @@ int	ft_found_bad_input(int argc, char **argv)
 	return (0);
 }
 
-static void	ft_print_dl_lst(t_dl_lst *lst)
+static void	ft_print_dl_lst(t_dl_lst *lst, int stack_a)
 {
 	t_dl_lst	*current;
 	int			i;
 
 	i = 1;
+	if (stack_a)
+		printf("[%20s]\n", "STACK A");
+	else
+		printf("[%20s]\n", "STACK B");
+	if (!lst)
+		printf("empty pointer dl_lst\n");
 	current = ft_dl_lst_first(lst);
 	printf("\n\n\n");
 	while (current)
@@ -98,6 +104,7 @@ void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_ops)
 	if (!stack_a || !*stack_a)
 		return ;
 	min = ft_dl_lst_lowest_content(*stack_a);
+	printf("min: [%d]\n", min);
 	min_in_top_half = ft_dl_lst_min_in_top_half(*stack_a);
 	while ((*stack_a)->content != min)
 	{
@@ -113,9 +120,13 @@ void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_ops)
 		}
 		printf("here\n");
 	}
-	ft_print_dl_lst(*stack_a);
-	ft_pb(stack_a, stack_b);
 	printf("sending min to b\n");
+	ft_print_dl_lst(*stack_a, 1);
+	ft_print_dl_lst(*stack_b, 0);
+	ft_pb(stack_a, stack_b);
+	printf("min sent to b\n");
+	ft_print_dl_lst(*stack_a, 1);
+	ft_print_dl_lst(*stack_b, 0);
 	(*n_ops)++;
 }
 
@@ -127,6 +138,7 @@ void	ft_push_swap(t_dl_lst **stack_a)
 
 	number_of_operations = 0;
 	initial_stack_a_size = ft_dl_lst_size(*stack_a);
+	stack_b = 0;
 	while (*stack_a && !ft_stack_a_is_sorted(*stack_a))
 	{
 		//ft_print_dl_lst(*stack_a);
@@ -134,6 +146,9 @@ void	ft_push_swap(t_dl_lst **stack_a)
 		{
 			number_of_operations++;
 			ft_sa(stack_a, 1);
+			printf("\n\nsa executed\n");
+			ft_print_dl_lst(*stack_a, 1);
+			ft_print_dl_lst(stack_b, 0);
 		}
 		//ft_print_dl_lst(*stack_a);
 		if (ft_stack_a_is_sorted(*stack_a))
@@ -142,16 +157,25 @@ void	ft_push_swap(t_dl_lst **stack_a)
 			break ;
 		}
 		//printf("not sorted yet\n");
+		printf("\n\nbefore min sent to b\n");
+		ft_print_dl_lst(*stack_a, 1);
+		ft_print_dl_lst(stack_b, 0);
 		ft_send_min_to_b(stack_a, &stack_b, &number_of_operations);
-		//printf("min sent to b\n");
+		printf("\n\nmin sent to b\n");
+		ft_print_dl_lst(*stack_a, 1);
+		ft_print_dl_lst(stack_b, 0);
 	}
 	//printf("stack_a is sorted now!\n");
-	ft_print_dl_lst(*stack_a);
-	while (ft_dl_lst_size(stack_b))
-	{
-		ft_pa(&stack_b, stack_a);
-		number_of_operations++;
-	}
+	ft_print_dl_lst(*stack_a, 1);
+	ft_print_dl_lst(stack_b, 0);
+	/*
+	**while (stack_b)
+	**{
+	**	ft_print_dl_lst(stack_b);
+	**	ft_pa(&stack_b, stack_a);
+	**	number_of_operations++;
+	**}
+	*/
 	printf("Number of operations: [%d]\n", number_of_operations);
 }
 
@@ -186,7 +210,7 @@ int	main(int argc, char **argv)
 		current_t_dl_lst = current_t_dl_lst->next;
 		i++;
 	}
-	ft_print_dl_lst(stack_a);
+	ft_print_dl_lst(stack_a, 1);
 	ft_push_swap(&stack_a);
 	return (0);
 }
