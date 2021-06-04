@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 16:17:11 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 12:21:41 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_dl_lst	*ft_dl_lst_last(t_dl_lst *first);
 t_dl_lst	*ft_dl_lst_first(t_dl_lst *last);
 void		ft_dl_lst_insert_element(t_dl_lst *to_insert, t_dl_lst *after,
 				t_dl_lst *bef);
-void		ft_dl_lst_add_back(t_dl_lst *add_after,
+void		ft_dl_lst_add_back(t_dl_lst **add_after,
 				t_dl_lst *new_member);
 void		ft_dl_lstdelone(t_dl_lst *to_delete);
 void		ft_dl_lstdelone_relink(t_dl_lst *to_delete);
@@ -45,8 +45,8 @@ void		ft_dl_lstclear(t_dl_lst *lst);
 void		ft_dl_lstiter(t_dl_lst *lst, void (*f)(int));
 t_dl_lst	*ft_dl_lstmap_exit(t_dl_lst *l, int(*f)(int));
 void		ft_dl_lst_swap(t_dl_lst *element_1, t_dl_lst *element_2);
-void		ft_dl_lst_remove_last(t_dl_lst *dl_lst);
-void		ft_dl_lst_remove_first(t_dl_lst *dl_lst);
+void		ft_dl_lst_remove_last(t_dl_lst **dl_lst);
+void		ft_dl_lst_remove_first(t_dl_lst **dl_lst);
 int			ft_dl_lst_lowest_content(t_dl_lst *dl_lst);
 int			ft_dl_lst_min_in_top_half(t_dl_lst *dl_lst);
 void		ft_dl_lst_swap_top_two(t_dl_lst **dl_lst);
@@ -80,14 +80,14 @@ int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
 void		ft_sa(t_dl_lst **stack_a, int write_sa);
 void		ft_sb(t_dl_lst **stack_b, int write_sb);
 void		ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b);
-void		ft_pa(t_dl_lst *stack_b, t_dl_lst **stack_a);
-void		ft_pb(t_dl_lst *stack_a, t_dl_lst **stack_b);
-void		ft_ra(t_dl_lst *stack_a, int write_ra);
-void		ft_rb(t_dl_lst *stack_b, int write_rb);
-void		ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b);
-void		ft_rra(t_dl_lst *stack_a, int write_rra);
-void		ft_rrb(t_dl_lst *stack_b, int write_rrb);
-void		ft_rrr(t_dl_lst *stack_a, t_dl_lst *stack_b);
+void		ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a);
+void		ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b);
+void		ft_ra(t_dl_lst **stack_a, int write_ra);
+void		ft_rb(t_dl_lst **stack_b, int write_rb);
+void		ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b);
+void		ft_rra(t_dl_lst **stack_a, int write_rra);
+void		ft_rrb(t_dl_lst **stack_b, int write_rrb);
+void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b);
 
 /*
 ** COLORS

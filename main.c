@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/02 14:18:52 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 11:52:29 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,17 +136,16 @@ void	ft_push_swap(t_dl_lst **stack_a)
 			ft_sa(stack_a, 1);
 		}
 		//ft_print_dl_lst(*stack_a);
-		printf("here0\n");
 		if (ft_stack_a_is_sorted(*stack_a))
 		{
-			printf("sorted after sa\n");
+			//printf("sorted after sa\n");
 			break ;
 		}
-		printf("not sorted yet\n");
+		//printf("not sorted yet\n");
 		ft_send_min_to_b(*stack_a, &stack_b, &number_of_operations);
-		printf("here\n");
+		//printf("min sent to b\n");
 	}
-	printf("stack_a is sorted now!\n");
+	//printf("stack_a is sorted now!\n");
 	ft_print_dl_lst(*stack_a);
 	while (ft_dl_lst_size(stack_b))
 	{

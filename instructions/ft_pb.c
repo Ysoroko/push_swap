@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:01:12 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 12:11:53 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 12:16:09 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,16 @@
 ** Do nothing if a is empty.
 */
 
-void	ft_pb(t_dl_lst *stack_a, t_dl_lst **stack_b)
+void	ft_rb(t_dl_lst **stack_b, int write_rb)
 {
-	t_dl_lst	*element_to_move;
-	t_dl_lst	*new_element;
+	t_dl_lst	*first;
 
-	if (!stack_a || !stack_b)
+	if (!stack_b)
 		return ;
-	element_to_move = ft_dl_lst_last(stack_a);
-	new_element = ft_dl_lst_new_exit(element_to_move->content);
-	if (*stack_b)
-		ft_dl_lst_add_back(*stack_b, new_element);
-	else
-		*stack_b = new_element;
-	ft_dl_lst_remove_last(stack_a);
-	ft_putendl("pb");
+	first = ft_dl_lst_first(*stack_b);
+	ft_dl_lst_add_back(stack_b, first);
+	ft_dl_lst_remove_first(stack_b);
+	*stack_b = ft_dl_lst_first(*stack_b);
+	if (write_rb)
+		ft_putendl("rb");
 }

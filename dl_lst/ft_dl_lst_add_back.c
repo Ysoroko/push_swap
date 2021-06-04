@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:18:16 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/24 16:00:28 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 12:03:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@
 ** !!! This will set new_member's->next to NULL
 */
 
-void	ft_dl_lst_add_back(t_dl_lst *add_after, t_dl_lst *new_member)
+void	ft_dl_lst_add_back(t_dl_lst **dl_lst_to_add_to, t_dl_lst *new_member)
 {
 	t_dl_lst	*temp;
 
-	if (!new_member || !add_after)
+	if (!new_member || !dl_lst_to_add_to)
 		return ;
-	temp = ft_dl_lst_last(add_after);
+	if (!*dl_lst_to_add_to)
+	{
+		*dl_lst_to_add_to = new_member;
+		return ;
+	}
+	temp = ft_dl_lst_last(*dl_lst_to_add_to);
 	temp->next = new_member;
 	new_member->next = 0;
 	new_member->previous = temp;

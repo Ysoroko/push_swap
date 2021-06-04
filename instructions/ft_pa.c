@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:50:15 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 12:11:49 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 12:02:10 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@
 ** Do nothing if b is empty.
 */
 
-void	ft_pa(t_dl_lst *stack_b, t_dl_lst **stack_a)
+void	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a)
 {
 	t_dl_lst	*element_to_move;
 	t_dl_lst	*new_element;
 
-	if (!stack_b || !stack_a)
+	if (!stack_b || !*stack_b || !stack_a)
 		return ;
-	element_to_move = ft_dl_lst_last(stack_b);
+	element_to_move = ft_dl_lst_last(*stack_b);
 	new_element = ft_dl_lst_new_exit(element_to_move->content);
 	if (*stack_a)
-		ft_dl_lst_add_back(*stack_a, new_element);
+		ft_dl_lst_add_back(stack_a, new_element);
 	else
 		*stack_a = new_element;
 	ft_dl_lst_remove_last(stack_b);
