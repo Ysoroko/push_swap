@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:25 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/01 14:57:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 12:25:15 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
-	ft_sa(stack_a, 0);
-	ft_sb(stack_b, 0);
-	ft_putendl("ss");
+	if (stack_a && stack_b)
+	{
+		ft_sa(stack_a, 0);
+		ft_sb(stack_b, 0);
+		ft_putendl("ss");
+	}
 }
