@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 12:21:41 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 13:54:06 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_dl_lst
 }				t_dl_lst;
 
 t_dl_lst	*ft_dl_lst_new_exit(int content);
-void		ft_dl_lst_add_front(t_dl_lst *add_before,
+void		ft_dl_lst_add_front(t_dl_lst **add_before,
 				t_dl_lst *new_member);
 int			ft_dl_lst_size(t_dl_lst *first);
 t_dl_lst	*ft_dl_lst_last(t_dl_lst *first);

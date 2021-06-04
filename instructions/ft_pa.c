@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:50:15 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 12:02:10 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 13:55:36 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a)
 	else
 		*stack_a = new_element;
 	ft_dl_lst_remove_last(stack_b);
-	ft_putendl("pb");
+	ft_putendl("pa");
 }

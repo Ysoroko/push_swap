@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:20:09 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/19 10:52:32 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/04 13:51:30 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@
 ** !!! This will set new_member's->previous to NULL
 */
 
-void	ft_dl_lst_add_front(t_dl_lst *add_before, t_dl_lst *new_member)
+void	ft_dl_lst_add_front(t_dl_lst **add_before, t_dl_lst *new_member)
 {
 	t_dl_lst	*temp;
 
 	if (!new_member || !add_before)
 		return ;
-	temp = ft_dl_lst_first(add_before);
+	if (!*add_before)
+	{
+		*add_before = new_member;
+		return ;
+	}
+	temp = ft_dl_lst_first(*add_before);
 	new_member->next = temp;
 	new_member->previous = 0;
 }
