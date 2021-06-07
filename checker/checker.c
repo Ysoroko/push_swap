@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/07 15:26:27 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/07 16:04:32 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 				printf(BOLD_CYAN);
 				width = 18;
 			}
-			printf("%-*d%s\n", width, current_a->content, separator);
-			if (current_a == ft_dl_lst_first(stack_a))
+			printf("%-*d%s", width, current_a->content, separator);
+			if (current_a == ft_dl_lst_first(stack_a) && !current_b)
 				printf("\n");
 			current_a = current_a->next;
 			printf(COLOR_RESET);
@@ -66,10 +66,14 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 				printf(BOLD_MAGENTA);
 			else if (current_b == ft_dl_lst_last(stack_b))
 				printf(BOLD_CYAN);
-			printf("%-*d\n", width, current_a->content);
+			printf("%*d\n", width, current_a->content);
+			if (current_b == ft_dl_lst_first(stack_b))
+				printf("\n");
 			current_b = current_b->next;
 			printf(COLOR_RESET);
 		}
+
+		printf("\n");
 	}
 	printf("\n\n\n");
 }
@@ -85,7 +89,7 @@ static int ft_execute(char	*input_str, t_dl_lst **stack_a, t_dl_lst **stack_b)
 	else if (!ft_strlcmp(input_str, "pa"))
 		ft_pa(stack_a, stack_b);
 	else if (!ft_strlcmp(input_str, "pb"))
-		ft_pb(stack_b, stack_a);
+		ft_pb(stack_a, stack_b);
 	else if (!ft_strlcmp(input_str, "ra"))
 		ft_ra(stack_a, 1);
 	else if (!ft_strlcmp(input_str, "rb"))
