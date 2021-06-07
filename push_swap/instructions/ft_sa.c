@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:00:43 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 13:49:31 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/07 14:09:14 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@
 
 void	ft_sa(t_dl_lst **stack_a, int write_sa)
 {
-	if (!stack_a || !*stack_a || ft_dl_lst_size(*stack_a) <= 1)
-		return ;
-	ft_dl_lst_swap_top_two(stack_a);
-	*stack_a = ft_dl_lst_first(*stack_a);
 	if (write_sa)
 		ft_putendl("sa");
 }
