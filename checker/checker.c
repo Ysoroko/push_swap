@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/07 15:10:06 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/07 15:26:27 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ static int	ft_read_input_and_execute(t_dl_lst **stack_a, t_dl_lst **stack_b)
 		free(input);
 		return (-1);
 	}
-	input[read_ret] = 0;
+	input[read_ret - 1] = 0;
 	if (ft_execute(input, stack_a, stack_b) == -1)
 	{
 		free(input);
