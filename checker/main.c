@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:44:05 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/07 12:08:01 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/07 14:17:24 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_print_dl_lst(t_dl_lst *lst, int stack_a)
 
 int	main(int argc, char **argv)
 {
-		t_dl_lst	*stack_a;
+	t_dl_lst	*stack_a;
 	t_dl_lst	*current_t_dl_lst;
 	int			tab[argc - 1];
 	int			i;
@@ -111,6 +111,7 @@ int	main(int argc, char **argv)
 		current_t_dl_lst = current_t_dl_lst->next;
 		i++;
 	}
-	ft_print_dl_lst(stack_a, 1);
+	if (checker(&stack_a) == -1)
+		return (-1);
 	return (0);
 }

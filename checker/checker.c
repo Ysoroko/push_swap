@@ -6,11 +6,73 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/07 13:33:57 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/07 15:10:06 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
+{
+	int			width;
+	t_dl_lst	*current_a;
+	t_dl_lst	*current_b;
+	char		*separator = "|";
+	char		*top = "TOP";
+	char		*bottom = "BOTTOM";
+
+	current_a = ft_dl_lst_first(stack_a);
+	current_b = ft_dl_lst_first(stack_b);
+	width = 20;
+	printf("\n\n\n");
+	printf(BOLD_WHITE);
+	for (int i = 0; i <= 2 * width; i++)
+		printf("-");
+	printf(BOLD_YELLOW);
+	printf("\n%-*s|%*s\n", width, "STACK A", width, "STACK B");
+	printf(BOLD_WHITE);
+	for (int i = 0; i <= 2 * width; i++)
+		printf("-");
+	printf("\n\n");
+	printf(COLOR_RESET);
+	while (current_a || current_b)
+	{
+		if (current_a)
+		{
+			if (current_a == ft_dl_lst_first(stack_a))
+			{
+				separator = top;
+				printf(BOLD_MAGENTA);
+				width = 19;
+			}
+			else if (current_a == ft_dl_lst_last(stack_a))
+			{
+				printf("\n");
+				separator = bottom;
+				printf(BOLD_CYAN);
+				width = 18;
+			}
+			printf("%-*d%s\n", width, current_a->content, separator);
+			if (current_a == ft_dl_lst_first(stack_a))
+				printf("\n");
+			current_a = current_a->next;
+			printf(COLOR_RESET);
+			separator = "|";
+			width = 20;
+		}
+		if (current_b)
+		{
+			if (current_b == ft_dl_lst_first(stack_b))
+				printf(BOLD_MAGENTA);
+			else if (current_b == ft_dl_lst_last(stack_b))
+				printf(BOLD_CYAN);
+			printf("%-*d\n", width, current_a->content);
+			current_b = current_b->next;
+			printf(COLOR_RESET);
+		}
+	}
+	printf("\n\n\n");
+}
 
 static int ft_execute(char	*input_str, t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
@@ -44,13 +106,16 @@ static int ft_execute(char	*input_str, t_dl_lst **stack_a, t_dl_lst **stack_b)
 static int	ft_read_input_and_execute(t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
 	char	*input;
+	int		read_ret;
 
 	input = ft_calloc(sizeof(char), INPUT_SIZE);
-	if (read(1, input, INPUT_SIZE) < 0)
+	read_ret = read(1, input, INPUT_SIZE);
+	if (read_ret < 0)
 	{
 		free(input);
 		return (-1);
 	}
+	input[read_ret] = 0;
 	if (ft_execute(input, stack_a, stack_b) == -1)
 	{
 		free(input);
@@ -66,8 +131,9 @@ int	checker(t_dl_lst **stack_a)
 	int			ret;
 
 	stack_b = 0;
-	while (!ft_stack_a_is_sorted(stack_a) && !stack_b)
+	while (!ft_stack_a_is_sorted(*stack_a) || stack_b)
 	{
+		ft_print_stacks(*stack_a, stack_b);
 		ret = ft_read_input_and_execute(stack_a, &stack_b);
 		if (ret == -1)
 		{
@@ -75,4 +141,5 @@ int	checker(t_dl_lst **stack_a)
 			return (-1);
 		}
 	}
+	return (0);
 }
