@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/07 12:04:54 by ysoroko           #+#    #+#              #
-#    Updated: 2021/06/07 12:08:36 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/06/07 12:42:24 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ LIBFT_UTILS		=		$(PUSH_SWAP)libft_utils/ft_atol.c \
 						$(PUSH_SWAP)libft_utils/ft_write_utils.c \
 						$(PUSH_SWAP)libft_utils/ft_atoi.c \
 						$(PUSH_SWAP)libft_utils/ft_int_tab_is_sorted.c \
-						$(PUSH_SWAP)libft_utils/ft_dl_lst_is_sorted.c
+						$(PUSH_SWAP)libft_utils/ft_dl_lst_is_sorted.c \
+						$(PUSH_SWAP)libft_utils/ft_calloc.c
 
 INSTRUCTIONS	=		$(PUSH_SWAP)instructions/ft_sa.c \
 						$(PUSH_SWAP)instructions/ft_sb.c \

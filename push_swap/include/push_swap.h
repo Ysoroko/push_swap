@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 13:54:06 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/07 13:25:22 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void		ft_putendl(char *s);
 int			ft_atoi(char *str);
 int			ft_int_tab_is_sorted(int *tab, int tab_len, int low_to_high);
 int			ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order);
+void		*ft_calloc(size_t count, size_t size);
+int			ft_strlcmp(char *s1, char *s2);
 
 /*
 ** Conditions
