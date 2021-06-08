@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/07 16:04:32 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/08 13:45:54 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 	char		*top = "TOP";
 	char		*bottom = "BOTTOM";
 
-	current_a = ft_dl_lst_first(stack_a);
-	current_b = ft_dl_lst_first(stack_b);
+	current_a = stack_a;
+	current_b = stack_b;
 	width = 20;
 	printf("\n\n\n");
 	printf(BOLD_WHITE);
@@ -39,7 +39,7 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 	{
 		if (current_a)
 		{
-			if (current_a == ft_dl_lst_first(stack_a))
+			if (current_a == stack_a)
 			{
 				separator = top;
 				printf(BOLD_MAGENTA);
@@ -62,11 +62,11 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 		}
 		if (current_b)
 		{
-			if (current_b == ft_dl_lst_first(stack_b))
+			if (current_b == stack_b)
 				printf(BOLD_MAGENTA);
 			else if (current_b == ft_dl_lst_last(stack_b))
 				printf(BOLD_CYAN);
-			printf("%*d\n", width, current_a->content);
+			printf("%*d\n", width - 1, current_b->content);
 			if (current_b == ft_dl_lst_first(stack_b))
 				printf("\n");
 			current_b = current_b->next;
@@ -135,10 +135,19 @@ int	checker(t_dl_lst **stack_a)
 	int			ret;
 
 	stack_b = 0;
+	ft_print_stacks(*stack_a, stack_b);
 	while (!ft_stack_a_is_sorted(*stack_a) || stack_b)
 	{
-		ft_print_stacks(*stack_a, stack_b);
 		ret = ft_read_input_and_execute(stack_a, &stack_b);
+		if (stack_b)
+			printf("stack b content: [%d]\n", stack_b->content);
+		else
+			printf("stack_b null\n");
+		ft_print_stacks(*stack_a, stack_b);
+		if (stack_b)
+			printf("stack b content: [%d]\n", stack_b->content);
+		else
+			printf("stack_b null\n");
 		if (ret == -1)
 		{
 			free(stack_b);
