@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 16:16:58 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/08 16:35:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ static int ft_execute(char	*input_str, t_dl_lst **stack_a, t_dl_lst **stack_b)
 	else if (!ft_strlcmp(input_str, "ss"))
 		ft_ss(stack_a, stack_b);
 	else if (!ft_strlcmp(input_str, "pa"))
-		ft_pa(stack_a, stack_b);
+		ft_pa(stack_b, stack_a);
 	else if (!ft_strlcmp(input_str, "pb"))
 		ft_pb(stack_a, stack_b);
 	else if (!ft_strlcmp(input_str, "ra"))
