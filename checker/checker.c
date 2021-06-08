@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 16:03:19 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/08 16:16:58 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 			printf("%*s", width, separator);
 			width = 20;
 		}
-		//printf("here\n");
 		if (current_a)
 		{
 			if (current_a == stack_a)
@@ -74,13 +73,12 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 				width = 18;
 			}
 			printf("%-*d%s", width, current_a->content, separator);
-			if (current_a == ft_dl_lst_first(stack_a) && !current_b)
+			if (current_a == stack_a && !current_b)
 				printf("\n");
 			current_a = current_a->next;
 			printf(COLOR_RESET);
 			separator = "|";
 		}
-		//printf("here2\n");
 		if (current_b)
 		{
 			if (current_b == stack_b)
