@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dl_lst_first.c                                  :+:      :+:    :+:   */
+/*   ft_n_chars_in_int.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 16:39:13 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 13:55:11 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/06/08 15:30:05 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/06/08 15:33:15 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** FT_DL_LST_FIRST
-** Given an element of t_dl_lst (double linked list)
-** this function will find its first element and return its address
+** int	ft_n_chars_in_int(int n)
+** This function returns the number of chars necessary to write n
+** as a string
 */
 
-t_dl_lst	*ft_dl_lst_first(t_dl_lst *last)
+int	ft_n_chars_in_int(int n)
 {
-	t_dl_lst	*ret;
+	int	m;
+	int	count;
 
-	if (!last)
-		return (0);
-	ret = last;
-	while (ret->previous)
-		ret = ret->previous;
-	return (ret);
+	count = 0;
+	if (!n)
+		return (1);
+	if (n < 0)
+	{
+		m = -n;
+		count++;
+	}
+	else
+		m = n;
+	while (m % 10)
+	{
+		m = m / 10;
+		count++;
+	}
+	return (count);
 }

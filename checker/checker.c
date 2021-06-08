@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 13:45:54 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/08 16:03:19 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,27 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 	printf(COLOR_RESET);
 	while (current_a || current_b)
 	{
+		if (!current_a && current_b)
+		{
+			if (current_b == ft_dl_lst_last(stack_b))
+			{
+				printf("\n");
+				printf(BOLD_CYAN);
+				separator = bottom;
+				width = 23;
+			}
+			else if (current_b == ft_dl_lst_first(stack_b))
+			{
+				printf(BOLD_MAGENTA);
+				separator = top;
+				width = 22;
+			}
+			else
+				width = 21;
+			printf("%*s", width, separator);
+			width = 20;
+		}
+		//printf("here\n");
 		if (current_a)
 		{
 			if (current_a == stack_a)
@@ -58,21 +79,30 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 			current_a = current_a->next;
 			printf(COLOR_RESET);
 			separator = "|";
-			width = 20;
 		}
+		//printf("here2\n");
 		if (current_b)
 		{
 			if (current_b == stack_b)
+			{
+				width = 19;
 				printf(BOLD_MAGENTA);
+			}
 			else if (current_b == ft_dl_lst_last(stack_b))
+			{
+				width = 18;
+				if (ft_dl_lst_current_index(stack_b, current_b) == ft_dl_lst_size(stack_a))
+					width = 17;
 				printf(BOLD_CYAN);
-			printf("%*d\n", width - 1, current_b->content);
+			}
+			printf("%*d\n", width, current_b->content);
 			if (current_b == ft_dl_lst_first(stack_b))
 				printf("\n");
 			current_b = current_b->next;
 			printf(COLOR_RESET);
 		}
-
+		width = 20;
+		separator = "|";
 		printf("\n");
 	}
 	printf("\n\n\n");

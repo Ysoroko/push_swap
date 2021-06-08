@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:01:12 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 13:40:17 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/08 15:20:12 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,23 @@ void	ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
 	t_dl_lst	*first;
 	t_dl_lst	*second;
+	t_dl_lst	*temp;
 
 	if (!stack_a || !stack_b || !*stack_a)
 		return ;
 	first = *stack_a;
 	second = first->next;
 	if (!*stack_b)
-	{
 		*stack_b = ft_dl_lst_new_exit(first->content);
-		printf("stack b when no b: [%d]\n", (*stack_b)->content);
-	}
 	else
 	{
-		ft_dl_lst_add_front(stack_b, ft_dl_lst_new_exit(first->content));
-		printf("stack b when b: [%d]\n", (*stack_b)->content);
+		temp = ft_dl_lst_new_exit(first->content);
+		(*stack_b)->previous = temp;
+		temp->next = *stack_b;
+		*stack_b = temp;
 	}
 	*stack_a = second;
 	free(first);
 	first = 0;
-	printf("stack b: [%d]\n", (*stack_b)->content);
 	ft_putendl("pb");
 }

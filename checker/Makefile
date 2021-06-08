@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/07 12:04:54 by ysoroko           #+#    #+#              #
-#    Updated: 2021/06/07 14:17:41 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/06/08 15:59:00 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ DL_LST			=		$(PUSH_SWAP)dl_lst/ft_dl_lst_add_back.c \
 						$(PUSH_SWAP)dl_lst/ft_dl_lst_remove_first.c \
 						$(PUSH_SWAP)dl_lst/ft_dl_lst_lowest_content.c \
 						$(PUSH_SWAP)dl_lst/ft_dl_lst_min_in_top_half.c \
-						$(PUSH_SWAP)dl_lst/ft_dl_lst_swap_top_two.c
+						$(PUSH_SWAP)dl_lst/ft_dl_lst_swap_top_two.c \
+						$(PUSH_SWAP)dl_lst/ft_dl_lst_current_index.c 
 
 CONDITIONS		=		$(PUSH_SWAP)conditions/ft_top_two_elems_to_swap.c \
 						$(PUSH_SWAP)conditions/ft_stack_a_is_sorted.c
@@ -45,7 +46,9 @@ LIBFT_UTILS		=		$(PUSH_SWAP)libft_utils/ft_atol.c \
 						$(PUSH_SWAP)libft_utils/ft_dl_lst_is_sorted.c \
 						$(PUSH_SWAP)libft_utils/ft_strlcmp.c \
 						$(PUSH_SWAP)libft_utils/ft_calloc.c \
-						$(PUSH_SWAP)libft_utils/ft_bzero.c
+						$(PUSH_SWAP)libft_utils/ft_bzero.c \
+						$(PUSH_SWAP)libft_utils/ft_n_chars_in_int.c \
+						
 
 INSTRUCTIONS	=		$(PUSH_SWAP)instructions/ft_sa.c \
 						$(PUSH_SWAP)instructions/ft_sb.c \
