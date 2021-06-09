@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 15:51:19 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 16:03:06 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 16:05:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** int	ft_dl_lst_current_index(t_dl_lst *dl_lst, t_dl_lst *element_to_find)
 ** This function will return the index of the element_to_find in dl_lst
 ** argument. We consider dl_lst being the first member of dl_lst list.
-** The count starts at 0 (1st element = 0) and the function returns -1
+** The count starts at 1 (1st element = 1) and the function returns -1
 ** if the element wasn't found or dl_lst argument is NULL
 */
 
