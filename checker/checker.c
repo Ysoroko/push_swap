@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:01:34 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 14:17:44 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,15 +175,7 @@ int	checker(t_dl_lst **stack_a)
 	while (!ft_stack_a_is_sorted(*stack_a) || stack_b)
 	{
 		ret = ft_read_input_and_execute(stack_a, &stack_b);
-		if (stack_b)
-			printf("stack b content: [%d]\n", stack_b->content);
-		else
-			printf("stack_b null\n");
 		ft_print_stacks(*stack_a, stack_b);
-		if (stack_b)
-			printf("stack b content: [%d]\n", stack_b->content);
-		else
-			printf("stack_b null\n");
 		if (ret == -1)
 		{
 			free(stack_b);

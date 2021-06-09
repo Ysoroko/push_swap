@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:44:05 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/07 15:27:09 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 14:17:25 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,9 @@ int	main(int argc, char **argv)
 	}
 	if (argc < 3 || ft_int_tab_is_sorted(tab, argc - 1, 1))
 	{
+		ft_putstr(BOLD_GREEN);
 		ft_putendl("Sorted!");
+		ft_putstr(COLOR_RESET);
 		return (1);
 	}
 	stack_a = ft_dl_lst_new_exit(tab[0]);
