@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 16:35:53 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 12:15:15 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,16 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 			else if (current_a == ft_dl_lst_last(stack_a))
 			{
 				printf("\n");
-				separator = bottom;
+				if (!current_b)
+				{
+					separator = bottom;
+					width = 18;
+				}
 				printf(BOLD_CYAN);
-				width = 18;
 			}
+			if (current_b && current_b != stack_b && current_b == ft_dl_lst_last(stack_b)
+					&& current_a != stack_a->next)
+				printf("\n");
 			printf("%-*d%s", width, current_a->content, separator);
 			if (current_a == stack_a && !current_b)
 				printf("\n");
@@ -88,12 +94,14 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 			}
 			else if (current_b == ft_dl_lst_last(stack_b))
 			{
-				width = 18;
+				width = 20;
 				if (ft_dl_lst_current_index(stack_b, current_b) == ft_dl_lst_size(stack_a))
 					width = 17;
+				if (!current_a)
+					width = 18;
 				printf(BOLD_CYAN);
 			}
-			printf("%*d\n", width, current_b->content);
+			printf("%*d", width, current_b->content);
 			if (current_b == ft_dl_lst_first(stack_b))
 				printf("\n");
 			current_b = current_b->next;
