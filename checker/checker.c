@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 15:27:32 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:38:36 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ static int	ft_read_input_and_execute(t_dl_lst **stack_a, t_dl_lst **stack_b)
 		return (-1);
 	}
 	free(input);
-	return (0);
+	return (read_ret);
 }
 
 int	checker(t_dl_lst **stack_a)
@@ -172,18 +172,23 @@ int	checker(t_dl_lst **stack_a)
 
 	stack_b = 0;
 	ft_print_stacks(*stack_a, stack_b);
-	while (!ft_stack_a_is_sorted(*stack_a) || stack_b)
+	ret = ft_read_input_and_execute(stack_a, &stack_b);
+	while (ret > 0)
 	{
-		ret = ft_read_input_and_execute(stack_a, &stack_b);
 		ft_print_stacks(*stack_a, stack_b);
 		if (ret == -1)
 		{
 			free(stack_b);
 			return (-1);
 		}
+		ret = ft_read_input_and_execute(stack_a, &stack_b);
 	}
-	ft_putstr(BOLD_GREEN);
-	ft_putendl("Sorted\n");
-	ft_putstr(COLOR_RESET);
-	return (0);
+	if (ret <= 0)
+	{
+		if (ft_stack_a_is_sorted(*stack_a) && !stack_b)
+			return (ft_putendl_color("OK", BOLD_GREEN, 1));
+		else
+			return (ft_putendl_color("KO", BOLD_RED, 1));
+	}
+	return (-1);
 }

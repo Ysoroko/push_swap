@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:44:05 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 15:27:46 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:30:14 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ int	main(int argc, char **argv)
 		return (ft_putendl_color("Error", BOLD_RED, -1));
 	while (++i < argc)
 		tab[j++] = ft_atoi(argv[i]);
-	if (ft_int_tab_is_sorted(tab, argc - 1, 1))
-		return (ft_putendl_color("OK", BOLD_GREEN, 1));
 	stack_a = ft_dl_lst_new_exit(tab[0]);
 	i = 1;
 	current_t_dl_lst = stack_a;

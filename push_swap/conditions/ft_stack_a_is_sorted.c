@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:51:50 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:19:12 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:41:56 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ int	ft_stack_a_is_sorted(t_dl_lst *stack_a)
 
 	if (!stack_a)
 		return (-1);
-	current_element = ft_dl_lst_last(stack_a);
+	current_element = stack_a;
 	previous_value = current_element->content;
-	current_element = current_element->previous;
+	current_element = current_element->next;
 	while (current_element)
 	{
 		current_value = current_element->content;
 		if (current_value < previous_value)
 			return (0);
 		previous_value = current_value;
-		current_element = current_element->previous;
+		current_element = current_element->next;
 	}
 	return (1);
 }
