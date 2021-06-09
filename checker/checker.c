@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 12:15:15 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 12:28:06 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,5 +190,8 @@ int	checker(t_dl_lst **stack_a)
 			return (-1);
 		}
 	}
+	ft_putstr(BOLD_GREEN);
+	ft_putendl("Sorted\n");
+	ft_putstr(COLOR_RESET);
 	return (0);
 }
