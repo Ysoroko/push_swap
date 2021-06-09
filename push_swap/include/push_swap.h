@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 15:27:03 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:55:24 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,12 @@ void		ft_rrb(t_dl_lst **stack_b, int write_rrb);
 void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr);
 
 /*
+** CHECKER
+*/
+
+int	checker(t_dl_lst **stack_a);
+
+/*
 ** COLORS
 */
 
@@ -109,5 +115,7 @@ void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr);
 # define BOLD_MAGENTA "\033[1m\033[35m"
 # define BOLD_CYAN "\033[1m\033[36m"
 # define BOLD_WHITE "\033[1m\033[37m"
+
+# define INPUT_SIZE 256
 
 #endif

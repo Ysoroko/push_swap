@@ -6,11 +6,11 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 15:38:36 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:54:17 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../include/push_swap.h"
 
 static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 {

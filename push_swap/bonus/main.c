@@ -6,11 +6,11 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:44:05 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 15:30:14 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:54:19 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../include/push_swap.h"
 
 int	ft_found_bad_input(int argc, char **argv)
 {
