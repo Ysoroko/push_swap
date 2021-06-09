@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 12:28:06 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 14:01:34 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 			else if (current_a == ft_dl_lst_last(stack_a))
 			{
 				printf("\n");
-				if (!current_b)
+				if (!current_b || current_b == ft_dl_lst_last(stack_b))
 				{
 					separator = bottom;
 					width = 18;
@@ -102,7 +102,7 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 				printf(BOLD_CYAN);
 			}
 			printf("%*d", width, current_b->content);
-			if (current_b == ft_dl_lst_first(stack_b))
+			if (current_b == stack_b)
 				printf("\n");
 			current_b = current_b->next;
 			printf(COLOR_RESET);

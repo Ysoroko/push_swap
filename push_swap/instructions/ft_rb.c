@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:09:29 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/07 14:08:52 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 13:52:33 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@
 
 void	ft_rb(t_dl_lst **stack_b, int write_rb)
 {
+	t_dl_lst	*last;
+	t_dl_lst	*first;
+	t_dl_lst	*second;
+
+	if (!stack_b || !*stack_b)
+		return ;
+	last = ft_dl_lst_last(*stack_b);
+	first = *stack_b;
+	second = first->next;
+	last->next = first;
+	first->next = 0;
+	first->previous = last;
+	second->previous = 0;
+	*stack_b = second;
 	if (write_rb)
 		ft_putendl("rb");
 }
