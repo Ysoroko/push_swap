@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:50:15 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 16:36:59 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:26:48 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** Do nothing if b is empty.
 */
 
-void	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a)
+void	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa)
 {
 	t_dl_lst	*first;
 	t_dl_lst	*second;
@@ -41,5 +41,6 @@ void	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a)
 	*stack_b = second;
 	free(first);
 	first = 0;
-	ft_putendl("pa");
+	if (write_pa)
+		ft_putendl("pa");
 }

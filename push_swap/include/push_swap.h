@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/08 15:58:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:27:03 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void		*ft_calloc(size_t count, size_t size);
 int			ft_strlcmp(char *s1, char *s2);
 void		ft_bzero(void *str, size_t n);
 int			ft_n_chars_in_int(int n);
+int			ft_putendl_color(char *str, char *color, int to_return);
 
 /*
 ** Conditions
@@ -85,15 +86,15 @@ int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
 
 void		ft_sa(t_dl_lst **stack_a, int write_sa);
 void		ft_sb(t_dl_lst **stack_b, int write_sb);
-void		ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b);
-void		ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a);
-void		ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b);
+void		ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_ss);
+void		ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa);
+void		ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_pb);
 void		ft_ra(t_dl_lst **stack_a, int write_ra);
 void		ft_rb(t_dl_lst **stack_b, int write_rb);
-void		ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b);
+void		ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rr);
 void		ft_rra(t_dl_lst **stack_a, int write_rra);
 void		ft_rrb(t_dl_lst **stack_b, int write_rrb);
-void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b);
+void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr);
 
 /*
 ** COLORS

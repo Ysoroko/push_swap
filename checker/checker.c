@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:17:44 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:27:32 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,27 +117,27 @@ static void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 static int ft_execute(char	*input_str, t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
 	if (!ft_strlcmp(input_str, "sa"))
-		ft_sa(stack_a, 1);
+		ft_sa(stack_a, 0);
 	else if (!ft_strlcmp(input_str, "sb"))
-		ft_sb(stack_b, 1);
+		ft_sb(stack_b, 0);
 	else if (!ft_strlcmp(input_str, "ss"))
-		ft_ss(stack_a, stack_b);
+		ft_ss(stack_a, stack_b, 0);
 	else if (!ft_strlcmp(input_str, "pa"))
-		ft_pa(stack_b, stack_a);
+		ft_pa(stack_b, stack_a, 0);
 	else if (!ft_strlcmp(input_str, "pb"))
-		ft_pb(stack_a, stack_b);
+		ft_pb(stack_a, stack_b, 0);
 	else if (!ft_strlcmp(input_str, "ra"))
-		ft_ra(stack_a, 1);
+		ft_ra(stack_a, 0);
 	else if (!ft_strlcmp(input_str, "rb"))
-		ft_rb(stack_b, 1);
+		ft_rb(stack_b, 0);
 	else if (!ft_strlcmp(input_str, "rr"))
-		ft_rr(stack_a, stack_b);
+		ft_rr(stack_a, stack_b, 0);
 	else if (!ft_strlcmp(input_str, "rra"))
-		ft_rra(stack_a, 1);
+		ft_rra(stack_a, 0);
 	else if (!ft_strlcmp(input_str, "rrb"))
-		ft_rrb(stack_b, 1);
+		ft_rrb(stack_b, 0);
 	else if (!ft_strlcmp(input_str, "rrr"))
-		ft_rrr(stack_a, stack_b);
+		ft_rrr(stack_a, stack_b, 0);
 	else
 		return (-1);
 	return (0);

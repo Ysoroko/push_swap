@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/07 12:04:54 by ysoroko           #+#    #+#              #
-#    Updated: 2021/06/08 15:59:00 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/06/09 14:47:18 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ LIBFT_UTILS		=		$(PUSH_SWAP)libft_utils/ft_atol.c \
 						$(PUSH_SWAP)libft_utils/ft_calloc.c \
 						$(PUSH_SWAP)libft_utils/ft_bzero.c \
 						$(PUSH_SWAP)libft_utils/ft_n_chars_in_int.c \
+						$(PUSH_SWAP)libft_utils/ft_putendl_color.c
 						
 
 INSTRUCTIONS	=		$(PUSH_SWAP)instructions/ft_sa.c \

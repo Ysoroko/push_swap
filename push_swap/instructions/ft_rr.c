@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:21:11 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 12:18:56 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 14:49:08 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 **		The first element becomes the last one.
 */
 
-void	ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b)
+void	ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rr)
 {
 	if (stack_a && stack_b)
 	{
 		ft_ra(stack_a, 0);
 		ft_rb(stack_b, 0);
-		ft_putendl("rr");
+		if (write_rr)
+			ft_putendl("rr");
 	}
 }

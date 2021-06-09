@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrr.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_color.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 12:05:51 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:48:07 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/06/09 14:44:50 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/06/09 14:52:32 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** void	ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b)
-** rrr:	Shift down all elements of both stacks by 1.
-**		The last element becomes the first one.
+** void	ft_putendl_color(char *str, char *color)
+** Same as ft_putendl, but will write the str string
+** in the specified color, then reset the color to default
+** If *color is an invalid colour, the argument will be written instead!
+** Always returns to_return argument
 */
 
-void	ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr)
+int	ft_putendl_color(char *str, char *color, int to_return)
 {
-	if (stack_a && stack_b)
-	{
-		ft_rra(stack_a, 0);
-		ft_rra(stack_b, 0);
-		if (write_rrr)
-			ft_putendl("rrr");
-	}
+	ft_putstr(color);
+	ft_putendl(str);
+	ft_putstr(COLOR_RESET);
+	return (to_return);
 }
