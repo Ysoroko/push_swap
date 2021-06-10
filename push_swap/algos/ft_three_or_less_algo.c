@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_three.c                                         :+:      :+:    :+:   */
+/*   ft_three_or_less_algo.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:50:31 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 15:09:06 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 15:56:31 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,26 @@ static void	ft_apply_instructions(t_dl_lst **stack_a, int first, int second)
 {
 	int	third;
 
-	third = (*stack_a)->next->next->content;
+	third = (((*stack_a)->next)->next)->content;
 	if (first < second && first < third && second > third)
 	{
 		ft_rra(stack_a, 1);
 		ft_sa(stack_a, 1);
 	}
-	else if (first > second && first > third && second > first)
+	else if (first > second && first > third && second > third)
 	{
 		ft_sa(stack_a, 1);
+		ft_rra(stack_a, 1);
+	}
+	else if (first > second && first > third && second < third)
+	{
 		ft_ra(stack_a, 1);
 	}
-	else if (first > second && first > third && second < first)
-		ft_rra(stack_a, 1);
 	else if (first > second && first < third)
 		ft_sa(stack_a, 1);
 	else if (first < second && first > third)
-		ft_ra(stack_a, 1);
+		ft_rra(stack_a, 1);
+	ft_print_stacks(*stack_a, 0);
 }
 
 /*
@@ -56,7 +59,7 @@ void	ft_three_or_less_algo(t_dl_lst **stack_a)
 	if (!stack_a || !*stack_a)
 		return ;
 	first = (*stack_a)->content;
-	second = (*stack_a)->next->content;
+	second = ((*stack_a)->next)->content;
 	n_elems = ft_dl_lst_size(*stack_a);
 	if (n_elems == 2)
 		ft_sa(stack_a, 1);

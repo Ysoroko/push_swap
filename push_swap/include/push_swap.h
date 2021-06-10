@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 15:11:06 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 15:27:05 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,9 @@ void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr);
 ** PUSH_SWAP
 */
 
-void		ft_determine_and_apply_algo(t_dl_lst **stack_a, t_dl_lst **stak_b);
+void		ft_determine_and_apply_algo(t_dl_lst **stack_a);
 void		ft_three_or_less_algo(t_dl_lst **stack_a);
+void		ft_general_algo(t_dl_lst **stack_a);
 
 /*
 ** CHECKER

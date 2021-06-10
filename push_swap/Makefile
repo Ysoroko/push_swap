@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/06/10 15:11:43 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/06/10 15:28:30 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ INSTRUCTIONS	=		instructions/ft_sa.c \
 
 ALGOS			=		algos/ft_three_or_less_algo.c \
 						algos/ft_determine_and_apply_algo.c \
+						algos/ft_general_algo.c \
 
 DEBUG			=		bonus/ft_print_stacks.c
 
@@ -110,11 +111,11 @@ $(NAME): $(OBJS)
 
 # Compiles everything with warning flags and runs the executable
 run:	
-		@gcc $(FLAGS) $(SRC) $(DEBUG) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+		@gcc $(FLAGS) $(SRC) $(DEBUG) $(ALGOS) -o $(EXECUTABLE) && ./$(EXECUTABLE)
 
 # Compiles everything without warning flags and runs the executable
 wrun:
-		@gcc $(SRC) $(DEBUG) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+		@gcc $(SRC) $(DEBUG) $(ALGOS) -o $(EXECUTABLE) && ./$(EXECUTABLE)
 
 brun:
 		@gcc $(BONUS_SRCS) $(DEBUG) -o $(BONUS_EXECUTABLE) && ./$(BONUS_EXECUTABLE)
