@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/06/10 12:25:31 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/06/10 15:11:43 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,9 @@ INSTRUCTIONS	=		instructions/ft_sa.c \
 						instructions/ft_rra.c \
 						instructions/ft_rrb.c \
 						instructions/ft_rrr.c
+
+ALGOS			=		algos/ft_three_or_less_algo.c \
+						algos/ft_determine_and_apply_algo.c \
 
 DEBUG			=		bonus/ft_print_stacks.c
 
