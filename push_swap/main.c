@@ -6,19 +6,11 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/07 12:08:10 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 12:09:14 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
-
-int	ft_input_error(void)
-{
-	ft_putstr(BOLD_RED);
-	ft_putendl("Error");
-	ft_putstr(COLOR_RESET);
-	return (-1);
-}
 
 int	ft_found_bad_input(int argc, char **argv)
 {
@@ -52,82 +44,79 @@ int	ft_found_bad_input(int argc, char **argv)
 	return (0);
 }
 
-void	ft_print_dl_lst(t_dl_lst *lst, int stack_a)
-{
-	t_dl_lst	*current;
-	int			i;
-
-	i = 1;
-	if (stack_a)
-		printf("[%20s]\n", "STACK A");
-	else
-		printf("[%20s]\n", "STACK B");
-	if (!lst)
-		printf("empty pointer dl_lst\n");
-	current = ft_dl_lst_first(lst);
-	printf("\n\n\n");
-	while (current)
-	{
-		printf("|%-5d|%10d\n", i, current->content);
-		i++;
-		current = current->next;
-	}
-	printf("\n\n\n");
-}
-
 /*
-** Logic:
-** sa: swap 2 first elements of a
-** sb: swap 2 first elements of b
-** ss: swap first 2 elements of both a and b
-** pa: push first element of b to the top of a
-** pb: push first element of a to the top of b
-** ra: rotate a (1st element becomes the last one)
-** rb: rotate b (1st element becomes the last one)
-** rr: rotate a and b (1st elements become last)
-** rra: reverse rotate a (last element becomes the 1st one)
-** rrb: reverse rotate a (last element becomes the 1st one)
-** rrr: reverse rotate a and b (last elements become 1st)
-**
-**
-** If |a......b|	a > b	
-**
+** static int	ft_find_min_value(t_dl_lst *stack_a, t_dl_lst **min_dl_lst)
+** This function will find the minimum value in stack_a, return the value and
+** set *min_dl_lst argument to be the address of t_dl_lst containing this min
+** value
+** Returns 0 if stack_a or min_dl_lst is NULL
 */
 
-//2 stacks: 
-
-void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_ops)
+static int	ft_find_min_value(t_dl_lst *stack_a, t_dl_lst **min_dl_lst)
 {
 	int			min;
-	int			min_in_top_half;
+	t_dl_lst	*current;
+	t_dl_lst	*min_member;
 
-	if (!stack_a || !*stack_a)
-		return ;
-	min = ft_dl_lst_lowest_content(*stack_a);
-	printf("min: [%d]\n", min);
-	min_in_top_half = ft_dl_lst_min_in_top_half(*stack_a);
-	while ((*stack_a)->content != min)
+	if (!stack_a || min_dl_lst)
+		return (0);
+	min = stack_a->content;
+	min_member = stack_a;
+	current = stack_a;
+	while (current)
 	{
-		if (min_in_top_half)
+		if (current->content < min)
 		{
-			ft_ra(stack_a, 1);
-			(*n_ops)++;
+			min = current->content;
+			min_member = current;
 		}
-		else
-		{
-			ft_rra(stack_a, 1);
-			(*n_ops)++;
-		}
-		printf("here\n");
+		current = current->next;
 	}
-	printf("sending min to b\n");
-	ft_print_dl_lst(*stack_a, 1);
-	ft_print_dl_lst(*stack_b, 0);
-	ft_pb(stack_a, stack_b);
-	printf("min sent to b\n");
-	ft_print_dl_lst(*stack_a, 1);
-	ft_print_dl_lst(*stack_b, 0);
-	(*n_ops)++;
+	*min_dl_lst = min_member;
+	return (min);
+}
+
+static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
+{
+	int			min_value;
+	int			stack_a_size;
+	int			index_of_min_dl_lst;
+	t_dl_lst	*min_dl_lst;
+	t_dl_lst	*current;
+
+	if (!stack_a || !stack_b || !n_op)
+		return ;
+	stack_a_size = ft_dl_lst_size(*stack_a);
+	min_value = ft_find_min_value(*stack_a, &min_dl_lst);
+	index_of_min_dl_lst = ft_dl_lst_current_index(*stack_a, min_dl_lst);
+	if (index_of_min_dl_lst < stack_a_size / 2)
+	{
+		while ((*stack_a)->content != min_value)
+		{
+			if (ft_top_two_elems_to_swap(*stack_a))
+			{
+				ft_sa(stack_a, 1);
+				(*n_op)++;
+			}
+			ft_ra(stack_a, 1);
+			(*n_op)++;
+		}
+	}
+	else
+	{
+		while ((*stack_a)->content != min_value)
+		{
+			if (ft_top_two_elems_to_swap(*stack_a))
+			{
+				ft_sa(stack_a, 1);
+				(*n_op)++;
+			}
+			ft_rra(stack_a, 1);
+			(*n_op)++;
+		}
+	}
+	ft_pb(stack_a, stack_b, 1);
+	(*n_op)++;
 }
 
 void	ft_push_swap(t_dl_lst **stack_a)
@@ -141,41 +130,23 @@ void	ft_push_swap(t_dl_lst **stack_a)
 	stack_b = 0;
 	while (*stack_a && !ft_stack_a_is_sorted(*stack_a))
 	{
-		//ft_print_dl_lst(*stack_a);
-		if (ft_top_two_elems_to_swap(*stack_a, 0))
+		if (ft_top_two_elems_to_swap(*stack_a))
 		{
-			number_of_operations++;
 			ft_sa(stack_a, 1);
-			printf("\n\nsa executed\n");
-			ft_print_dl_lst(*stack_a, 1);
-			ft_print_dl_lst(stack_b, 0);
+			number_of_operations++;
 		}
-		//ft_print_dl_lst(*stack_a);
 		if (ft_stack_a_is_sorted(*stack_a))
 		{
 			//printf("sorted after sa\n");
 			break ;
 		}
-		//printf("not sorted yet\n");
-		printf("\n\nbefore min sent to b\n");
-		ft_print_dl_lst(*stack_a, 1);
-		ft_print_dl_lst(stack_b, 0);
 		ft_send_min_to_b(stack_a, &stack_b, &number_of_operations);
-		printf("\n\nmin sent to b\n");
-		ft_print_dl_lst(*stack_a, 1);
-		ft_print_dl_lst(stack_b, 0);
 	}
-	//printf("stack_a is sorted now!\n");
-	ft_print_dl_lst(*stack_a, 1);
-	ft_print_dl_lst(stack_b, 0);
-	/*
-	**while (stack_b)
-	**{
-	**	ft_print_dl_lst(stack_b);
-	**	ft_pa(&stack_b, stack_a);
-	**	number_of_operations++;
-	**}
-	*/
+	while (stack_b)
+	{
+		ft_pa(&stack_b, stack_a, 1);
+		number_of_operations++;
+	}
 	printf("Number of operations: [%d]\n", number_of_operations);
 }
 
