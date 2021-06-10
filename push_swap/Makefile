@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/06/09 15:58:34 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/06/10 12:25:31 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,8 @@ INSTRUCTIONS	=		instructions/ft_sa.c \
 						instructions/ft_rrb.c \
 						instructions/ft_rrr.c
 
+DEBUG			=		bonus/ft_print_stacks.c
+
 SRC					=	$(DL_LST) \
 						$(LIBFT_UTILS) \
 						$(INSTRUCTIONS) \
@@ -105,14 +107,14 @@ $(NAME): $(OBJS)
 
 # Compiles everything with warning flags and runs the executable
 run:	
-		@gcc $(FLAGS) $(SRC) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+		@gcc $(FLAGS) $(SRC) $(DEBUG) -o $(EXECUTABLE) && ./$(EXECUTABLE)
 
 # Compiles everything without warning flags and runs the executable
 wrun:
-		@gcc $(SRC) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+		@gcc $(SRC) $(DEBUG) -o $(EXECUTABLE) && ./$(EXECUTABLE)
 
 brun:
-		@gcc $(BONUS_SRCS) -o $(BONUS_EXECUTABLE) && ./$(BONUS_EXECUTABLE)
+		@gcc $(BONUS_SRCS) $(DEBUG) -o $(BONUS_EXECUTABLE) && ./$(BONUS_EXECUTABLE)
 
 # Remove all ".o" files
 clean:

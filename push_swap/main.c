@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 12:09:14 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 12:24:44 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 	int			stack_a_size;
 	int			index_of_min_dl_lst;
 	t_dl_lst	*min_dl_lst;
-	t_dl_lst	*current;
 
 	if (!stack_a || !stack_b || !n_op)
 		return ;
@@ -140,7 +139,9 @@ void	ft_push_swap(t_dl_lst **stack_a)
 			//printf("sorted after sa\n");
 			break ;
 		}
+		ft_print_stacks(*stack_a, stack_b);
 		ft_send_min_to_b(stack_a, &stack_b, &number_of_operations);
+		ft_print_stacks(*stack_a, stack_b);
 	}
 	while (stack_b)
 	{
@@ -161,7 +162,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	j = 0;
 	if (ft_found_bad_input(argc, argv))
-		return (ft_input_error());
+		return (ft_putendl_color("Error\n", BOLD_RED, -1));
 	while (++i < argc)
 	{
 		tab[j] = ft_atoi(argv[i]);
@@ -181,7 +182,6 @@ int	main(int argc, char **argv)
 		current_t_dl_lst = current_t_dl_lst->next;
 		i++;
 	}
-	ft_print_dl_lst(stack_a, 1);
 	ft_push_swap(&stack_a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 11:47:49 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 12:18:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,13 @@ void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr);
 ** CHECKER
 */
 
-int	checker(t_dl_lst **stack_a);
+int			checker(t_dl_lst **stack_a);
+
+/*
+** DEBUG
+*/
+
+void		ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b);
 
 /*
 ** COLORS
