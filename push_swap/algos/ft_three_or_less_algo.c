@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:50:31 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 15:56:31 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 16:08:46 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void	ft_apply_instructions(t_dl_lst **stack_a, int first, int second)
 		ft_sa(stack_a, 1);
 	else if (first < second && first > third)
 		ft_rra(stack_a, 1);
-	ft_print_stacks(*stack_a, 0);
 }
 
 /*

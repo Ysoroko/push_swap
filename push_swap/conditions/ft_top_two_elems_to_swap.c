@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:04:57 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 11:49:50 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 16:16:59 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 int	ft_top_two_elems_to_swap(t_dl_lst *stack_a)
 {
 	int	top;
-	int	top_prev;
+	int	top_next;
 
 	if (!stack_a || ft_dl_lst_size(stack_a) < 2)
 		return (0);
 	top = stack_a->content;
-	top_prev = (stack_a->next)->content;
-	if (top > top_prev)
+	top_next = (stack_a->next)->content;
+	if (top > top_next)
 		return (1);
 	return (0);
 }

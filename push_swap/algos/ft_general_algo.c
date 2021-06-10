@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 15:17:44 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 15:55:39 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 16:26:46 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_find_min_value(t_dl_lst *stack_a, t_dl_lst **min_dl_lst)
 	t_dl_lst	*current;
 	t_dl_lst	*min_member;
 
-	if (!stack_a || min_dl_lst)
+	if (!stack_a || !min_dl_lst)
 		return (0);
 	min = stack_a->content;
 	min_member = stack_a;
@@ -64,6 +64,8 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 			{
 				ft_sa(stack_a, 1);
 				(*n_op)++;
+				if ((*stack_a)->content == min_value)
+					break ;
 			}
 			ft_ra(stack_a, 1);
 			(*n_op)++;
@@ -77,6 +79,8 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 			{
 				ft_sa(stack_a, 1);
 				(*n_op)++;
+				if ((*stack_a)->content == min_value)
+					break ;
 			}
 			ft_rra(stack_a, 1);
 			(*n_op)++;
@@ -110,9 +114,7 @@ void	ft_general_algo(t_dl_lst **stack_a)
 		}
 		if (ft_stack_a_is_sorted(*stack_a))
 			break ;
-		ft_print_stacks(*stack_a, stack_b);
 		ft_send_min_to_b(stack_a, &stack_b, &number_of_operations);
-		ft_print_stacks(*stack_a, stack_b);
 	}
 	while (stack_b)
 	{
@@ -120,4 +122,5 @@ void	ft_general_algo(t_dl_lst **stack_a)
 		number_of_operations++;
 	}
 	printf("Number of operations: [%d]\n", number_of_operations);
+	ft_print_stacks(*stack_a, stack_b);
 }
