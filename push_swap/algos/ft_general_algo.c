@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 15:17:44 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/11 14:33:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/11 15:22:28 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,32 +66,18 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 	index_of_min_dl_lst = ft_dl_lst_current_index(*stack_a, min_dl_lst);
 	if (index_of_min_dl_lst < stack_a_size / 2)
 	{
-		while ((*stack_a)->content != min_value)
-		{
-			if (ft_top_two_elems_to_swap(*stack_a))
-			{
-				ft_sa(stack_a, 1);
-				(*n_op)++;
-			}
-			if (ft_stack_a_is_sorted(*stack_a))
-				break ;
+		while ((*stack_a)->content != min_value && !ft_stack_a_is_sorted(*stack_a))
+		{	
 			ft_ra(stack_a, 1);
 			(*n_op)++;
 		}
 	}
 	else
 	{
-		while ((*stack_a)->content != min_value)
+		while ((*stack_a)->content != min_value && !ft_stack_a_is_sorted(*stack_a))
 		{
-			if (ft_stack_a_is_sorted(*stack_a))
-				break ;
 			ft_rra(stack_a, 1);
 			(*n_op)++;
-			if (ft_top_two_elems_to_swap(*stack_a))
-			{
-				ft_sa(stack_a, 1);
-				(*n_op)++;
-			}
 		}
 	}
 	ft_pb(stack_a, stack_b, 1);
@@ -120,8 +106,6 @@ void	ft_general_algo(t_dl_lst **stack_a)
 			ft_sa(stack_a, 1);
 			number_of_operations++;
 		}
-		if (ft_stack_a_is_sorted(*stack_a) && !stack_b)
-			break ;
 		ft_send_min_to_b(stack_a, &stack_b, &number_of_operations);
 	}
 	while (stack_b)
