@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 15:27:05 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/11 10:24:40 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int			ft_putendl_color(char *str, char *color, int to_return);
 
 int			ft_top_two_elems_to_swap(t_dl_lst *stack);
 int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
+int			ft_top_and_bottom_to_rotate(t_dl_lst *stack_a);
 
 /*
 ** Instructions
