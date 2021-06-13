@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:58:14 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 15:53:51 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/13 16:49:47 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ void	ft_rra(t_dl_lst **stack_a, int write_rra)
 	first->previous = last;
 	before_last->next = 0;
 	*stack_a = last;
-	if (write_rra)
 		ft_putendl("rra");
 }

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_general_algo.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 15:17:44 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/13 16:53:02 by ysoroko          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/push_swap.h"
 
 /*
@@ -97,12 +85,17 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 }
 
 /*
-** void	ft_general_algo(t_dl_lst **stack_a)
-** This is the main algo used when the number of elements in stack_a
-** is too big for any other algo
+** void	ft_five_or_less_algo(t_dl_lst **stack_a)
+** This is algo used when stack_a has 5 or less elements
+** It will sort it in max 10 operations
+** The logic is to find the minimum value in stack_a,
+** perform ra/rra depending on its place to place it on top
+** and then push it to stack_b
+** When remaining stack_a is sorted, we push everything
+** from stack_b to stack_a using "pa" and obtain a sorted stack_a
 */
 
-void	ft_general_algo(t_dl_lst **stack_a)
+void	ft_five_or_less_algo(t_dl_lst **stack_a)
 {
 	t_dl_lst	*stack_b;
 	int			number_of_operations;

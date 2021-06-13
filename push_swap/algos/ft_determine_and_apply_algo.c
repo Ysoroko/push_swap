@@ -6,11 +6,17 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:50:54 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/13 16:01:08 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/13 17:05:46 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/*
+** int	*ft_sorted_copy_of_sa(t_dl_lst **stack_a)
+** This function will create a copy of stack_a, sort it (unefficiently)
+** and then it will return the sorted elements as an int tab
+*/
 
 int	*ft_sorted_copy_of_sa(t_dl_lst **stack_a)
 {
@@ -27,7 +33,7 @@ int	*ft_sorted_copy_of_sa(t_dl_lst **stack_a)
 		ft_dl_lst_add_back(&sorted_a, ft_dl_lst_new_exit(current->content));
 		current = current->next;
 	}
-	ft_general_algo(&sorted_a);
+	ft_behind_the_scene_algo(&sorted_a);
 	ret = malloc(sizeof(int) * ft_dl_lst_size(*stack_a));
 	if (!ret)
 		exit(EXIT_FAILURE);
@@ -39,6 +45,13 @@ int	*ft_sorted_copy_of_sa(t_dl_lst **stack_a)
 	ft_dl_lstclear(sorted_a);
 	return (ret);
 }
+
+/*
+** void	ft_determine_and_apply_algo(t_dl_lst **stack_a)
+** This functions receives stack_a as it is (as main arguments)
+** It will check the number of elements in the stack and based on it
+** it will decide which algorythm to perform and perform it
+*/
 
 void	ft_determine_and_apply_algo(t_dl_lst **stack_a)
 {

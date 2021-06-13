@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_general_algo.c                                  :+:      :+:    :+:   */
+/*   ft_behind_the_scene_algo.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 15:17:44 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/13 16:53:02 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/06/13 16:55:07 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/06/13 16:56:38 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 	{
 		while ((*stack_a)->content != min_value && !ft_stack_a_is_sorted(*stack_a))
 		{
-			ft_ra(stack_a, 1);
+			ft_ra(stack_a, 0);
 			(*n_op)++;
 			//ft_print_stacks(*stack_a, *stack_b);
 		}
@@ -83,26 +83,27 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 	{
 		while ((*stack_a)->content != min_value && !ft_stack_a_is_sorted(*stack_a))
 		{
-			ft_rra(stack_a, 1);
+			ft_rra(stack_a, 0);
 			(*n_op)++;
 			//ft_print_stacks(*stack_a, *stack_b);
 		}
 	}
 	if (!ft_stack_a_is_sorted(*stack_a))
 	{
-		ft_pb(stack_a, stack_b, 1);
+		ft_pb(stack_a, stack_b, 0);
 		//ft_print_stacks(*stack_a, *stack_b);
 		(*n_op)++;
 	}
 }
 
 /*
-** void	ft_general_algo(t_dl_lst **stack_a)
-** This is the main algo used when the number of elements in stack_a
-** is too big for any other algo
+** void	ft_behind_the_scene_algo(t_dl_lst **stack_a)
+** This algo will unefficiently sort stack_a argument
+** It is too inefficient to use as a main_algo for push_swap
+** but alows us to easily get a sorted version of stack_a
 */
 
-void	ft_general_algo(t_dl_lst **stack_a)
+void	ft_behind_the_scene_algo(t_dl_lst **stack_a)
 {
 	t_dl_lst	*stack_b;
 	int			number_of_operations;
@@ -115,7 +116,7 @@ void	ft_general_algo(t_dl_lst **stack_a)
 	{
 		if (ft_top_two_elems_to_swap(*stack_a))
 		{
-			ft_sa(stack_a, 1);
+			ft_sa(stack_a, 0);
 			//ft_print_stacks(*stack_a, stack_b);
 			number_of_operations++;
 		}
