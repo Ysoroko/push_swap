@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:26:57 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/13 14:27:13 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/13 15:23:32 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ static void	ft_sort_stack_a(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_ops)
 	int			index_of_min_dl_lst;
 
 	n_elems_sent_to_b = 0;
+	min_dl_lst = 0;
 	initial_stack_a_size = ft_dl_lst_size(*stack_a);
 	index_of_min_dl_lst = ft_dl_lst_current_index(*stack_a, min_dl_lst);
 	if (index_of_min_dl_lst < initial_stack_a_size / 2)
@@ -180,7 +181,6 @@ void	ft_alternate_algo(t_dl_lst **stack_a)
 {
 	int			n_ops;
 	t_dl_lst	*stack_b;
-	int			min_value;
 
 	n_ops = 0;
 	stack_b = 0;

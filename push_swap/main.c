@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 15:52:33 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/13 15:40:20 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,7 @@ int	main(int argc, char **argv)
 	if (ft_found_bad_input(argc, argv))
 		return (ft_putendl_color("Error\n", BOLD_RED, -1));
 	while (++i < argc)
-	{
-		tab[j] = ft_atoi(argv[i]);
-		j++;
-	}
+		tab[j++] = ft_atoi(argv[i]);
 	if (argc < 3 || ft_int_tab_is_sorted(tab, argc - 1, 1))
 	{
 		ft_putendl("Sorted!");
