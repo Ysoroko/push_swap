@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/06/13 17:07:41 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/07/01 12:40:49 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,10 @@ DL_LST			=		dl_lst/ft_dl_lst_add_back.c \
 
 CONDITIONS		=		conditions/ft_top_two_elems_to_swap.c \
 						conditions/ft_stack_a_is_sorted.c \
-						conditions/ft_top_and_bottom_to_rotate.c
+						conditions/ft_top_and_bottom_to_rotate.c \
+						conditions/ft_elem_is_in_next_part.c \
+						conditions/ft_number_of_moves_from_the_top.c \
+						conditions/ft_number_of_moves_from_the_bottom.c \
 
 LIBFT_UTILS		=		libft_utils/ft_atol.c \
 						libft_utils/ft_element_found_in_int_tab.c \
@@ -64,7 +67,8 @@ ALGOS			=		algos/ft_three_or_less_algo.c \
 						algos/ft_determine_and_apply_algo.c \
 						algos/ft_general_algo.c \
 						algos/ft_behind_the_scene_algo.c \
-						algos/ft_five_or_less_algo.c
+						algos/ft_five_or_less_algo.c \
+						algos/ft_hundred_or_less_algo.c
 
 
 DEBUG			=		bonus/ft_print_stacks.c

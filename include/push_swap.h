@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/13 16:57:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/01 12:40:35 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ int			ft_putendl_color(char *str, char *color, int to_return);
 int			ft_top_two_elems_to_swap(t_dl_lst *stack);
 int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
 int			ft_top_and_bottom_to_rotate(t_dl_lst *stack_a);
+int			ft_elem_is_in_next_part(t_dl_lst *stack_a, int *next_part,
+				int p_size);
+int			ft_number_of_moves_from_the_top(t_dl_lst *stack_a, int until_elem);
+int			ft_number_of_moves_from_the_bottom(t_dl_lst *stack_a,
+				int until_elem);
 
 /*
 ** Instructions
@@ -105,6 +110,8 @@ void		ft_determine_and_apply_algo(t_dl_lst **stack_a);
 void		ft_three_or_less_algo(t_dl_lst **stack_a);
 void		ft_general_algo(t_dl_lst **stack_a);
 void		ft_five_or_less_algo(t_dl_lst **stack_a);
+void		ft_hundred_or_less_algo(t_dl_lst **stack_a, int *sorted_a,
+				int n_elems);
 void		ft_behind_the_scene_algo(t_dl_lst **stack_a);
 
 /*

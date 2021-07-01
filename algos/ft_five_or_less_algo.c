@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_five_or_less_algo.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/01 11:43:27 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/07/01 11:43:36 by ysoroko          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 /*
@@ -87,7 +99,7 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 /*
 ** void	ft_five_or_less_algo(t_dl_lst **stack_a)
 ** This is algo used when stack_a has 5 or less elements
-** It will sort it in max 10 operations
+** It will sort it in max 10 operations (12 is allowed max)
 ** The logic is to find the minimum value in stack_a,
 ** perform ra/rra depending on its place to place it on top
 ** and then push it to stack_b
@@ -122,11 +134,3 @@ void	ft_five_or_less_algo(t_dl_lst **stack_a)
 	//ft_print_stacks(*stack_a, stack_b);
 	//printf("Number of operations: [%d]\n", number_of_operations);
 }
-
-/*
-** Limits:
-** 3 elements: 2 or 3 operations max
-** 5 elements: 12 max (8 = very good) (elements used: 1 5 2 4 3)
-** 100 elements: <700 = 5/5	<1500 = 1/5
-** 500 elements: <5500 = 5/5	<11500 = 1/5
-*/

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 16:55:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/13 16:56:38 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/01 11:37:04 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,13 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 /*
 ** void	ft_behind_the_scene_algo(t_dl_lst **stack_a)
 ** This algo will unefficiently sort stack_a argument
-** It is too inefficient to use as a main_algo for push_swap
+** It uses "insertion sort" algorithm processing one element at a time
+** It finds the minimum value in stack_a, rotates/reverse rotates the stack
+** until the value is at the top, then pushes it to stack b.
+** The process is repeated until the remaining stack_a is sorted.
+** This progressively makes the stack_b reverse-sorted.
+** Then it simply pushes all elements from stack_b to stack_a
+** It is too inefficient to use as a main algo for push_swap
 ** but alows us to easily get a sorted version of stack_a
 */
 
@@ -130,11 +136,3 @@ void	ft_behind_the_scene_algo(t_dl_lst **stack_a)
 	//ft_print_stacks(*stack_a, stack_b);
 	//printf("Number of operations: [%d]\n", number_of_operations);
 }
-
-/*
-** Limits:
-** 3 elements: 2 or 3 operations max
-** 5 elements: 12 max (8 = very good) (elements used: 1 5 2 4 3)
-** 100 elements: <700 = 5/5	<1500 = 1/5
-** 500 elements: <5500 = 5/5	<11500 = 1/5
-*/
