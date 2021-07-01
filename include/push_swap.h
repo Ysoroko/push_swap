@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/01 12:40:35 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/01 14:23:34 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,11 @@ int			ft_elem_is_in_next_part(t_dl_lst *stack_a, int *next_part,
 int			ft_number_of_moves_from_the_top(t_dl_lst *stack_a, int until_elem);
 int			ft_number_of_moves_from_the_bottom(t_dl_lst *stack_a,
 				int until_elem);
+int			ft_first_elem_from_next_part_top(t_dl_lst *stack_a, int *part,
+				int p_len);
+int			ft_first_elem_from_next_part_bottom(t_dl_lst *stack_a, int *part,
+				int p_ln);
+
 
 /*
 ** Instructions
