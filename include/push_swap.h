@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/01 14:23:34 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/01 14:34:55 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,13 @@ int			checker(t_dl_lst **stack_a);
 */
 
 void		ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b);
+
+/*
+** CONSTANTS
+*/
+
+# define N_PARTS_UNDER_HUNDRED 5
+# define N_PARTS_GENERAL 11
 
 /*
 ** COLORS

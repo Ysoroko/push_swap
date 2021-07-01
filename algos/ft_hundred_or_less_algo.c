@@ -6,13 +6,44 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/01 12:45:58 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/01 14:45:46 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
+{
+	int	next_elem_from_top;
+	int	next_elem_bottom;
+	int	n_ops_top;
+	int	n_ops_bottom;
+	int	number_of_ops_used;
 
+	number_of_ops_used = 0;
+	next_elem_from_top = ft_first_elem_from_next_part_top(*stack_a, part, ln);
+	next_elem_bottom = ft_first_elem_from_next_part_bottom(*stack_a, part, ln);
+	n_ops_top = ft_first_elem_from_next_part_top(*stack_a, part, ln);
+	n_ops_bottom = ft_first_elem_from_next_part_bottom(*stack_a, part, ln);
+	if (n_ops_top >= n_ops_bottom)
+	{
+		while (*stack_a && (*stack_a)->content != next_elem_from_top)
+		{
+			ft_ra(stack_a, 1);
+			number_of_ops_used++;
+		}
+	}
+	else
+	{
+		while (*stack_a && (*stack_a)->content != next_elem_bottom)
+		{
+			ft_rra(stack_a, 1);
+			number_of_ops_used++;
+		}
+		
+	}
+	return (number_of_ops_used);
+}
 
 void	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
 								int *sorted_a, int n_elems)
@@ -20,10 +51,8 @@ void	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
 	int	*next_part;
 	int	parts_length;
 	int	current_n_elemts;
-	int	next_elem_from_top;
-	int	next_elem_from_bottom;
 
-	parts_length = n_elems / 5;
+	parts_length = n_elems / N_PARTS_UNDER_HUNDRED;
 	next_part = sorted_a;
 	
 
