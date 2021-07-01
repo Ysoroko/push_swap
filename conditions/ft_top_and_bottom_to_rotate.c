@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrr.c                                           :+:      :+:    :+:   */
+/*   ft_top_and_bottom_to_rotate.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 12:05:51 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:48:07 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/06/11 10:19:03 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/06/11 14:24:12 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** void	ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b)
-** rrr:	Shift down all elements of both stacks by 1.
-**		The last element becomes the first one.
+** int	ft_top_and_bottom_to_rotate(t_dl_lst *stack_a)
+** This function is used to check if we need to swap the top and the bottom
+** of the stack_a
+** Returns 1 if we do, 0 if we don't
 */
 
-void	ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr)
+int	ft_top_and_bottom_to_rotate(t_dl_lst *stack_a)
 {
-	if (stack_a && stack_b)
-	{
-		ft_rra(stack_a, 0);
-		ft_rra(stack_b, 0);
-		if (write_rrr)
-			ft_putendl("rrr");
-	}
+	int	top;
+	int	bottom;
+
+	if (!stack_a || !stack_a->next)
+		return (0);
+	top = stack_a->content;
+	bottom = ft_dl_lst_last(stack_a)->content;
+	if (bottom < top)
+		return (1);
+	return (0);
 }

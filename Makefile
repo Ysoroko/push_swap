@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/06/04 13:53:44 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/06/13 17:07:41 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,12 @@ DL_LST			=		dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lst_remove_first.c \
 						dl_lst/ft_dl_lst_lowest_content.c \
 						dl_lst/ft_dl_lst_min_in_top_half.c \
-						dl_lst/ft_dl_lst_swap_top_two.c
+						dl_lst/ft_dl_lst_swap_top_two.c \
+						dl_lst/ft_dl_lst_current_index.c
 
 CONDITIONS		=		conditions/ft_top_two_elems_to_swap.c \
-						conditions/ft_stack_a_is_sorted.c
+						conditions/ft_stack_a_is_sorted.c \
+						conditions/ft_top_and_bottom_to_rotate.c
 
 LIBFT_UTILS		=		libft_utils/ft_atol.c \
 						libft_utils/ft_element_found_in_int_tab.c \
@@ -39,7 +41,12 @@ LIBFT_UTILS		=		libft_utils/ft_atol.c \
 						libft_utils/ft_write_utils.c \
 						libft_utils/ft_atoi.c \
 						libft_utils/ft_int_tab_is_sorted.c \
-						libft_utils/ft_dl_lst_is_sorted.c
+						libft_utils/ft_dl_lst_is_sorted.c \
+						libft_utils/ft_strlcmp.c \
+						libft_utils/ft_calloc.c \
+						libft_utils/ft_bzero.c \
+						libft_utils/ft_n_chars_in_int.c \
+						libft_utils/ft_putendl_color.c
 
 INSTRUCTIONS	=		instructions/ft_sa.c \
 						instructions/ft_sb.c \
@@ -52,7 +59,15 @@ INSTRUCTIONS	=		instructions/ft_sa.c \
 						instructions/ft_rra.c \
 						instructions/ft_rrb.c \
 						instructions/ft_rrr.c
-						
+
+ALGOS			=		algos/ft_three_or_less_algo.c \
+						algos/ft_determine_and_apply_algo.c \
+						algos/ft_general_algo.c \
+						algos/ft_behind_the_scene_algo.c \
+						algos/ft_five_or_less_algo.c
+
+
+DEBUG			=		bonus/ft_print_stacks.c
 
 SRC					=	$(DL_LST) \
 						$(LIBFT_UTILS) \
@@ -60,7 +75,18 @@ SRC					=	$(DL_LST) \
 						$(CONDITIONS) \
 						main.c
 
+CHECKER				=	bonus/checker.c \
+						bonus/main.c
+
+BONUS_SRCS			=	$(DL_LST) \
+						$(LIBFT_UTILS) \
+						$(INSTRUCTIONS) \
+						$(CONDITIONS) \
+						$(CHECKER)
+
 OBJS				=	$(SRC:.c=.o)
+
+
 
 # Colors
 BOLD_PURPLE			=	\033[1;35m
@@ -77,6 +103,8 @@ INCLUDE		=	-I include
 
 EXECUTABLE	=	push_swap
 
+BONUS_EXECUTABLE = checker
+
 LIBRARY	=	push_swap.a
 
 all: $(NAME)
@@ -87,11 +115,14 @@ $(NAME): $(OBJS)
 
 # Compiles everything with warning flags and runs the executable
 run:	
-		@gcc $(FLAGS) $(SRC) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+		@gcc $(FLAGS) $(SRC) $(DEBUG) $(ALGOS) -o $(EXECUTABLE) && ./$(EXECUTABLE)
 
 # Compiles everything without warning flags and runs the executable
 wrun:
-		@gcc $(SRC) -o $(EXECUTABLE) && ./$(EXECUTABLE) bonjour
+		@gcc $(SRC) $(DEBUG) $(ALGOS) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+
+brun:
+		@gcc $(BONUS_SRCS) $(DEBUG) -o $(BONUS_EXECUTABLE) && ./$(BONUS_EXECUTABLE)
 
 # Remove all ".o" files
 clean:
@@ -102,6 +133,7 @@ clean:
 fclean:	clean
 		@rm -rf $(NAME)
 		@rm -rf $(EXECUTABLE)
+		@rm -rf $(BONUS_EXECUTABLE)
 		@$(FCLEANED)
 
 re:		fclean all

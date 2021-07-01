@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 13:54:06 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/13 16:57:43 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void		ft_dl_lst_remove_first(t_dl_lst **dl_lst);
 int			ft_dl_lst_lowest_content(t_dl_lst *dl_lst);
 int			ft_dl_lst_min_in_top_half(t_dl_lst *dl_lst);
 void		ft_dl_lst_swap_top_two(t_dl_lst **dl_lst);
+int			ft_dl_lst_current_index(t_dl_lst *dl_lst,
+				t_dl_lst *element_to_find);
 
 /*
 ** LIBFT functions
@@ -65,13 +67,19 @@ void		ft_putendl(char *s);
 int			ft_atoi(char *str);
 int			ft_int_tab_is_sorted(int *tab, int tab_len, int low_to_high);
 int			ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order);
+void		*ft_calloc(size_t count, size_t size);
+int			ft_strlcmp(char *s1, char *s2);
+void		ft_bzero(void *str, size_t n);
+int			ft_n_chars_in_int(int n);
+int			ft_putendl_color(char *str, char *color, int to_return);
 
 /*
 ** Conditions
 */
 
-int			ft_top_two_elems_to_swap(t_dl_lst *stack, int low_to_high);
+int			ft_top_two_elems_to_swap(t_dl_lst *stack);
 int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
+int			ft_top_and_bottom_to_rotate(t_dl_lst *stack_a);
 
 /*
 ** Instructions
@@ -79,15 +87,37 @@ int			ft_stack_a_is_sorted(t_dl_lst *stack_a);
 
 void		ft_sa(t_dl_lst **stack_a, int write_sa);
 void		ft_sb(t_dl_lst **stack_b, int write_sb);
-void		ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b);
-void		ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a);
-void		ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b);
+void		ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_ss);
+void		ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa);
+void		ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_pb);
 void		ft_ra(t_dl_lst **stack_a, int write_ra);
 void		ft_rb(t_dl_lst **stack_b, int write_rb);
-void		ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b);
+void		ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rr);
 void		ft_rra(t_dl_lst **stack_a, int write_rra);
 void		ft_rrb(t_dl_lst **stack_b, int write_rrb);
-void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b);
+void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr);
+
+/*
+** PUSH_SWAP
+*/
+
+void		ft_determine_and_apply_algo(t_dl_lst **stack_a);
+void		ft_three_or_less_algo(t_dl_lst **stack_a);
+void		ft_general_algo(t_dl_lst **stack_a);
+void		ft_five_or_less_algo(t_dl_lst **stack_a);
+void		ft_behind_the_scene_algo(t_dl_lst **stack_a);
+
+/*
+** CHECKER
+*/
+
+int			checker(t_dl_lst **stack_a);
+
+/*
+** DEBUG
+*/
+
+void		ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b);
 
 /*
 ** COLORS
@@ -102,5 +132,7 @@ void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b);
 # define BOLD_MAGENTA "\033[1m\033[35m"
 # define BOLD_CYAN "\033[1m\033[36m"
 # define BOLD_WHITE "\033[1m\033[37m"
+
+# define INPUT_SIZE 256
 
 #endif

@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrr.c                                           :+:      :+:    :+:   */
+/*   ft_n_chars_in_int.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 12:05:51 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:48:07 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/06/08 15:30:05 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/06/08 15:33:15 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** void	ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b)
-** rrr:	Shift down all elements of both stacks by 1.
-**		The last element becomes the first one.
+** int	ft_n_chars_in_int(int n)
+** This function returns the number of chars necessary to write n
+** as a string
 */
 
-void	ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr)
+int	ft_n_chars_in_int(int n)
 {
-	if (stack_a && stack_b)
+	int	m;
+	int	count;
+
+	count = 0;
+	if (!n)
+		return (1);
+	if (n < 0)
 	{
-		ft_rra(stack_a, 0);
-		ft_rra(stack_b, 0);
-		if (write_rrr)
-			ft_putendl("rrr");
+		m = -n;
+		count++;
 	}
+	else
+		m = n;
+	while (m % 10)
+	{
+		m = m / 10;
+		count++;
+	}
+	return (count);
 }

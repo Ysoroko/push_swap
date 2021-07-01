@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:01:12 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 14:19:44 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/09 15:26:43 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,28 @@
 ** Do nothing if a is empty.
 */
 
-void	ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b)
+void	ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_pb)
 {
-	t_dl_lst	*element_to_move;
-	t_dl_lst	*new_element;
+	t_dl_lst	*first;
+	t_dl_lst	*second;
+	t_dl_lst	*temp;
 
-	if (!stack_a || !*stack_a || !stack_b)
+	if (!stack_a || !stack_b || !*stack_a)
 		return ;
-	element_to_move = ft_dl_lst_last(*stack_a);
-	printf("pb pushing: [%d]\n", element_to_move->content);
-	new_element = ft_dl_lst_new_exit(element_to_move->content);
-	if (*stack_b)
-		ft_dl_lst_add_back(stack_b, new_element);
+	first = *stack_a;
+	second = first->next;
+	if (!*stack_b)
+		*stack_b = ft_dl_lst_new_exit(first->content);
 	else
-		*stack_b = new_element;
-	ft_dl_lst_remove_last(stack_a);
-	ft_putendl("pb");
+	{
+		temp = ft_dl_lst_new_exit(first->content);
+		(*stack_b)->previous = temp;
+		temp->next = *stack_b;
+		*stack_b = temp;
+	}
+	*stack_a = second;
+	free(first);
+	first = 0;
+	if (write_pb)
+		ft_putendl("pb");
 }

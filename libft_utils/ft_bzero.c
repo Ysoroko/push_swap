@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrr.c                                           :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 12:05:51 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:48:07 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/06/07 14:09:55 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/06/07 14:10:29 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*
-** void	ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b)
-** rrr:	Shift down all elements of both stacks by 1.
-**		The last element becomes the first one.
-*/
-
-void	ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr)
+void	ft_bzero(void *str, size_t n)
 {
-	if (stack_a && stack_b)
+	size_t			i;
+	unsigned char	*my_str;
+
+	i = 0;
+	my_str = (unsigned char *)(str);
+	while (i < n)
 	{
-		ft_rra(stack_a, 0);
-		ft_rra(stack_b, 0);
-		if (write_rrr)
-			ft_putendl("rrr");
+		my_str[i] = '\0';
+		i++;
 	}
 }

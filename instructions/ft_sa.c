@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:00:43 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/04 13:49:31 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/06/10 16:22:38 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,27 @@
 ** This function is responsible for the following operations:
 ** sa:	switches last two elements of the stack_a
 ** If the stack is empty or counts less than 2 elements, do nothing.
+** null <- 1 <-> 2 <-> 3
+** null <- 2 <-> 1	 3
+** null <- 2 <-> 1 <-> 3
 */
 
 void	ft_sa(t_dl_lst **stack_a, int write_sa)
 {
-	if (!stack_a || !*stack_a || ft_dl_lst_size(*stack_a) <= 1)
-		return ;
-	ft_dl_lst_swap_top_two(stack_a);
-	*stack_a = ft_dl_lst_first(*stack_a);
+	t_dl_lst	*first;
+	t_dl_lst	*second;
+	t_dl_lst	*third;
+
+	first = *stack_a;
+	second = first->next;
+	third = second->next;
+	*stack_a = second;
+	second->next = first;
+	second->previous = 0;
+	first->previous = second;
+	first->next = third;
+	if (third)
+		third->previous = first;
 	if (write_sa)
 		ft_putendl("sa");
 }

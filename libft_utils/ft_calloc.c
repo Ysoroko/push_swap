@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrr.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 12:05:51 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:48:07 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/06/07 12:42:00 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/06/07 13:22:39 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*
-** void	ft_rr(t_dl_lst *stack_a, t_dl_lst *stack_b)
-** rrr:	Shift down all elements of both stacks by 1.
-**		The last element becomes the first one.
-*/
-
-void	ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (stack_a && stack_b)
+	size_t	total_size;
+	void	*ret;
+
+	total_size = size * count;
+	ret = malloc(total_size);
+	if (ret == 0)
 	{
-		ft_rra(stack_a, 0);
-		ft_rra(stack_b, 0);
-		if (write_rrr)
-			ft_putendl("rrr");
+		return (0);
 	}
+	ft_bzero(ret, total_size);
+	return (ret);
 }
