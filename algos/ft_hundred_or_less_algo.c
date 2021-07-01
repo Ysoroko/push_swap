@@ -6,11 +6,21 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/01 14:45:46 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/01 14:50:36 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/*
+** int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
+** This function will look for the closest element from the next part of stack,
+** both from the top and the bottom, will compare the number of operations
+** needed to reach it from the top/bottom, then choose the "closest"
+** element and apply the needed rotations until the element is at the top of
+** the stack
+** It returns the number of operations used
+*/
 
 int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 {
@@ -44,6 +54,13 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 	}
 	return (number_of_ops_used);
 }
+
+/*
+** void	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
+**								int *sorted_a, int n_elems)
+** This function is responsible for sending the entire next "part" of stack_a
+** to stack_b
+*/
 
 void	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
 								int *sorted_a, int n_elems)
