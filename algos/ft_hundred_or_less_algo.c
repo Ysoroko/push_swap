@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/01 14:50:36 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/01 17:02:11 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,63 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 			ft_rra(stack_a, 1);
 			number_of_ops_used++;
 		}
-		
 	}
 	return (number_of_ops_used);
+}
+
+int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
+{
+	int			n_ops_top;
+	int			next;
+	int			previous;
+	int			n_ops_bottom;
+	t_dl_lst	*current;
+
+	n_ops_bottom = 0;
+	n_ops_top = 0;
+	if ((*stack_b)->content > elem && ft_dl_lst_last(*stack_b) < elem)
+		return (0);
+	while ()
+
+}
+
+/*
+** int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
+** This function will send the top element of stack_a to stack_b.
+** It will find the right spot to put it in b.
+** Returns the number of operations performed
+*/
+
+int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
+{
+	int	top_content;
+	int	min_in_b;
+	int	max_in_b;
+	int	n_operations;
+
+	top_content = (*stack_a)->content;
+	n_operations = 0;
+	if (*stack_b)
+	{
+		min_in_b = ft_dl_lst_min(*stack_b);
+		max_in_b = ft_dl_lst_max(*stack_b);
+		if (top_content > max_in_b)
+		{
+			ft_pb(stack_a, stack_b, 1);
+			ft_rrb(stack_b, 1);
+			return (2);
+		}
+		else if (top_content < min_in_b)
+		{
+			ft_pb(stack_a, stack_b, 1);
+			return (1);
+		}
+		else
+		{
+			while ()
+		}
+		
+	}
 }
 
 /*
@@ -106,7 +160,7 @@ void	ft_hundred_or_less_algo(t_dl_lst **stack_a, int *sorted_a, int n_elems)
 	stack_b = 0;
 	while (*stack_a)
 	{
-		ft_send_next_part_to_b(stack_a, &stack_b, sorted_a, n_elems)
+		ft_send_next_part_to_b(stack_a, &stack_b, sorted_a, n_elems);
 	}
 	while (stack_b)
 	{
