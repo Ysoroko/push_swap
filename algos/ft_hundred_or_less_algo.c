@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/02 12:08:08 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/02 14:02:50 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,34 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 
 int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
 {
-	int			n_ops_top;
-	int			next;
-	int			previous;
-	int			n_ops_bottom;
-	t_dl_lst	*current;
+	int	n_ops_top;
+	int	next;
+	int	n_ops_bottom;
+	int	n_ops;
 
-	n_ops_bottom = 0;
-	n_ops_top = 0;
 	next = ft_dl_lst_next_content(*stack_b, elem);
-	previous = ft_dl_lst_previous_content(*stack_b, elem);
-	while (!((*stack_b)->content >
-
+	if (next == elem)
+		return (0);
+	n_ops_bottom = ft_dl_lst_n_rrot_to_reach_elem(*stack_b, next);
+	n_ops_top = ft_dl_lst_n_rot_to_reach_elem(*stack_b, next);
+	n_ops = 0;
+	if (n_ops_top < n_ops_bottom)
+	{
+		while ((*stack_b)->content != next)
+		{
+			ft_rb(stack_b, 1);
+			n_ops++;
+		}
+	}
+	else
+	{
+		while ((*stack_b)->content != next)
+		{
+			ft_rrb(stack_b, 1);
+			n_ops++;
+		}
+	}
+	return (n_ops);
 }
 
 /*
@@ -88,10 +104,10 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 	int	top_content;
 	int	min_in_b;
 	int	max_in_b;
-	int	n_operations;
+	int	n_ops;
 
 	top_content = (*stack_a)->content;
-	n_operations = 0;
+	n_ops = 0;
 	if (*stack_b)
 	{
 		min_in_b = ft_dl_lst_min(*stack_b);
@@ -109,10 +125,13 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 		}
 		else
 		{
-			while ()
+			n_ops += ft_rotate_b_to_accept_new_element(stack_b, top_content);
+			ft_pb(stack_a, stack_b, 1);
+			return (n_ops + 1);
 		}
-		
 	}
+	ft_pb(stack_a, stack_b, 1);
+	return (1);
 }
 
 /*
@@ -122,19 +141,22 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 ** to stack_b
 */
 
-void	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
-								int *sorted_a, int n_elems)
+int	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
+								int *next_part, int n_elems)
 {
-	int	*next_part;
 	int	parts_length;
 	int	current_n_elemts;
+	int	n_ops;
 
+	n_ops = 0;
 	parts_length = n_elems / N_PARTS_UNDER_HUNDRED;
-	next_part = sorted_a;
-	
-
-
-
+	while (parts_length)
+	{
+		n_ops += ft_put_next_elem_on_the_top_of_a(stack_a, next_part, parts_length);
+		n_ops += ft_send_top_elem_to_b(stack_a, stack_b);
+		parts_length--;
+	}
+	return (n_ops);
 }
 
 /*
@@ -158,19 +180,23 @@ void	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
 void	ft_hundred_or_less_algo(t_dl_lst **stack_a, int *sorted_a, int n_elems)
 {
 	t_dl_lst	*stack_b;
-	int			number_of_operations;
+	int			n_ops;
 	int			initial_stack_a_size;
+	int			*next_part;
 
-	number_of_operations = 0;
+	n_ops = 0;
+	next_part = sorted_a;
 	initial_stack_a_size = ft_dl_lst_size(*stack_a);
 	stack_b = 0;
 	while (*stack_a)
 	{
-		ft_send_next_part_to_b(stack_a, &stack_b, sorted_a, n_elems);
+		n_ops += ft_send_next_part_to_b(stack_a, &stack_b, next_part, n_elems);
+		next_part = next_part + (sizeof(*next_part) * n_elems / N_PARTS_UNDER_HUNDRED);
 	}
 	while (stack_b)
 	{
 		ft_pa(&stack_b, stack_a, 1);
-		number_of_operations++;
+		n_ops++;
 	}
+	printf("n_ops under 100: [%d]\n", n_ops);
 }

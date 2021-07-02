@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/02 12:09:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/02 12:23:36 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int			ft_dl_lst_max(t_dl_lst *dl_lst);
 int			ft_dl_lst_min(t_dl_lst *dl_lst);
 int			ft_dl_lst_next_content(t_dl_lst *dl_lst, int new_content);
 int			ft_dl_lst_previous_content(t_dl_lst *dl_lst, int new_content);
+int			ft_dl_lst_n_rot_to_reach_elem(t_dl_lst *dl_lst, int elem);
+int			ft_dl_lst_n_rrot_to_reach_elem(t_dl_lst *dl_lst, int elem);
 
 /*
 ** LIBFT functions
