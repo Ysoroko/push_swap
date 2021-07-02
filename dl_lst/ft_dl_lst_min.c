@@ -6,19 +6,19 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:30:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/01 16:33:48 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/02 12:09:52 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** int	f_dl_lst_min(t_dl_lst *dl_lst)
+** int	ft_dl_lst_min(t_dl_lst *dl_lst)
 ** This function will find the minimum value in dl_lst and returns it.
 ** Returns 0 if dl_lst is a NULL pointer
 */
 
-int	f_dl_lst_min(t_dl_lst *dl_lst)
+int	ft_dl_lst_min(t_dl_lst *dl_lst)
 {
 	int			min;
 	t_dl_lst	*current;

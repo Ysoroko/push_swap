@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/01 17:02:11 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/02 12:08:08 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 	return (number_of_ops_used);
 }
 
+/*
+** int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
+** This function will rotate stack_b appropriately to accept the new element
+** from the top of the stack_a. 
+*/
+
 int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
 {
 	int			n_ops_top;
@@ -64,9 +70,9 @@ int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
 
 	n_ops_bottom = 0;
 	n_ops_top = 0;
-	if ((*stack_b)->content > elem && ft_dl_lst_last(*stack_b) < elem)
-		return (0);
-	while ()
+	next = ft_dl_lst_next_content(*stack_b, elem);
+	previous = ft_dl_lst_previous_content(*stack_b, elem);
+	while (!((*stack_b)->content >
 
 }
 
