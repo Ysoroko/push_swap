@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/13 15:40:20 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/02 14:26:47 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,11 @@ int	main(int argc, char **argv)
 	ft_determine_and_apply_algo(&stack_a);
 	return (0);
 }
+
+/*
+** Limits:
+** 3 elements: 2 or 3 operations max
+** 5 elements: 12 max (8 = very good) (elements used: 1 5 2 4 3)
+** 100 elements: <700 = 5/5	<1500 = 1/5
+** 500 elements: <5500 = 5/5	<11500 = 1/5
+*/
