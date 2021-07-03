@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/07/03 13:43:32 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/07/03 15:30:05 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ DL_LST			=		dl_lst/ft_dl_lst_add_back.c \
 						dl_lst/ft_dl_lst_next_content.c \
 						dl_lst/ft_dl_lst_previous_content.c \
 						dl_lst/ft_dl_lst_n_rot_to_reach_elem.c \
-						dl_lst/ft_dl_lst_n_rrot_to_reach_elem.c
+						dl_lst/ft_dl_lst_n_rrot_to_reach_elem.c \
+						dl_lst/ft_dl_lst_search_elem.c \
 						
 
 CONDITIONS		=		conditions/ft_top_two_elems_to_swap.c \
@@ -47,6 +48,7 @@ CONDITIONS		=		conditions/ft_top_two_elems_to_swap.c \
 						conditions/ft_first_elem_from_next_part_bottom.c \
 						conditions/ft_int_elem_is_in_next_part.c \
 						conditions/ft_index_of_element_in_int_tab.c \
+						conditions/ft_remove_element_from_int_tab.c \
 
 LIBFT_UTILS		=		libft_utils/ft_atol.c \
 						libft_utils/ft_element_found_in_int_tab.c \

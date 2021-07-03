@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/03 13:43:45 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/03 15:32:28 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int			ft_dl_lst_next_content(t_dl_lst *dl_lst, int new_content);
 int			ft_dl_lst_previous_content(t_dl_lst *dl_lst, int new_content);
 int			ft_dl_lst_n_rot_to_reach_elem(t_dl_lst *dl_lst, int elem);
 int			ft_dl_lst_n_rrot_to_reach_elem(t_dl_lst *dl_lst, int elem);
+int			ft_dl_lst_search_elem(t_dl_lst *where_to_search, int elem);
 
 /*
 ** LIBFT functions
@@ -91,12 +92,13 @@ int			ft_elem_is_in_next_part(t_dl_lst *stack_a, int *next_part,
 int			ft_number_of_moves_from_the_top(t_dl_lst *stack_a, int until_elem);
 int			ft_number_of_moves_from_the_bottom(t_dl_lst *stack_a,
 				int until_elem);
-int			ft_first_elem_from_next_part_top(t_dl_lst *stack_a, int *part,
-				int p_len);
-int			ft_first_elem_from_next_part_bottom(t_dl_lst *stack_a, int *part,
-				int p_ln);
+int			ft_first_elem_from_next_part_top(t_dl_lst *stack_a,
+				t_dl_lst *stack_b, int *part, int p_len);
+int			ft_first_elem_from_next_prt_bottom(t_dl_lst *stack_a,
+				t_dl_lst *stack_b, int *part, int p_ln);
 int			ft_int_elem_is_in_next_part(int n, int *next_part, int p_size);
 int			ft_index_of_element_in_int_tab(int n, int *tab, int tab_len);
+void		ft_remove_element_from_int_tab(int elem, int **n_tab, int *tab_ln);
 
 
 /*

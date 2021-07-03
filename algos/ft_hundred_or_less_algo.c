@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/03 14:13:16 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/03 15:40:06 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_print_next_part(int *part, int len)
 ** It returns the number of operations used
 */
 
-int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
+int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, t_dl_lst **stack_b, int **part, int *ln)
 {
 	int	next_elem_from_top;
 	int	next_elem_bottom;
@@ -43,24 +43,30 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 	int	number_of_ops_used;
 
 	number_of_ops_used = 0;
-	ft_print_next_part(part, ln);
-	// printf("before next elem from top\n");
-	next_elem_from_top = ft_first_elem_from_next_part_top(*stack_a, part, ln);
-	// printf("before next elem from bottom\n");
-	next_elem_bottom = ft_first_elem_from_next_part_bottom(*stack_a, part, ln);
+	ft_print_next_part(*part, *ln);
+	printf("before next elem from top\n");
+	next_elem_from_top = ft_first_elem_from_next_part_top(*stack_a, *stack_b, *part, *ln);
+	printf("before next elem from bottom\n");
+	next_elem_bottom = ft_first_elem_from_next_prt_bottom(*stack_a, *stack_b, *part, *ln);
 	printf("next elem top: [%d]\n", next_elem_from_top);
 	printf("next elem bottom: [%d]\n", next_elem_bottom);
-	if (!ft_int_elem_is_in_next_part(next_elem_from_top, part, ln) || !ft_int_elem_is_in_next_part(next_elem_bottom, part, ln))
+	if (!ft_int_elem_is_in_next_part(next_elem_from_top, *part, *ln) || !ft_int_elem_is_in_next_part(next_elem_bottom, *part, *ln))
+	{
+		printf("elem not in next part bottom or top!\n");
 		return (0);
-	n_ops_top = ft_first_elem_from_next_part_top(*stack_a, part, ln);
-	n_ops_bottom = ft_first_elem_from_next_part_bottom(*stack_a, part, ln);
-	if (n_ops_top >= n_ops_bottom)
+	}
+	n_ops_top = ft_number_of_moves_from_the_top(*stack_a, next_elem_from_top);
+	printf("first elem from top ops: [%d]\n", n_ops_top);
+	n_ops_bottom = ft_number_of_moves_from_the_bottom(*stack_a, next_elem_bottom);
+	printf("first elem from bottom ops: [%d]\n", n_ops_bottom);
+	ft_print_stacks(*stack_a, 0);
+	if (n_ops_top <= n_ops_bottom)
 	{
 		while (*stack_a && (*stack_a)->content != next_elem_from_top)
 		{
 			// ft_print_next_part(part, ln);
 			ft_ra(stack_a, 1);
-			ft_print_stacks(*stack_a, 0);
+			// ft_print_stacks(*stack_a, 0);
 			number_of_ops_used++;
 		}
 	}
@@ -70,7 +76,7 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 		{
 			// ft_print_next_part(part, ln);
 			ft_rra(stack_a, 1);
-			ft_print_stacks(*stack_a, 0);
+			//ft_print_stacks(*stack_a, 0);
 			number_of_ops_used++;
 		}
 	}
@@ -173,7 +179,7 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 */
 
 int	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
-								int *next_part, int n_elems)
+								int **next_part, int n_elems)
 {
 	int	parts_length;
 	int	current_n_elemts;
@@ -184,7 +190,7 @@ int	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
 	while (*stack_a && parts_length)
 	{
 		//printf("going to put next elem on top of a now\n");
-		n_ops += ft_put_next_elem_on_the_top_of_a(stack_a, next_part, parts_length);
+		n_ops += ft_put_next_elem_on_the_top_of_a(stack_a, stack_b, next_part, &parts_length);
 		//printf("top of stack a after putting next elem on top: [%d]\n", (*stack_a)->content);
 		n_ops += ft_send_top_elem_to_b(stack_a, stack_b);
 		//printf("sent top of a to b now\n");
@@ -239,7 +245,7 @@ void	ft_hundred_or_less_algo(t_dl_lst **stack_a, int *sorted_a, int n_elems)
 		printf("next part after nexting:\n");
 		ft_print_next_part(next_part, offset);
 		printf("\n\n\n");
-		n_ops += ft_send_next_part_to_b(stack_a, &stack_b, next_part, offset);
+		n_ops += ft_send_next_part_to_b(stack_a, &stack_b, &next_part, offset);
 		if (current_part_offset >= n_elems)
 			break ;
 		if (ft_int_elem_is_in_next_part(sorted_a[n_elems - 1], next_part, offset))

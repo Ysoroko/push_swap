@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 12:48:36 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/03 14:01:13 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/03 15:34:54 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@
 ** It returns the value of the content of the element.
 */
 
-int	ft_first_elem_from_next_part_top(t_dl_lst *stack_a, int *part, int p_len)
+int	ft_first_elem_from_next_part_top(t_dl_lst *a, t_dl_lst *b, int *prt, int l)
 {
 	t_dl_lst	*current;
 
-	current = stack_a;
-	while (current && !ft_elem_is_in_next_part(current, part, p_len))
+	current = a;
+	while (current && (!ft_elem_is_in_next_part(current, prt, l) ||
+			(ft_elem_is_in_next_part(current, prt, l) &&
+			ft_dl_lst_search_elem(b, current->content))))
 	{
-		printf("current-cont: [%d]\n", current->content);
 		current = current->next;
 	}
 	if (!current)
 	{
-		printf("no current in next part top\n");
 		return (0);
 	}
 	return (current->content);
