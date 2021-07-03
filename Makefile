@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/07/02 14:19:13 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/07/03 13:43:32 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ CONDITIONS		=		conditions/ft_top_two_elems_to_swap.c \
 						conditions/ft_first_elem_from_next_part_top.c \
 						conditions/ft_first_elem_from_next_part_bottom.c \
 						conditions/ft_int_elem_is_in_next_part.c \
+						conditions/ft_index_of_element_in_int_tab.c \
 
 LIBFT_UTILS		=		libft_utils/ft_atol.c \
 						libft_utils/ft_element_found_in_int_tab.c \

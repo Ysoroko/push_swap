@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/03 13:21:34 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/03 14:13:16 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 	int	number_of_ops_used;
 
 	number_of_ops_used = 0;
+	ft_print_next_part(part, ln);
+	// printf("before next elem from top\n");
 	next_elem_from_top = ft_first_elem_from_next_part_top(*stack_a, part, ln);
+	// printf("before next elem from bottom\n");
 	next_elem_bottom = ft_first_elem_from_next_part_bottom(*stack_a, part, ln);
 	printf("next elem top: [%d]\n", next_elem_from_top);
 	printf("next elem bottom: [%d]\n", next_elem_bottom);
-	ft_print_next_part(part, ln);
 	if (!ft_int_elem_is_in_next_part(next_elem_from_top, part, ln) || !ft_int_elem_is_in_next_part(next_elem_bottom, part, ln))
 		return (0);
 	n_ops_top = ft_first_elem_from_next_part_top(*stack_a, part, ln);
@@ -56,7 +58,7 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 	{
 		while (*stack_a && (*stack_a)->content != next_elem_from_top)
 		{
-			ft_print_next_part(part, ln);
+			// ft_print_next_part(part, ln);
 			ft_ra(stack_a, 1);
 			ft_print_stacks(*stack_a, 0);
 			number_of_ops_used++;
@@ -66,7 +68,7 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, int *part, int ln)
 	{
 		while (*stack_a && (*stack_a)->content != next_elem_bottom)
 		{
-			ft_print_next_part(part, ln);
+			// ft_print_next_part(part, ln);
 			ft_rra(stack_a, 1);
 			ft_print_stacks(*stack_a, 0);
 			number_of_ops_used++;
@@ -140,7 +142,6 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 		if (top_content > max_in_b)
 		{
 			ft_pb(stack_a, stack_b, 1);
-
 			ft_print_stacks(0, *stack_b);
 			return (2);
 		}
@@ -182,13 +183,15 @@ int	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
 	parts_length = n_elems;
 	while (*stack_a && parts_length)
 	{
+		//printf("going to put next elem on top of a now\n");
 		n_ops += ft_put_next_elem_on_the_top_of_a(stack_a, next_part, parts_length);
-		printf("top of stack a after putting next elem on top: [%d]\n", (*stack_a)->content);
+		//printf("top of stack a after putting next elem on top: [%d]\n", (*stack_a)->content);
 		n_ops += ft_send_top_elem_to_b(stack_a, stack_b);
-		printf("sent top of a to b now\n");
+		//printf("sent top of a to b now\n");
 		parts_length--;
 		printf("parts_len after decrementing: [%d]\n", parts_length);
 	}
+	printf("next part sent to b!\n");
 	return (n_ops);
 }
 
@@ -223,21 +226,30 @@ void	ft_hundred_or_less_algo(t_dl_lst **stack_a, int *sorted_a, int n_elems)
 	stack_b = 0;
 	current_part_offset = 0;
 	offset = n_elems / N_PARTS_UNDER_HUNDRED;
+	printf("SORTED_A:\n");
+	ft_print_next_part(sorted_a, n_elems);
 	while (*stack_a && current_part_offset < n_elems)
 	{
 		//printf("\n\n\n");
 		//printf("next part at the start\n");
 		//ft_print_next_part(next_part, offset);
 		//printf("\n\n\n");
-		current_part_offset += offset;
 		next_part = &(sorted_a[current_part_offset]);
+		printf("\n\n\n");
+		printf("next part after nexting:\n");
+		ft_print_next_part(next_part, offset);
+		printf("\n\n\n");
 		n_ops += ft_send_next_part_to_b(stack_a, &stack_b, next_part, offset);
 		if (current_part_offset >= n_elems)
 			break ;
-		//printf("\n\n\n");
-		//printf("next part after nexting:\n");
-		//ft_print_next_part(next_part, offset);
-		//printf("\n\n\n");
+		if (ft_int_elem_is_in_next_part(sorted_a[n_elems - 1], next_part, offset))
+		{
+			printf("offset modified!\n");
+			offset = ft_index_of_element_in_int_tab(sorted_a[n_elems], next_part, offset);
+		}
+		current_part_offset += offset;
+		printf("current_part_offset: [%d]\n", current_part_offset);
+		
 	}
 	while (stack_b)
 	{

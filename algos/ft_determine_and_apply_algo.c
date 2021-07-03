@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:50:54 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/02 15:20:13 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/03 14:15:36 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	*ft_sorted_copy_of_sa(t_dl_lst **stack_a)
 	int			*ret;
 	int			i;
 
-	current = *stack_a;
 	i = -1;
 	sorted_a = ft_dl_lst_new_exit((*stack_a)->content);
+	current = (*stack_a)->next;
 	while (current)
 	{
 		ft_dl_lst_add_back(&sorted_a, ft_dl_lst_new_exit(current->content));
