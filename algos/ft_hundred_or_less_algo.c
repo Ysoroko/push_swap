@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/03 16:27:34 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/03 16:46:50 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_print_next_part(int *part, int len)
 ** It returns the number of operations used
 */
 
-int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, t_dl_lst **stack_b, int **part, int *ln)
+int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, t_dl_lst **stack_b, int **part, int ln)
 {
 	int	next_elem_from_top;
 	int	next_elem_bottom;
@@ -43,14 +43,14 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **stack_a, t_dl_lst **stack_b, int
 	int	number_of_ops_used;
 
 	number_of_ops_used = 0;
-	ft_print_next_part(*part, *ln);
+	ft_print_next_part(*part, ln);
 	printf("before next elem from top\n");
-	next_elem_from_top = ft_first_elem_from_next_part_top(*stack_a, *stack_b, *part, *ln);
+	next_elem_from_top = ft_first_elem_from_next_part_top(*stack_a, *stack_b, *part, ln);
 	printf("before next elem from bottom\n");
-	next_elem_bottom = ft_first_elem_from_next_prt_bottom(*stack_a, *stack_b, *part, *ln);
+	next_elem_bottom = ft_first_elem_from_next_prt_bottom(*stack_a, *stack_b, *part, ln);
 	printf("next elem top: [%d]\n", next_elem_from_top);
 	printf("next elem bottom: [%d]\n", next_elem_bottom);
-	if (!ft_int_elem_is_in_next_part(next_elem_from_top, *part, *ln) || !ft_int_elem_is_in_next_part(next_elem_bottom, *part, *ln))
+	if (!ft_int_elem_is_in_next_part(next_elem_from_top, *part, ln) || !ft_int_elem_is_in_next_part(next_elem_bottom, *part, ln))
 	{
 		printf("elem not in next part bottom or top!\n");
 		return (0);
@@ -147,28 +147,10 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 	n_ops = 0;
 	if (*stack_b)
 	{
-		min_in_b = ft_dl_lst_min(*stack_b);
-		max_in_b = ft_dl_lst_max(*stack_b);
-		if (top_content > max_in_b)
-		{
-			ft_pb(stack_a, stack_b, 1);
-			ft_print_stacks(0, *stack_b);
-			return (2);
-		}
-		else if (top_content < min_in_b)
-		{
-			ft_pb(stack_a, stack_b, 1);
-			ft_rb(stack_b, 1);
-			ft_print_stacks(0, *stack_b);
-			return (1);
-		}
-		else
-		{
-			n_ops += ft_rotate_b_to_accept_new_element(stack_b, top_content);
-			ft_pb(stack_a, stack_b, 1);
-			ft_print_stacks(0, *stack_b);
-			return (n_ops + 1);
-		}
+		n_ops += ft_rotate_b_to_accept_new_element(stack_b, top_content);
+		ft_pb(stack_a, stack_b, 1);
+		ft_print_stacks(0, *stack_b);
+		return (n_ops + 1);
 	}
 	ft_pb(stack_a, stack_b, 1);
 	ft_print_stacks(*stack_a, *stack_b);
@@ -194,7 +176,7 @@ int	ft_send_next_part_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b,
 	while (*stack_a && parts_length)
 	{
 		//printf("going to put next elem on top of a now\n");
-		n_ops += ft_put_next_elem_on_the_top_of_a(stack_a, stack_b, next_part, &parts_length);
+		n_ops += ft_put_next_elem_on_the_top_of_a(stack_a, stack_b, next_part, n_elems);
 		//printf("top of stack a after putting next elem on top: [%d]\n", (*stack_a)->content);
 		n_ops += ft_send_top_elem_to_b(stack_a, stack_b);
 		//printf("sent top of a to b now\n");
