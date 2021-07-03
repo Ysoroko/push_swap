@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/02 15:42:16 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/03 13:21:34 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,13 +140,14 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 		if (top_content > max_in_b)
 		{
 			ft_pb(stack_a, stack_b, 1);
-			ft_rb(stack_b, 1);
+
 			ft_print_stacks(0, *stack_b);
 			return (2);
 		}
 		else if (top_content < min_in_b)
 		{
 			ft_pb(stack_a, stack_b, 1);
+			ft_rb(stack_b, 1);
 			ft_print_stacks(0, *stack_b);
 			return (1);
 		}
@@ -224,24 +225,24 @@ void	ft_hundred_or_less_algo(t_dl_lst **stack_a, int *sorted_a, int n_elems)
 	offset = n_elems / N_PARTS_UNDER_HUNDRED;
 	while (*stack_a && current_part_offset < n_elems)
 	{
-		printf("\n\n\n");
-		printf("next part at the start\n");
-		ft_print_next_part(next_part, offset);
-		printf("\n\n\n");
+		//printf("\n\n\n");
+		//printf("next part at the start\n");
+		//ft_print_next_part(next_part, offset);
+		//printf("\n\n\n");
 		current_part_offset += offset;
 		next_part = &(sorted_a[current_part_offset]);
 		n_ops += ft_send_next_part_to_b(stack_a, &stack_b, next_part, offset);
 		if (current_part_offset >= n_elems)
 			break ;
-		printf("\n\n\n");
-		printf("next part after nexting:\n");
-		ft_print_next_part(next_part, offset);
-		printf("\n\n\n");
+		//printf("\n\n\n");
+		//printf("next part after nexting:\n");
+		//ft_print_next_part(next_part, offset);
+		//printf("\n\n\n");
 	}
 	while (stack_b)
 	{
 		ft_pa(&stack_b, stack_a, 1);
-		n_ops++;
+		n_ops+=2;
 	}
 	ft_print_stacks(*stack_a, stack_b);
 	printf("n_ops under 100: [%d]\n", n_ops);
