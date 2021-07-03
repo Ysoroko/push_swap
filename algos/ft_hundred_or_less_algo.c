@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/03 15:40:06 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/03 16:27:34 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,12 @@ int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
 	int	n_ops;
 
 	next = ft_dl_lst_next_content(*stack_b, elem);
+	printf("next elem after the one Im receiving in b: [%d]\n", next);
 	if (next == elem)
+	{
+		printf("next = elem!\n");
 		return (0);
+	}
 	n_ops_bottom = ft_dl_lst_n_rrot_to_reach_elem(*stack_b, next);
 	n_ops_top = ft_dl_lst_n_rot_to_reach_elem(*stack_b, next);
 	n_ops = 0;
@@ -257,10 +261,15 @@ void	ft_hundred_or_less_algo(t_dl_lst **stack_a, int *sorted_a, int n_elems)
 		printf("current_part_offset: [%d]\n", current_part_offset);
 		
 	}
+	while (ft_dl_lst_last(stack_b)->content != sorted_a[0])
+	{
+		ft_rb(&stack_b, 1);
+		n_ops++;
+	}
 	while (stack_b)
 	{
 		ft_pa(&stack_b, stack_a, 1);
-		n_ops+=2;
+		n_ops++;
 	}
 	ft_print_stacks(*stack_a, stack_b);
 	printf("n_ops under 100: [%d]\n", n_ops);
