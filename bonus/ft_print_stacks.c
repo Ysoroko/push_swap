@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:17:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 12:17:22 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 12:04:18 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 	current_a = stack_a;
 	current_b = stack_b;
 	width = 20;
-	printf("\n\n\n");
+	printf("\n\n");
 	printf(BOLD_WHITE);
 	for (int i = 0; i <= 2 * width; i++)
 		printf("-");
@@ -111,5 +111,5 @@ void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 		separator = "|";
 		printf("\n");
 	}
-	printf("\n\n\n");
+	printf("\n\n");
 }
