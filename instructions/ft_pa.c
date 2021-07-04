@@ -6,27 +6,27 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:50:15 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 15:26:48 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:29:16 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** void	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a)
+** int	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a)
 ** This function is responsible for both pa instruction
 ** pa:	push a - take the element at the top of b and put it at the top of a.
 ** Do nothing if b is empty.
 */
 
-void	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa)
+int	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa)
 {
 	t_dl_lst	*first;
 	t_dl_lst	*second;
 	t_dl_lst	*temp;
 
 	if (!stack_b || !stack_a || !*stack_b)
-		return ;
+		return (0);
 	first = *stack_b;
 	second = first->next;
 	if (!*stack_a)
@@ -43,4 +43,5 @@ void	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa)
 	first = 0;
 	if (write_pa)
 		ft_putendl("pa");
+	return (1);
 }

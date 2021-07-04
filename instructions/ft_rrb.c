@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:59:33 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:21:58 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:30:49 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 **			The last element becomes the first one.
 */
 
-void	ft_rrb(t_dl_lst **stack_b, int write_rrb)
+int	ft_rrb(t_dl_lst **stack_b, int write_rrb)
 {
 	t_dl_lst	*first;
 	t_dl_lst	*last;
 	t_dl_lst	*before_last;
 
 	if (!stack_b || !*stack_b || !((*stack_b)->next))
-		return ;
+		return (0);
 	first = *stack_b;
 	last = ft_dl_lst_last(*stack_b);
 	*stack_b = last;
@@ -36,4 +36,5 @@ void	ft_rrb(t_dl_lst **stack_b, int write_rrb)
 	before_last->next = 0;
 	if (write_rrb)
 		ft_putendl("rrb");
+	return (1);
 }

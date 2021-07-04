@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:50:54 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/03 15:53:10 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:26:58 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,5 @@ void	ft_determine_and_apply_algo(t_dl_lst **stack_a)
 	else
 		ft_hundred_or_less_algo(stack_a, sorted_version, n_elems);
 	free(sorted_version);
+	ft_dl_lstclear(*stack_a);
 }

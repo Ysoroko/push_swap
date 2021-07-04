@@ -6,11 +6,23 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:17:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 12:04:18 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:21:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	ft_print_next_part(int *part, int len)
+{
+	int	i;
+
+	i = -1;
+	printf("len: [%d]\n", len);
+	printf("Next part: ");
+	while (++i < len)
+		printf("%d ", part[i]);
+	printf("\n");
+}
 
 void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 {

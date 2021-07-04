@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:27 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/01 11:43:36 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:33:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	ft_find_min_value(t_dl_lst *stack_a, t_dl_lst **min_dl_lst)
 ** based on its place and then push it to stack_b
 */
 
-static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
+static void	ft_send_min_to_b(t_dl_lst **st_a, t_dl_lst **stack_b, int *n_op)
 {
 	int			min_value;
 	int			stack_a_size;
@@ -58,42 +58,24 @@ static void	ft_send_min_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b, int *n_op)
 	int			index_of_min_dl_lst;
 	t_dl_lst	*min_dl_lst;
 
-	if (!stack_a || !stack_b || !n_op)
+	if (!st_a || !stack_b || !n_op)
 		return ;
-	stack_a_size = ft_dl_lst_size(*stack_a);
+	stack_a_size = ft_dl_lst_size(*st_a);
 	if (stack_a_size % 2)
 		middle = (stack_a_size / 2) + 1;
 	else
 		middle = (stack_a_size / 2);
-	//printf("stack_a_size: [%d]\n", stack_a_size);
 	min_dl_lst = 0;
-	min_value = ft_find_min_value(*stack_a, &min_dl_lst);
-	index_of_min_dl_lst = ft_dl_lst_current_index(*stack_a, min_dl_lst) - 1;
-	//printf("index  of min: [%d]\n", index_of_min_dl_lst);
+	min_value = ft_find_min_value(*st_a, &min_dl_lst);
+	index_of_min_dl_lst = ft_dl_lst_current_index(*st_a, min_dl_lst) - 1;
 	if (index_of_min_dl_lst < middle)
-	{
-		while ((*stack_a)->content != min_value && !ft_stack_a_is_sorted(*stack_a))
-		{
-			ft_ra(stack_a, 1);
-			(*n_op)++;
-			//ft_print_stacks(*stack_a, *stack_b);
-		}
-	}
+		while ((*st_a)->content != min_value && !ft_stack_a_is_sorted(*st_a))
+			(*n_op) += ft_ra(st_a, 1);
 	else
-	{
-		while ((*stack_a)->content != min_value && !ft_stack_a_is_sorted(*stack_a))
-		{
-			ft_rra(stack_a, 1);
-			(*n_op)++;
-			//ft_print_stacks(*stack_a, *stack_b);
-		}
-	}
-	if (!ft_stack_a_is_sorted(*stack_a))
-	{
-		ft_pb(stack_a, stack_b, 1);
-		//ft_print_stacks(*stack_a, *stack_b);
-		(*n_op)++;
-	}
+		while ((*st_a)->content != min_value && !ft_stack_a_is_sorted(*st_a))
+			(*n_op) += ft_rra(st_a, 1);
+	if (!ft_stack_a_is_sorted(*st_a))
+		(*n_op) += ft_pb(st_a, stack_b, 1);
 }
 
 /*
@@ -121,7 +103,6 @@ void	ft_five_or_less_algo(t_dl_lst **stack_a)
 		if (ft_top_two_elems_to_swap(*stack_a))
 		{
 			ft_sa(stack_a, 1);
-			//ft_print_stacks(*stack_a, stack_b);
 			number_of_operations++;
 		}
 		ft_send_min_to_b(stack_a, &stack_b, &number_of_operations);
@@ -131,6 +112,4 @@ void	ft_five_or_less_algo(t_dl_lst **stack_a)
 		ft_pa(&stack_b, stack_a, 1);
 		number_of_operations++;
 	}
-	//ft_print_stacks(*stack_a, stack_b);
-	//printf("Number of operations: [%d]\n", number_of_operations);
 }

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:29:10 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 16:22:34 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:32:32 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@
 ** If the stack is empty or counts less than 2 elements, do nothing.
 */
 
-void	ft_sb(t_dl_lst **stack_b, int write_sb)
+int	ft_sb(t_dl_lst **stack_b, int write_sb)
 {
 	t_dl_lst	*first;
 	t_dl_lst	*second;
 	t_dl_lst	*third;
 
+	if (!stack_b || !*stack_b || !(*stack_b)->next)
+		return (0);
 	first = *stack_b;
 	second = first->next;
 	third = second->next;
@@ -37,4 +39,5 @@ void	ft_sb(t_dl_lst **stack_b, int write_sb)
 		third->previous = first;
 	if (write_sb)
 		ft_putendl("sb");
+	return (1);
 }

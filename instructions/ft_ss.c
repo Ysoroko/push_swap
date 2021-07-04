@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:25 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:49:03 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:32:52 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** Does both sa and sb (swaps top two elements of both stacks)
 */
 
-void	ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_ss)
+int	ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_ss)
 {
 	if (stack_a && stack_b)
 	{
@@ -25,5 +25,7 @@ void	ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_ss)
 		ft_sb(stack_b, 0);
 		if (write_ss)
 			ft_putendl("ss");
+		return (1);
 	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/03 15:32:28 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:29:10 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,17 +105,17 @@ void		ft_remove_element_from_int_tab(int elem, int **n_tab, int *tab_ln);
 ** Instructions
 */
 
-void		ft_sa(t_dl_lst **stack_a, int write_sa);
-void		ft_sb(t_dl_lst **stack_b, int write_sb);
-void		ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_ss);
-void		ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa);
-void		ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_pb);
-void		ft_ra(t_dl_lst **stack_a, int write_ra);
-void		ft_rb(t_dl_lst **stack_b, int write_rb);
-void		ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rr);
-void		ft_rra(t_dl_lst **stack_a, int write_rra);
-void		ft_rrb(t_dl_lst **stack_b, int write_rrb);
-void		ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr);
+int			ft_sa(t_dl_lst **stack_a, int write_sa);
+int			ft_sb(t_dl_lst **stack_b, int write_sb);
+int			ft_ss(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_ss);
+int			ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa);
+int			ft_pb(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_pb);
+int			ft_ra(t_dl_lst **stack_a, int write_ra);
+int			ft_rb(t_dl_lst **stack_b, int write_rb);
+int			ft_rr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rr);
+int			ft_rra(t_dl_lst **stack_a, int write_rra);
+int			ft_rrb(t_dl_lst **stack_b, int write_rrb);
+int			ft_rrr(t_dl_lst **stack_a, t_dl_lst **stack_b, int write_rrr);
 
 /*
 ** PUSH_SWAP
@@ -140,12 +140,13 @@ int			checker(t_dl_lst **stack_a);
 */
 
 void		ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b);
+void		ft_print_next_part(int *part, int len);
 
 /*
 ** CONSTANTS
 */
 
-# define N_PARTS_UNDER_HUNDRED 5
+# define N_PARTS_UNDER_HUNDRED 6
 # define N_PARTS_GENERAL 11
 
 /*
