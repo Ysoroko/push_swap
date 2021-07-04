@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/07/04 14:36:33 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/07/04 15:00:20 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,8 @@ LIBFT_UTILS		=		libft_utils/ft_atol.c \
 						libft_utils/ft_calloc.c \
 						libft_utils/ft_bzero.c \
 						libft_utils/ft_n_chars_in_int.c \
-						libft_utils/ft_putendl_color.c
+						libft_utils/ft_putendl_color.c \
+						libft_utils/ft_free_int_tab.c
 
 INSTRUCTIONS	=		instructions/ft_sa.c \
 						instructions/ft_sb.c \

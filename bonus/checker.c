@@ -6,13 +6,13 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/10 12:17:32 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:48:03 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int ft_execute(char	*input_str, t_dl_lst **stack_a, t_dl_lst **stack_b)
+static int	ft_execute(char	*input_str, t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
 	if (!ft_strlcmp(input_str, "sa"))
 		ft_sa(stack_a, 0);

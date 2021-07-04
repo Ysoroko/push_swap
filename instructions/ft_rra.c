@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:58:14 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 14:30:32 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:42:16 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** void	ft_rra(t_dl_lst *stack_to_rotate)
 ** rra:	Shift down all elements of the stack a by 1.
-**			The last element becomes the first one.
+** The last element becomes the first one.
 */
 
 int	ft_rra(t_dl_lst **stack_a, int write_rra)
@@ -34,6 +34,6 @@ int	ft_rra(t_dl_lst **stack_a, int write_rra)
 	first->previous = last;
 	before_last->next = 0;
 	*stack_a = last;
-		ft_putendl("rra");
+	ft_putendl("rra");
 	return (1);
 }

@@ -6,11 +6,18 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:17:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 14:21:53 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 14:47:31 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/*
+** void	ft_print_next_part(int *part, int len)
+** This function's a debug function not used in final submission of the project
+** It will simply print the "next" part we're currently looking for
+** (Next part is a fraction of sorted version of stack_a)
+*/
 
 void	ft_print_next_part(int *part, int len)
 {
@@ -23,6 +30,14 @@ void	ft_print_next_part(int *part, int len)
 		printf("%d ", part[i]);
 	printf("\n");
 }
+
+/*
+** void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
+** This is a pretty pretty debug function that is used to print the state
+** of stack_a and stack_b at a given moment.
+** It uses colors and displays where the top and the bottom is.
+** Not so norm-friendly :)
+*/
 
 void	ft_print_stacks(t_dl_lst *stack_a, t_dl_lst *stack_b)
 {

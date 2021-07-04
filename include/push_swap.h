@@ -6,12 +6,12 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 14:36:46 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 15:00:30 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -79,6 +79,7 @@ int			ft_strlcmp(char *s1, char *s2);
 void		ft_bzero(void *str, size_t n);
 int			ft_n_chars_in_int(int n);
 int			ft_putendl_color(char *str, char *color, int to_return);
+int			ft_free_int_tab(int **tab, int to_return);
 
 /*
 ** Conditions
@@ -99,7 +100,6 @@ int			ft_first_elem_from_next_prt_bottom(t_dl_lst *stack_a,
 int			ft_int_elem_is_in_next_part(int n, int *next_part, int p_size);
 int			ft_index_of_element_in_int_tab(int n, int *tab, int tab_len);
 void		ft_remove_element_from_int_tab(int elem, int **n_tab, int *tab_ln);
-
 
 /*
 ** Instructions
