@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 15:00:30 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 15:28:32 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void		ft_bzero(void *str, size_t n);
 int			ft_n_chars_in_int(int n);
 int			ft_putendl_color(char *str, char *color, int to_return);
 int			ft_free_int_tab(int **tab, int to_return);
+void		ft_initialize_variables_for_algo(int *a, t_dl_lst **b, int *c);
 
 /*
 ** Conditions
