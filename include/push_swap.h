@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 15:28:32 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 15:38:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void		ft_five_or_less_algo(t_dl_lst **stack_a);
 void		ft_hundred_or_less_algo(t_dl_lst **stack_a, int *sorted_a,
 				int n_elems);
 void		ft_behind_the_scene_algo(t_dl_lst **stack_a);
+void		ft_general_algo(t_dl_lst **s_a, int *sort_a, int l);
 
 /*
 ** CHECKER

@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/07/04 15:28:43 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/07/04 15:33:26 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,8 @@ ALGOS			=		algos/ft_three_or_less_algo.c \
 						algos/ft_determine_and_apply_algo.c \
 						algos/ft_behind_the_scene_algo.c \
 						algos/ft_five_or_less_algo.c \
-						algos/ft_hundred_or_less_algo.c
+						algos/ft_hundred_or_less_algo.c \
+						algos/ft_general_algo.c \
 
 
 DEBUG			=		bonus/ft_print_stacks.c

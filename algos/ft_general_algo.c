@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hundred_or_less_algo.c                          :+:      :+:    :+:   */
+/*   ft_general_algo.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 15:35:46 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 15:36:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** It returns the number of operations used
 */
 
-int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **a, t_dl_lst **b, int *p, int l)
+int	ft_put_next_on_the_top_of_a(t_dl_lst **a, t_dl_lst **b, int *p, int l)
 {
 	int	next_elem_from_top;
 	int	next_elem_bottom;
@@ -54,7 +54,7 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **a, t_dl_lst **b, int *p, int l)
 ** from the top of the stack_a. 
 */
 
-int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
+int	ft_rotate_b_to_accept_new_elem(t_dl_lst **stack_b, int elem)
 {
 	int	n_ops_top;
 	int	next;
@@ -88,7 +88,7 @@ int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
 ** Returns the number of operations performed
 */
 
-int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
+int	ft_send_top_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
 	int	top_content;
 	int	min_in_b;
@@ -99,7 +99,7 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 	n_ops = 0;
 	if (*stack_b)
 	{
-		n_ops += ft_rotate_b_to_accept_new_element(stack_b, top_content);
+		n_ops += ft_rotate_b_to_accept_new_elem(stack_b, top_content);
 		ft_pb(stack_a, stack_b, 1);
 		return (n_ops + 1);
 	}
@@ -114,7 +114,7 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 ** to stack_b
 */
 
-int	ft_send_next_part_to_b(t_dl_lst **a, t_dl_lst **b, int *part, int len)
+int	ft_snd_next_part_to_b(t_dl_lst **a, t_dl_lst **b, int *part, int len)
 {
 	int	parts_length;
 	int	current_n_elemts;
@@ -124,8 +124,8 @@ int	ft_send_next_part_to_b(t_dl_lst **a, t_dl_lst **b, int *part, int len)
 	parts_length = len;
 	while (*a && parts_length)
 	{
-		n_ops += ft_put_next_elem_on_the_top_of_a(a, b, part, len);
-		n_ops += ft_send_top_elem_to_b(a, b);
+		n_ops += ft_put_next_on_the_top_of_a(a, b, part, len);
+		n_ops += ft_send_top_to_b(a, b);
 		parts_length--;
 	}
 	return (n_ops);
@@ -149,7 +149,7 @@ int	ft_send_next_part_to_b(t_dl_lst **a, t_dl_lst **b, int *part, int len)
 ** continue until there are no more parts in stack_a
 */
 
-void	ft_hundred_or_less_algo(t_dl_lst **s_a, int *sort_a, int l)
+void	ft_general_algo(t_dl_lst **s_a, int *sort_a, int l)
 {
 	t_dl_lst	*stack_b;
 	int			n_ops;
@@ -159,11 +159,11 @@ void	ft_hundred_or_less_algo(t_dl_lst **s_a, int *sort_a, int l)
 
 	ft_initialize_variables_for_algo(&n_ops, &stack_b, &current_part_offset);
 	next_p = sort_a;
-	offset = l / N_PARTS_UNDER_HUNDRED;
+	offset = l / N_PARTS_GENERAL;
 	while (*s_a && current_part_offset < l && !ft_stack_a_is_sorted(*s_a))
 	{
 		next_p = &(sort_a[current_part_offset]);
-		n_ops += ft_send_next_part_to_b(s_a, &stack_b, next_p, offset);
+		n_ops += ft_snd_next_part_to_b(s_a, &stack_b, next_p, offset);
 		if (ft_int_elem_is_in_next_part(sort_a[l - 1], next_p, offset))
 			offset = ft_index_of_element_in_int_tab(sort_a[l], next_p, offset);
 		current_part_offset += offset;
@@ -177,6 +177,6 @@ void	ft_hundred_or_less_algo(t_dl_lst **s_a, int *sort_a, int l)
 	while (stack_b)
 		n_ops += ft_pa(&stack_b, s_a, 1);
 	ft_print_stacks(*s_a, stack_b);
-	printf("n_ops under 100: [%d]\n", n_ops);
+	printf("n_ops for 500: [%d]\n", n_ops);
 }
 	

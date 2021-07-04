@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:50:54 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 15:07:38 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/04 15:33:14 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,9 @@ void	ft_determine_and_apply_algo(t_dl_lst **stack_a)
 		ft_three_or_less_algo(stack_a);
 	else if (n_elems > 3 && n_elems <= 5)
 		ft_five_or_less_algo(stack_a);
-	else
+	else if (n_elems > 5 && n_elems <= 200)
 		ft_hundred_or_less_algo(stack_a, sorted_version, n_elems);
+	else
+		ft_general_algo(stack_a, sorted_version, n_elems);
 	free(sorted_version);
 }
