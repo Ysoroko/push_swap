@@ -6,27 +6,27 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 13:41:44 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/05/20 15:39:18 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:53:14 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, int fd)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr(char *str, int fd)
 {
 	int	i;
 
 	i = -1;
 	while (str[++i])
-		ft_putchar(str[i]);
+		ft_putchar(str[i], fd);
 }
 
-void	ft_putendl(char *s)
+void	ft_putendl(char *s, int fd)
 {
 	int	i;
 
@@ -35,8 +35,8 @@ void	ft_putendl(char *s)
 		return ;
 	while (s[i] != '\0')
 	{
-		ft_putchar(s[i]);
+		ft_putchar(s[i], fd);
 		i++;
 	}
-	ft_putchar('\n');
+	ft_putchar('\n', fd);
 }

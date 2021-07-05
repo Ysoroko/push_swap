@@ -6,11 +6,19 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/05 12:21:55 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:56:39 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
+
+/*
+** int	ft_found_bad_input(int argc, char **argv)
+** This function is responsible for detecting forbidden chars in main arguments
+** It is used when there are multiple argv, each representing a separate
+** number which will be used in push_swap
+** Returns 1 if bad input was found, 0 otherwise
+*/
 
 int	ft_found_bad_input(int argc, char **argv)
 {
@@ -22,6 +30,8 @@ int	ft_found_bad_input(int argc, char **argv)
 	i = 1;
 	tab_size = 0;
 	tab = malloc(sizeof(int) * (argc - 1));
+	if (!tab)
+		exit(EXIT_FAILURE);
 	while (i < argc)
 	{
 		if (!ft_str_is_number(argv[i]))
@@ -56,10 +66,12 @@ int	main(int argc, char **argv)
 	i = 0;
 	j = 0;
 	tab = malloc(sizeof(int) * (argc - 1));
+	if (!tab)
+		exit(EXIT_FAILURE);
 	if (ft_found_bad_input(argc, argv))
 	{
 		free(tab);
-		return (ft_putendl_color("Error", BOLD_RED, -1));
+		return (ft_putendl_color("Error", BOLD_RED, -1, STDERR));
 	}
 	while (++i < argc)
 		tab[j++] = ft_atoi(argv[i]);
@@ -72,6 +84,6 @@ int	main(int argc, char **argv)
 	free(tab);
 	ft_determine_and_apply_algo(&stack_a);
 	ft_dl_lstclear(stack_a);
-	system("leaks push_swap");
+	//system("leaks push_swap");
 	return (0);
 }

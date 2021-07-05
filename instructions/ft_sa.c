@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:00:43 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 14:31:59 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:56:04 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int	ft_sa(t_dl_lst **stack_a, int write_sa)
 	if (third)
 		third->previous = first;
 	if (write_sa)
-		ft_putendl("sa");
+		ft_putendl("sa", STDOUT);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/05 12:17:29 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:55:04 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ long		ft_atol(char *str);
 int			ft_str_is_number(char *str);
 int			ft_isnum(char c);
 int			ft_element_found_in_int_tab(int n, int *tab, int tab_size);
-void		ft_putchar(char c);
-void		ft_putstr(char *str);
-void		ft_putendl(char *s);
+void		ft_putchar(char c, int fd);
+void		ft_putstr(char *str, int fd);
+void		ft_putendl(char *s, int fd);
 int			ft_atoi(char *str);
 int			ft_int_tab_is_sorted(int *tab, int tab_len, int low_to_high);
 int			ft_dl_lst_is_sorted(t_dl_lst *lst, int ascending_order);
@@ -78,7 +78,7 @@ void		*ft_calloc(size_t count, size_t size);
 int			ft_strlcmp(char *s1, char *s2);
 void		ft_bzero(void *str, size_t n);
 int			ft_n_chars_in_int(int n);
-int			ft_putendl_color(char *str, char *color, int to_return);
+int			ft_putendl_color(char *str, char *color, int to_return, int fd);
 int			ft_free_int_tab(int **tab, int to_return);
 void		ft_initialize_variables_for_algo(int *a, t_dl_lst **b, int *c);
 
@@ -150,6 +150,8 @@ void		ft_print_next_part(int *part, int len);
 # define N_PARTS_UNDER_HUNDRED 6
 # define N_PARTS_GENERAL 11
 # define DISPLAY_INSTRUCTIONS 1
+# define STDOUT 1
+# define STDERR 2
 
 /*
 ** COLORS

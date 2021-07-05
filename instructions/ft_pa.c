@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:50:15 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 14:29:16 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:55:23 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int	ft_pa(t_dl_lst **stack_b, t_dl_lst **stack_a, int write_pa)
 	free(first);
 	first = 0;
 	if (write_pa)
-		ft_putendl("pa");
+		ft_putendl("pa", STDOUT);
 	return (1);
 }

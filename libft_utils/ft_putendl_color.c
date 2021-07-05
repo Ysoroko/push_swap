@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 14:44:50 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/06/09 14:52:32 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:54:10 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 ** Always returns to_return argument
 */
 
-int	ft_putendl_color(char *str, char *color, int to_return)
+int	ft_putendl_color(char *str, char *color, int to_return, int fd)
 {
-	ft_putstr(color);
-	ft_putendl(str);
-	ft_putstr(COLOR_RESET);
+	ft_putstr(color, fd);
+	ft_putendl(str, fd);
+	ft_putstr(COLOR_RESET, fd);
 	return (to_return);
 }
