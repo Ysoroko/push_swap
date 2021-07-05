@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 15:35:46 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 11:34:58 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
 int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
 	int	top_content;
-	int	min_in_b;
-	int	max_in_b;
 	int	n_ops;
 
 	top_content = (*stack_a)->content;
@@ -103,8 +101,7 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 		ft_pb(stack_a, stack_b, 1);
 		return (n_ops + 1);
 	}
-	ft_pb(stack_a, stack_b, 1);
-	return (1);
+	return (ft_pb(stack_a, stack_b, 1));
 }
 
 /*
@@ -179,4 +176,3 @@ void	ft_hundred_or_less_algo(t_dl_lst **s_a, int *sort_a, int l)
 	ft_print_stacks(*s_a, stack_b);
 	printf("n_ops under 100: [%d]\n", n_ops);
 }
-	
