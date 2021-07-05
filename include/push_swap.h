@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/05 11:52:50 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 12:17:29 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ void		ft_print_next_part(int *part, int len);
 
 # define N_PARTS_UNDER_HUNDRED 6
 # define N_PARTS_GENERAL 11
+# define DISPLAY_INSTRUCTIONS 1
 
 /*
 ** COLORS

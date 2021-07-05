@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/05 11:34:58 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 12:11:37 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ int	ft_put_next_elem_on_the_top_of_a(t_dl_lst **a, t_dl_lst **b, int *p, int l)
 	if (n_ops_top <= n_ops_bottom)
 	{
 		while (*a && (*a)->content != next_elem_from_top)
-			number_of_ops_used += ft_ra(a, 1);
+			number_of_ops_used += ft_ra(a, DISPLAY_INSTRUCTIONS);
 	}
 	else
 	{
 		while (*a && (*a)->content != next_elem_bottom)
-			number_of_ops_used += ft_rra(a, 1);
+			number_of_ops_used += ft_rra(a, DISPLAY_INSTRUCTIONS);
 	}
 	return (number_of_ops_used);
 }
@@ -71,12 +71,12 @@ int	ft_rotate_b_to_accept_new_element(t_dl_lst **stack_b, int elem)
 	if (n_ops_top < n_ops_bottom)
 	{
 		while ((*stack_b)->content != next)
-			n_ops += ft_rb(stack_b, 1);
+			n_ops += ft_rb(stack_b, DISPLAY_INSTRUCTIONS);
 	}
 	else
 	{
 		while ((*stack_b)->content != next)
-			n_ops += ft_rrb(stack_b, 1);
+			n_ops += ft_rrb(stack_b, DISPLAY_INSTRUCTIONS);
 	}
 	return (n_ops);
 }
@@ -98,10 +98,10 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 	if (*stack_b)
 	{
 		n_ops += ft_rotate_b_to_accept_new_element(stack_b, top_content);
-		ft_pb(stack_a, stack_b, 1);
+		ft_pb(stack_a, stack_b, DISPLAY_INSTRUCTIONS);
 		return (n_ops + 1);
 	}
-	return (ft_pb(stack_a, stack_b, 1));
+	return (ft_pb(stack_a, stack_b, DISPLAY_INSTRUCTIONS));
 }
 
 /*
@@ -168,11 +168,11 @@ void	ft_hundred_or_less_algo(t_dl_lst **s_a, int *sort_a, int l)
 	while (ft_dl_lst_last(stack_b)->content != sort_a[0])
 		if (ft_number_of_moves_from_the_bottom(stack_b, sort_a[0])
 			<= ft_number_of_moves_from_the_top(stack_b, sort_a[0]))
-			n_ops += ft_rrb(&stack_b, 1);
+			n_ops += ft_rrb(&stack_b, DISPLAY_INSTRUCTIONS);
 	else
-		n_ops += ft_rb(&stack_b, 1);
+		n_ops += ft_rb(&stack_b, DISPLAY_INSTRUCTIONS);
 	while (stack_b)
-		n_ops += ft_pa(&stack_b, s_a, 1);
-	ft_print_stacks(*s_a, stack_b);
-	printf("n_ops under 100: [%d]\n", n_ops);
+		n_ops += ft_pa(&stack_b, s_a, DISPLAY_INSTRUCTIONS);
+	//ft_print_stacks(*s_a, stack_b);
+	//printf("n_ops under 100: [%d]\n", n_ops);
 }

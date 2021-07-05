@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 15:35:38 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 12:21:55 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,12 @@ int	main(int argc, char **argv)
 	if (ft_found_bad_input(argc, argv))
 	{
 		free(tab);
-		return (ft_putendl_color("Error\n", BOLD_RED, -1));
+		return (ft_putendl_color("Error", BOLD_RED, -1));
 	}
 	while (++i < argc)
 		tab[j++] = ft_atoi(argv[i]);
 	if (argc < 3 || ft_int_tab_is_sorted(tab, argc - 1, 1))
-	{
-		ft_putendl("Sorted!");
 		return (ft_free_int_tab(&tab, 1));
-	}
 	stack_a = ft_dl_lst_new_exit(tab[0]);
 	i = 0;
 	while (++i < argc - 1)
@@ -75,6 +72,6 @@ int	main(int argc, char **argv)
 	free(tab);
 	ft_determine_and_apply_algo(&stack_a);
 	ft_dl_lstclear(stack_a);
-	//system("leaks push_swap");
+	system("leaks push_swap");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 16:55:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 14:35:56 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/05 12:02:51 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	ft_behind_the_scene_algo(t_dl_lst **stack_a)
 	}
 	while (stack_b)
 	{
-		ft_pa(&stack_b, stack_a, 1);
+		ft_pa(&stack_b, stack_a, 0);
 		number_of_operations++;
 	}
 }
