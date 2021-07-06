@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/06 14:13:48 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/06 14:47:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	ft_found_bad_input_multi_argv(int argc, char **argv)
 ** created int array otherwise.
 */
 
-static int	*ft_multiple_argv(int argc, char **argv)
+static int	*ft_multiple_argv(int argc, char **argv, int *len)
 {
 	int	*tab;
 	int	i;
@@ -63,6 +63,7 @@ static int	*ft_multiple_argv(int argc, char **argv)
 
 	i = 0;
 	j = 0;
+	*len = argc - 1;
 	tab = malloc(sizeof(int) * (argc - 1));
 	if (!tab)
 		exit(EXIT_FAILURE);
@@ -109,7 +110,7 @@ static int ft_found_bad_input_single_argv(char *input, int **tab)
 			return (ft_free_str_tab(input_as_str_tab, 0));
 		(*tab)[i] = ft_atoi(input_as_str_tab[i]);
 	}
-	return (0);
+	return (ft_free_str_tab(input_as_str_tab, 0));
 }
 
 /*
@@ -118,7 +119,7 @@ static int ft_found_bad_input_single_argv(char *input, int **tab)
 ** numbers needed to be sorted separated by spaces.
 */
 
-static int	*ft_single_argv(char **argv)
+static int	*ft_single_argv(char **argv, int *l)
 {
 	char	*input;
 	int		*tab;
@@ -126,9 +127,13 @@ static int	*ft_single_argv(char **argv)
 
 	input = argv[1];
 	len = ft_n_ints_in_str(input);
+	*l = len;
 	tab = malloc(sizeof(int) * len);
 	if (ft_found_bad_input_single_argv(input, &tab))
+	{
+		free(tab);
 		return (NULL);
+	}
 	return (tab);
 }
 
@@ -144,23 +149,26 @@ int	main(int argc, char **argv)
 {
 	t_dl_lst	*stack_a;
 	int			*tab;
+	int			len;
 	int			i;
 
 	if (argc == 2)
-		tab = ft_single_argv(argv);
+		tab = ft_single_argv(argv, &len);
 	else
-		tab = ft_multiple_argv(argc, argv);
+		tab = ft_multiple_argv(argc, argv, &len);
 	if (!tab)
 		return (ft_putendl_color("Error", BOLD_RED, 1, STDERR));
-	if (ft_int_tab_is_sorted(tab, argc - 1, 1))
+	if (ft_int_tab_is_sorted(tab, len, 1))
 		return (ft_free_int_tab(&tab, 1));
 	stack_a = ft_dl_lst_new_exit(tab[0]);
 	i = 0;
-	while (++i < argc - 1)
+	while (++i < len)
 		ft_dl_lst_add_back(&stack_a, ft_dl_lst_new_exit(tab[i]));
 	free(tab);
 	ft_determine_and_apply_algo(&stack_a);
+	printf("\n\n\n IN MAIN AFTER ALGO\n\n\n");
+	system("leaks push_swap");
+	//ft_print_stacks(stack_a, 0);
 	ft_dl_lstclear(stack_a);
-	//system("leaks push_swap");
 	return (0);
 }

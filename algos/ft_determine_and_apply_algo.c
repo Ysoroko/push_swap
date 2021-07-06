@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:50:54 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/05 12:15:29 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/06 14:47:37 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ int	*ft_sorted_copy_of_sa(t_dl_lst **stack_a)
 	ret = malloc(sizeof(int) * ft_dl_lst_size(*stack_a));
 	if (!ret)
 		exit(EXIT_FAILURE);
-	while (sorted_a)
+	current = sorted_a;
+	while (current)
 	{
-		ret[++i] = sorted_a->content;
-		sorted_a = sorted_a->next;
+		ret[++i] = current->content;
+		current = current->next;
 	}
 	ft_dl_lstclear(sorted_a);
 	return (ret);
@@ -61,7 +62,10 @@ void	ft_determine_and_apply_algo(t_dl_lst **stack_a)
 	n_elems = ft_dl_lst_size(*stack_a);
 	sorted_version = ft_sorted_copy_of_sa(stack_a);
 	if (n_elems <= 3)
+	{
+		printf("\n\n\nbefore three or less\n\n\n");
 		ft_three_or_less_algo(stack_a);
+	}
 	else if (n_elems > 3 && n_elems <= 5)
 		ft_five_or_less_algo(stack_a);
 	else if (n_elems > 5 && n_elems <= 200)
