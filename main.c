@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/06 14:47:53 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/06 15:22:14 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int	*ft_multiple_argv(int argc, char **argv, int *len)
 ** 2) "-" character is present and is placed in the middle/at the end of a num
 */
 
-static int ft_found_bad_input_single_argv(char *input, int **tab)
+static int	ft_found_bad_input_single_argv(char *input, int **tab)
 {
 	int		i;
 	char	**input_as_str_tab;
@@ -138,11 +138,15 @@ static int	*ft_single_argv(char **argv, int *l)
 }
 
 /*
-** Limits:
-** 3 elements: 2 or 3 operations max
-** 5 elements: 12 max (8 = very good) (elements used: 1 5 2 4 3)
-** 100 elements: <700 = 5/5	<1500 = 1/5
-** 500 elements: <5500 = 5/5	<11500 = 1/5
+** int	main(int argc, char **argv)
+** 1) Makes the distinction between single main argument
+** and multiple main arguments.
+** This allows our push_swap to work both with:
+** "./push_swap 4 1 3" AND "./push_swap "4 1 3""
+** 2) Checks input for errors
+** 3) Extracts numbers from input and create a dl_lst with them
+** 4) Sends them to the needed algorithm
+** 5) Cleans up everything 
 */
 
 int	main(int argc, char **argv)
@@ -166,9 +170,6 @@ int	main(int argc, char **argv)
 		ft_dl_lst_add_back(&stack_a, ft_dl_lst_new_exit(tab[i]));
 	free(tab);
 	ft_determine_and_apply_algo(&stack_a);
-	printf("\n\n\n IN MAIN AFTER ALGO\n\n\n");
-	system("leaks push_swap");
-	//ft_print_stacks(stack_a, 0);
 	ft_dl_lstclear(stack_a);
 	return (0);
 }

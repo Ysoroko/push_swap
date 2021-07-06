@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/05 12:11:37 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/06 15:12:00 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,4 @@ void	ft_hundred_or_less_algo(t_dl_lst **s_a, int *sort_a, int l)
 		n_ops += ft_rb(&stack_b, DISPLAY_INSTRUCTIONS);
 	while (stack_b)
 		n_ops += ft_pa(&stack_b, s_a, DISPLAY_INSTRUCTIONS);
-	//ft_print_stacks(*s_a, stack_b);
-	//printf("n_ops under 100: [%d]\n", n_ops);
 }

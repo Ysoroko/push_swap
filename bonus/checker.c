@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/04 14:48:03 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/06 15:32:53 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,9 @@ int	checker(t_dl_lst **stack_a)
 	int			ret;
 
 	stack_b = 0;
-	ft_print_stacks(*stack_a, stack_b);
 	ret = ft_read_input_and_execute(stack_a, &stack_b);
 	while (ret > 0)
 	{
-		ft_print_stacks(*stack_a, stack_b);
 		if (ret == -1)
 		{
 			free(stack_b);
@@ -84,9 +82,12 @@ int	checker(t_dl_lst **stack_a)
 	if (ret <= 0)
 	{
 		if (ft_stack_a_is_sorted(*stack_a) && !stack_b)
-			return (ft_putendl_color("OK", BOLD_GREEN, 1));
+			return (ft_putendl_color("OK", BOLD_GREEN, 1, 1));
 		else
-			return (ft_putendl_color("KO", BOLD_RED, 1));
+		{
+			ft_dl_lstclear(stack_b);
+			return (ft_putendl_color("KO", BOLD_RED, 1, 1));
+		}
 	}
 	return (-1);
 }
