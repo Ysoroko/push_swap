@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/06 15:32:53 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/06 16:59:07 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,30 @@
 static int	ft_execute(char	*input_str, t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
 	if (!ft_strlcmp(input_str, "sa"))
-		ft_sa(stack_a, 0);
+		return (ft_sa(stack_a, 0));
 	else if (!ft_strlcmp(input_str, "sb"))
-		ft_sb(stack_b, 0);
+		return (ft_sb(stack_b, 0));
 	else if (!ft_strlcmp(input_str, "ss"))
-		ft_ss(stack_a, stack_b, 0);
+		return (ft_ss(stack_a, stack_b, 0));
 	else if (!ft_strlcmp(input_str, "pa"))
-		ft_pa(stack_b, stack_a, 0);
+		return (ft_pa(stack_b, stack_a, 0));
 	else if (!ft_strlcmp(input_str, "pb"))
-		ft_pb(stack_a, stack_b, 0);
+		return (ft_pb(stack_a, stack_b, 0));
 	else if (!ft_strlcmp(input_str, "ra"))
-		ft_ra(stack_a, 0);
+		return (ft_ra(stack_a, 0));
 	else if (!ft_strlcmp(input_str, "rb"))
-		ft_rb(stack_b, 0);
+		return (ft_rb(stack_b, 0));
 	else if (!ft_strlcmp(input_str, "rr"))
-		ft_rr(stack_a, stack_b, 0);
+		return (ft_rr(stack_a, stack_b, 0));
 	else if (!ft_strlcmp(input_str, "rra"))
-		ft_rra(stack_a, 0);
+		return (ft_rra(stack_a, 0));
 	else if (!ft_strlcmp(input_str, "rrb"))
-		ft_rrb(stack_b, 0);
+		return (ft_rrb(stack_b, 0));
 	else if (!ft_strlcmp(input_str, "rrr"))
-		ft_rrr(stack_a, stack_b, 0);
-	else
+		return (ft_rrr(stack_a, stack_b, 0));
+	else if (!ft_strlcmp(input_str, ""))
 		return (-1);
-	return (0);
+	return (-2);
 }
 
 static int	ft_read_input_and_execute(t_dl_lst **stack_a, t_dl_lst **stack_b)
@@ -54,10 +54,10 @@ static int	ft_read_input_and_execute(t_dl_lst **stack_a, t_dl_lst **stack_b)
 		return (-1);
 	}
 	input[read_ret - 1] = 0;
-	if (ft_execute(input, stack_a, stack_b) == -1)
+	if (ft_execute(input, stack_a, stack_b) == -2)
 	{
 		free(input);
-		return (-1);
+		return (-2);
 	}
 	free(input);
 	return (read_ret);
@@ -72,21 +72,17 @@ int	checker(t_dl_lst **stack_a)
 	ret = ft_read_input_and_execute(stack_a, &stack_b);
 	while (ret > 0)
 	{
-		if (ret == -1)
-		{
-			free(stack_b);
-			return (-1);
-		}
 		ret = ft_read_input_and_execute(stack_a, &stack_b);
 	}
-	if (ret <= 0)
+	if (ret <= 0 && ret != -2)
 	{
+		ft_print_stacks(*stack_a, 0);
 		if (ft_stack_a_is_sorted(*stack_a) && !stack_b)
-			return (ft_putendl_color("OK", BOLD_GREEN, 1, 1));
+			return (ft_putendl_color("OK", BOLD_GREEN, 1, STDOUT));
 		else
 		{
 			ft_dl_lstclear(stack_b);
-			return (ft_putendl_color("KO", BOLD_RED, 1, 1));
+			return (ft_putendl_color("KO", BOLD_RED, 1, STDOUT));
 		}
 	}
 	return (-1);
