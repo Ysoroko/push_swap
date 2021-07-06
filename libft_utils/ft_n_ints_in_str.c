@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_number.c                                 :+:      :+:    :+:   */
+/*   ft_n_ints_in_str.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 11:15:49 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/06 12:10:49 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/07/05 15:20:28 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/07/06 14:12:35 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** int	ft_str_is_number(char *str)
-** This function checks if the string is composed only of digit characters
-** Returns 1 if yes, 0 if a character other than "-0123456789" is found inside
-** or the string is solely composed of a loose '-' symbol
+** int	ft_n_ints_in_str(char *str)
+** Returns the number of separate integers represented with digits in str,
+** separated by anything but a digit
 */
 
-int	ft_str_is_number(char *str)
+int	ft_n_ints_in_str(char *str)
 {
+	int	count;
 	int	i;
 
-	i = -1;
-	if (str[0] == '-')
+	count = 0;
+	i = 0;
+	while (str[i])
 	{
-		if (!str[1])
-			return (0);
-		i++;
+		while (str[i] && !ft_isnum(str[i]))
+			i++;
+		if (ft_isnum(str[i]))
+			count++;
+		while (str[i] && ft_isnum(str[i]))
+			i++;
 	}
-	while (str[++i])
-	{
-		if (!(ft_isnum(str[i])))
-			return (0);
-	}
-	return (1);
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:27:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/05 14:55:04 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/06 12:20:11 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ int			ft_n_chars_in_int(int n);
 int			ft_putendl_color(char *str, char *color, int to_return, int fd);
 int			ft_free_int_tab(int **tab, int to_return);
 void		ft_initialize_variables_for_algo(int *a, t_dl_lst **b, int *c);
+int			ft_n_ints_in_str(char *str);
+int			ft_strchr(char *str, char c);
+char		**ft_split(char const *str, char charset);
+int			ft_free_str_tab(char **str_tab, int to_return);
 
 /*
 ** Conditions
@@ -147,6 +151,7 @@ void		ft_print_next_part(int *part, int len);
 ** CONSTANTS
 */
 
+# define ALLOWED_CHARS_SINGLE_ARGV " -0123456789"
 # define N_PARTS_UNDER_HUNDRED 6
 # define N_PARTS_GENERAL 11
 # define DISPLAY_INSTRUCTIONS 1
