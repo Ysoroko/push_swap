@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/06 15:12:58 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/07 11:29:27 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ int	ft_rotate_b_to_accept_new_elem(t_dl_lst **stack_b, int elem)
 int	ft_send_top_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 {
 	int	top_content;
-	int	min_in_b;
-	int	max_in_b;
 	int	n_ops;
 
 	top_content = (*stack_a)->content;
@@ -117,7 +115,6 @@ int	ft_send_top_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 int	ft_snd_next_part_to_b(t_dl_lst **a, t_dl_lst **b, int *part, int len)
 {
 	int	parts_length;
-	int	current_n_elemts;
 	int	n_ops;
 
 	n_ops = 0;

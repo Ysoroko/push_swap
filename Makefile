@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 13:54:31 by ysoroko           #+#    #+#              #
-#    Updated: 2021/07/07 11:25:25 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/07/07 12:14:44 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,10 @@ SRC					=	$(DL_LST) \
 						$(LIBFT_UTILS) \
 						$(INSTRUCTIONS) \
 						$(CONDITIONS) \
+						$(ALGOS) \
 						main.c
+
+OBJS				=	$(SRC:.c=.o)
 
 CHECKER				=	bonus/checker.c \
 						bonus/main.c
@@ -106,9 +109,7 @@ BONUS_SRCS			=	$(DL_LST) \
 						$(CONDITIONS) \
 						$(CHECKER)
 
-OBJS				=	$(SRC:.c=.o)
-
-
+BONUS_OBJS			=	$(BONUS_SRCS:.c=.o)
 
 # Colors
 BOLD_PURPLE			=	\033[1;35m
@@ -118,6 +119,14 @@ BOLD_CYAN			=	\033[1;36m
 BOLD_YELLOW			=	\033[1;33m
 
 NO_COLOR			=	\033[0m
+
+CLEANED		=	echo "\n🧼 $(BOLD_YELLOW)Clean: $(NO_COLOR)Removed all the \".o\" files \n"
+
+FCLEANED	=	echo "\n🧽 $(BOLD_YELLOW)Fclean: $(NO_COLOR)Removed the executables \n"
+
+PUSH_SWAP_COMPILED = echo "\n📶 $(BOLD_PURPLE)Executable $(BOLD_CYAN)\"$(EXECUTABLE)\" $(BOLD_PURPLE)created and ready for use!\n$(NO_COLOR)"
+
+BONUS_COMPILED = echo "\n✅ $(BOLD_PURPLE)Executable $(BOLD_CYAN)\"$(BONUS_EXECUTABLE)\" $(BOLD_PURPLE)created and ready for use!\n$(NO_COLOR)"
 
 FLAGS		=	-Wall -Wextra -Werror
 
@@ -141,17 +150,22 @@ HUNDRED =  19   32   53   17   94   31   39   63   71   46   62   83    5   11  
 
 FIVE_HUNDRED = 375  260  256  155   39  100  449  214  129    3  282  383  305  338  355  177  111  310  341  182  163  248   92  348  398   56   91  183  336  357  125  242   16  461  189  340  273  330  204   94  253  473  382  465  154  150   57   55  145   67  459  315  259  411   68  139  394  191  489  447  334  119  445  424  481  156  434  293  209  475  354  497  229   13  141  478  246   46  426  226  219  244   99  286  105   25  268   59    2  135  417    1   10  387  409  484   62   71  101  364   54  476  109  188  284  425  458  108  110  117  106   43  300  431  372   35  423  127  283  130  371  166  443  335   70  220   82   50   18  427  454   90  251  187  362  308   45  322  287  373  312  180  317  170  487  479   36  378  363  222  377   14  224    8  175   98  264  485  325   74  252  153  408  271  247   86  196   48  395   61  321  349  450  430  151   83   42  234   24  490  272  302  499  316  133  276   15   65  303  342  416  456  237  258  328  239  245   27  186  384  181  376  227   81  319  116  444  474  406  480  249  194  228  405  304  415  140  391   49  320   89  389  132  275  270  269  280  491  361  263  369  460  399  165  238  309  254   69   72  436   84  390   52  403  374  176  171  468  494   75  339  492  397  104   12  324  112   53   29  463    7  495  241  332   97  144  380   78  301  418   63    4   93  297  343  323  365  200  350   41  192  113  121   40   60  358  233  483   79   51  211   20  218  462  267   30  428  212  360  114  152  262  307  184  306  467  179  419  500  257  441   28  162  331  496  420  298   95  178  167  367  147  289  486   34  142  400  131  337  407  208  240  288   32   38   47  137  168  225  386   33  477  345  347  102  230  433  143  455  265  185  210   11  164  161  207  261  174  422   96  290  198  202  413  158  379  429   77   37  172  464  199   17  255   87  299  159  488   19  107  351  471  243   66   26   44  451  221  402  146  217   64  437  314  279  266  296  452  453  311  195  393  385  123  432  333  124  448  438  396  235  103  359  368  472  466  173  493   80  236  329  118  440  115   31  190  285  327  231  344  291   23  346  169  250  439  122  388  410   22  412  215  148  295  274  223  206  446  149   58  421  356   88  157  134  205  392  435  213  203  318    6  281  277  470  292  482   76   73  498  216  352  120  366  294  126  414  381  232  197  326    9  442  201  193  136  353  160  401  313    5  138  128  278  457  370   21  469  404   85
 
+NAME = push_swap
+
+.c.o:
+	@gcc ${FLAGS} -I include -c $< -o ${<:.c=.o}
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		ar rcs $(OBJS) $(EXECUTABLE)
-		gcc $(FLAGS) $(LIBRARY) -o $(EXECUTABLE)
+		@gcc $(FLAGS) $(OBJS) -o $(EXECUTABLE)
+		@$(PUSH_SWAP_COMPILED)
 
-# Compiles everything with warning flags and runs the executable
-run:	
-		@gcc $(FLAGS) $(SRC) $(DEBUG) $(ALGOS) -o $(EXECUTABLE) && ./$(EXECUTABLE)
+bonus: $(BONUS_OBJS)
+		@gcc $(FLAGS) $(BONUS_OBJS) -o $(BONUS_EXECUTABLE)
+		@$(BONUS_COMPILED)
 
-
+# --------------------------------TESTS-----------------------------
 
 # THREE ELEMENTS: 2 1 0
 test_three_count:
@@ -183,27 +197,19 @@ test_five_hundred_count:
 test_five_hundred_checker:
 		./$(EXECUTABLE) $(FIVE_HUNDRED) | ./$(SUBJECT_CHECKER) $(FIVE_HUNDRED)
 
-
-
-# Compiles everything without warning flags and runs the executable
-wrun:
-		@gcc $(SRC) $(DEBUG) $(ALGOS) -o $(EXECUTABLE) && ./$(EXECUTABLE)
-
-brun:
-		@gcc $(BONUS_SRCS) $(DEBUG) -o $(BONUS_EXECUTABLE) && ./$(BONUS_EXECUTABLE)
+# ------------------------------------------------------------------
 
 # Remove all ".o" files
 clean:
-		@rm -rf $(OBJS)
+		@rm -rf $(OBJS) $(BONUS_OBJS)
 		@$(CLEANED)
 
 # Remove all ".o / .a / minishell executable" files
 fclean:	clean
-		@rm -rf $(NAME)
 		@rm -rf $(EXECUTABLE)
 		@rm -rf $(BONUS_EXECUTABLE)
 		@$(FCLEANED)
 
 re:		fclean all
 
-.PHONY: all clean fclean re run wrun .c.o
+.PHONY: all clean fclean re run wrun brun bonus

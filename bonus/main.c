@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:44:05 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/06 17:00:17 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/07 12:09:39 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,6 @@ static int	*ft_single_argv(char **argv, int *l)
 int	main(int argc, char **argv)
 {
 	t_dl_lst	*stack_a;
-	t_dl_lst	*current_t_dl_lst;
 	int			*tab;
 	int			i;
 	int			len;
@@ -160,7 +159,6 @@ int	main(int argc, char **argv)
 	while (++i < len)
 		ft_dl_lst_add_back(&stack_a, ft_dl_lst_new_exit(tab[i]));
 	free(tab);
-	ft_print_stacks(stack_a, 0);
 	if (checker(&stack_a) == -1)
 	{
 		ft_dl_lstclear(stack_a);

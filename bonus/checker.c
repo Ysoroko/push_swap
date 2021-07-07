@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:16:52 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/06 16:59:07 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/07 11:36:44 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int	checker(t_dl_lst **stack_a)
 	}
 	if (ret <= 0 && ret != -2)
 	{
-		ft_print_stacks(*stack_a, 0);
 		if (ft_stack_a_is_sorted(*stack_a) && !stack_b)
 			return (ft_putendl_color("OK", BOLD_GREEN, 1, STDOUT));
 		else

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:43:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/06 15:12:00 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/07 11:28:57 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ int	ft_send_top_elem_to_b(t_dl_lst **stack_a, t_dl_lst **stack_b)
 int	ft_send_next_part_to_b(t_dl_lst **a, t_dl_lst **b, int *part, int len)
 {
 	int	parts_length;
-	int	current_n_elemts;
 	int	n_ops;
 
 	n_ops = 0;
