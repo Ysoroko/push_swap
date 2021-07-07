@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:44:05 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/07 12:09:39 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/07 14:04:22 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,9 @@ int	main(int argc, char **argv)
 		tab = ft_single_argv(argv, &len);
 	else
 		tab = ft_multiple_argv(argc, argv, &len);
-	if (!tab || argc < 2)
+	if (!tab)
+		return (ft_putendl_color("Error", BOLD_RED, -1, STDERR));
+	if (argc < 2)
 		return (ft_free_int_tab(&tab, 0));
 	i = -1;
 	while (++i < len)
