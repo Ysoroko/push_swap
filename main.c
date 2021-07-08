@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:26:07 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/07/07 15:33:03 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/07/08 07:36:30 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,8 @@ static int	ft_found_bad_input_single_argv(char *input, int **tab)
 
 	i = -1;
 	while (input[++i])
-	{
 		if (!ft_strchr(ALLOWED_CHARS_SINGLE_ARGV, input[i]))
 			return (1);
-	}
 	input_as_str_tab = ft_split(input, ' ');
 	if (!input_as_str_tab)
 		exit(EXIT_FAILURE);
@@ -107,7 +105,9 @@ static int	ft_found_bad_input_single_argv(char *input, int **tab)
 			return (ft_free_str_tab(input_as_str_tab, 1));
 		elem_after_atol = ft_atol(input_as_str_tab[i]);
 		if (elem_after_atol > INT_MAX || elem_after_atol < INT_MIN)
-			return (ft_free_str_tab(input_as_str_tab, 0));
+			return (ft_free_str_tab(input_as_str_tab, 1));
+		if (ft_element_found_in_int_tab(ft_atoi(input_as_str_tab[i]), *tab, i))
+			return (ft_free_str_tab(input_as_str_tab, 1));
 		(*tab)[i] = ft_atoi(input_as_str_tab[i]);
 	}
 	return (ft_free_str_tab(input_as_str_tab, 0));
